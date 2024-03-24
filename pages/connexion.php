@@ -53,6 +53,9 @@
                     </div>
                 </form>
             </div>
+            <?php 
+                require("../components/footer.php")
+            ?>
         </div>
     </div>
     
