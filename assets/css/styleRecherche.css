@@ -1,7 +1,8 @@
+/* Reset and general styles */
 body {
   margin: 0;
   overflow-x: hidden;
-  overflow-y : hidden;
+  overflow-y  : hidden;
   display: flex;
   font-family: "Poppins", sans-serif;
 }
@@ -115,7 +116,7 @@ body {
 }
 
 .slideBar {
-  width: 31vw;
+  width: 20vw;
   height: 100vh;
   padding-left: 2vw;
   display: flex;
@@ -168,41 +169,68 @@ body {
   width: 2.5vw;
   height: 2.5vw;
 }
-.table{
-  display: flex;
-}
-/* Style pour le tableau */
-table {
+
+/* Table and search styles */
+.table {
+  margin: 20px;
+  display: table;
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 20px;
 }
 
-/* Style pour les cellules du tableau */
-th, td {
+.table-row {
+  display: table-row;
+}
+
+.table-cell {
+  display: table-cell;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.search-results {
+  margin-top: 20px;
+}
+
+.search-result {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.search-result h2 {
+  margin-top: 0;
+}
+
+.search-result p {
+  margin: 5px 0;
+}
+
+/* Pagination styles */
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination a {
+  color: #1B3168;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
   border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
+  margin: 0 4px;
 }
 
-/* Style pour l'en-tête du tableau */
-th {
-  background-color: #f2f2f2;
+.pagination a.active,
+.pagination a:hover {
+  background-color: #1B3168;
+  color: #fff;
+  border: 1px solid #1B3168;
 }
-
-/* Style pour les lignes impaires */
-tr:nth-child(odd) {
-  background-color: #f9f9f9;
-}
-
-/* Style pour les liens */
-a {
-  color: blue;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-/* Style pour les liens au survol */
-a:hover {
-  color: darkblue;
+.current-page {
+  background-color:#5D7285;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 3px;
 }

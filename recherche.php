@@ -15,7 +15,34 @@
     <link href="assets/css/styleRecherche.css" rel="stylesheet">
     <!-- Title of the page -->
     <title>Math Index</title>
+    <!-- CSS styles for table -->
+    <style>
+        /* CSS for table */
+        .table {
+            margin: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
+
 <body>
     <!-- Sidebar -->
     <div class="slideBar">
@@ -36,79 +63,161 @@
             <img src="assets/images/Logo-loupe.png" alt="Logo loupe">
             <a href="recherche.html">Search</a>
         </div>
-        <div class=" slide math">
+        <div class="slide math">
             <img src="assets/images/logo-fonction.png" alt="Logo fonction Mathématique">
             <a>Mathematics</a>
         </div>
     </div>
     <!-- Main content area -->
     <div class="table">
+        <!-- Latest exercises -->
+        <h2>Derniers exercices</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom des exercices</th>
+                    <th>Thème</th>
+                    <th>Difficulté</th>
+                    <th>Durée</th>
+                    <th>Mots clés</th>
+                    <th>Sujets</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                // Database connection
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "math_index";
+
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+                // Query to retrieve latest exercises
+                $latest_sql = "SELECT e.Nom AS NomExercice, e.Thematique, e.Difficulte, e.Duree, e.MotsCles, e.Fichier, m.Nom AS NomMatiere 
+                               FROM Exercices e 
+                               INNER JOIN Matieres m ON e.MatiereID = m.ID
+                               ORDER BY e.Date_Creation DESC
+                               LIMIT 5";
+
+                $latest_result = $conn->query($latest_sql);
+
+                if ($latest_result->num_rows > 0) {
+                    // Display latest exercises
+                    while ($row = $latest_result->fetch_assoc()) {
+                        echo "<tr>";
+                        echo "<td>" . $row["NomExercice"] . "</td>";
+                        echo "<td>" . $row["Thematique"] . "</td>";
+                        echo "<td>" . $row["Difficulte"] . "</td>";
+                        echo "<td>" . $row["Duree"] . "</td>";
+                        echo "<td>" . $row["MotsCles"] . "</td>";
+                        echo "<td>" . $row["NomMatiere"] . "</td>";
+                        echo "</tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='6'>No latest exercises</td></tr>";
+                }
+                ?>
+            </tbody>
+        </table>
+
+           <!-- All exercises -->
+           <h2>Tous les exercices</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom des exercices</th>
+                    <th>Thème</th>
+                    <th>Difficulté</th>
+                    <th>Durée</th>
+                    <th>Mots clés</th>
+                    <th>Sujets</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                // Pagination variables
+                $totalPerPage = 5; // Nombre d'exercices par page
+                $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1; // Page actuelle
+                $offset = ($page - 1) * $totalPerPage; // Décalage pour la requête SQL
+
+                // Requête pour récupérer tous les exercices avec pagination
+                $sql = "SELECT e.Nom AS NomExercice, e.Thematique, e.Difficulte, e.Duree, e.MotsCles, e.Fichier, m.Nom AS NomMatiere 
+                        FROM Exercices e 
+                        INNER JOIN Matieres m ON e.MatiereID = m.ID
+                        LIMIT $offset, $totalPerPage";
+
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    // Afficher tous les exercices
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<tr>";
+                        echo "<td>" . $row["NomExercice"] . "</td>";
+                        echo "<td>" . $row["Thematique"] . "</td>";
+                        echo "<td>" . $row["Difficulte"] . "</td>";
+                        echo "<td>" . $row["Duree"] . "</td>";
+                        echo "<td>" . $row["MotsCles"] . "</td>";
+                        echo "<td>" . $row["NomMatiere"] . "</td>";
+                        echo "</tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='6'>0 résultats</td></tr>";
+                }
+
+                // Fermer la connexion
+                $conn->close();
+                ?>
+            </tbody>
+        </table>
+
+<!-- Pagination -->
+<div class="pagination">
     <?php
-// Database connection
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "math_index";
+    // Create a new connection to the database
+    $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Query to retrieve all exercises
-$sql = "SELECT e.Nom AS NomExercice, e.Thematique, e.Difficulte, e.Duree, e.MotsCles, e.Fichier, m.Nom AS NomMatiere 
-        FROM Exercices e 
-        INNER JOIN Matieres m ON e.MatiereID = m.ID";
-
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // Display data
-    while($row = $result->fetch_assoc()) {
-        echo "Exercise Name: " . $row["NomExercice"]. "<br>";
-        echo "Theme: " . $row["Thematique"]. "<br>";
-        echo "Difficulty: " . $row["Difficulte"]. "<br>";
-        echo "Duration: " . $row["Duree"]. "<br>";
-        echo "Keywords: " . $row["MotsCles"]. "<br>";
-        echo "Subject Name: " . $row["NomMatiere"]. "<br>";
-        echo "<br>";
+    // Check if connection is successful
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
     }
-} else {
-    echo "0 results";
-}
 
-// Query to perform a search
-$search_term = "Suite"; // Search term (you can change this)
-$search_sql = "SELECT e.Nom AS NomExercice, e.Thematique, e.Difficulte, e.Duree, e.MotsCles, e.Fichier, m.Nom AS NomMatiere 
-                FROM Exercices e 
-                INNER JOIN Matieres m ON e.MatiereID = m.ID
-                WHERE e.Nom LIKE '%$search_term%' OR e.Thematique LIKE '%$search_term%' OR e.MotsCles LIKE '%$search_term%'";
+    // Calculer le nombre total de pages
+    $sql_count = "SELECT COUNT(*) AS total FROM Exercices";
+    $count_result = $conn->query($sql_count);
+    $total_exercises = $count_result->fetch_assoc()['total'];
+    $total_pages = ceil($total_exercises / $totalPerPage);
 
-$search_result = $conn->query($search_sql);
-
-if ($search_result->num_rows > 0) {
-    // Display search results
-    echo "Search results for '$search_term': <br>";
-    while($row = $search_result->fetch_assoc()) {
-        echo "Exercise Name: " . $row["NomExercice"]. "<br>";
-        echo "Theme: " . $row["Thematique"]. "<br>";
-        echo "Difficulty: " . $row["Difficulte"]. "<br>";
-        echo "Duration: " . $row["Duree"]. "<br>";
-        echo "Keywords: " . $row["MotsCles"]. "<br>";
-        echo "Subject Name: " . $row["NomMatiere"]. "<br>";
-        echo "<br>";
+    // Page précédente
+    if ($page > 1) {
+        echo "<a href='?page=" . ($page - 1) . "'>&laquo; Précédent</a>";
     }
-} else {
-    echo "No results found for '$search_term'";
-}
 
-// Close connection
-$conn->close();
-?>
+    // Afficher les numéros de page
+    for ($i = 1; $i <= $total_pages; $i++) {
+        echo "<a href='?page=$i'";
+        if ($page == $i) {
+            echo " class='current-page'";
+        }
+        echo ">$i</a>";
+    }
+
+    // Page suivante
+    if ($page < $total_pages) {
+        echo "<a href='?page=" . ($page + 1) . "'>Suivant &raquo;</a>";
+    }
+
+    // Close connection
+    $conn->close();
+    ?>
 </div>
+    </div>
 
 </body>
 
