@@ -1,7 +1,7 @@
 body {
   margin: 0;
   overflow-x: hidden;
-  overflow-y  : hidden;
+  overflow-y : hidden;
   display: flex;
   font-family: "Poppins", sans-serif;
 }
@@ -115,13 +115,13 @@ body {
 }
 
 .slideBar {
-  width: 18vw;
+  width: 31vw;
   height: 100vh;
   padding-left: 2vw;
   display: flex;
   gap: 1vw;
   flex-direction: column;
-  box-shadow: 1px 0px 5px #b3b3b3;
+  box-shadow: 1px 0px 5px #b3b3b3 inset;
   font-family: "Poppins", sans-serif;
 }
 
@@ -149,7 +149,7 @@ body {
 }
 
 .slide {
-  width: 10.5vw;
+  width: 15.5vw;
   filter: grayscale(100%);
   margin-top: 1vw;
   display: flex;
@@ -164,7 +164,45 @@ body {
 }
 
 .slide img {
-  margin-top: 0.1vw;
+  margin-top: 0.6vw;
   width: 2.5vw;
   height: 2.5vw;
+}
+.table{
+  display: flex;
+}
+/* Style pour le tableau */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+/* Style pour les cellules du tableau */
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+/* Style pour l'en-tête du tableau */
+th {
+  background-color: #f2f2f2;
+}
+
+/* Style pour les lignes impaires */
+tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+/* Style pour les liens */
+a {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Style pour les liens au survol */
+a:hover {
+  color: darkblue;
 }
