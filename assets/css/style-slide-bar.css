@@ -114,6 +114,10 @@ body {
   font-style: italic;
 }
 
+.slideBar a {
+  text-decoration: none;
+}
+
 .slideBar {
   width: 18vw;
   height: 100vh;

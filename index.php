@@ -1,7 +1,3 @@
-<?php 
-    require_once("components/slide-bar.php");
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -19,10 +15,35 @@
 </head>
 
 <body>
+<div class="slideBar"> <!--For the bar on the left -->
+        <div class="slidetitle">
+            <img src="assets/images/Logo-Saint-Vincent.png" alt="logo Saint-Vincent">
+            <div>
+                <h1>Math Index</h1>
+                <h3>Lycée Saint-Vincent-Senlis</h3>
+            </div>
+        </div>
+
+        <div class="slide home">
+            <img src="assets/images/Logo-Home.png" alt="Logo home">
+            <h3><a href="index.php">Accueil</a></h3>
+        </div>
+
+        <div class="slide search">
+            <img src="assets/images/Logo-loupe.png" alt="Logo loupe">
+            <h3><a href="">Recherche</a></h3>
+        </div>
+
+        <div class="slide math">
+            <img src="assets/images/logo-fonction.png" alt="Logo fonction Mathématique">
+            <h3><a href="">Exercice</a></h3>
+        </div>
+    </div>
+
     <div class="container">
         <div class="connect">
-            <img src="assets/images/Logo login.png" alt="logo connexion"><!--Rectangle on the top with the "Connexion title"-->
-            <h2>Connexion</h2>
+            <img src="assets/images/Logo login.png" alt="logo connexion"> <!--Rectangle on the top with the "Connexion title"-->
+            <h2><a href="pages\connexion.php">Connexion</a></h2>
         </div>
         <div class="containerHome">
             <h1>Accueil</h1>
