@@ -114,70 +114,21 @@ body {
   font-style: italic;
 }
 
-.slideBar {
-  width: 18vw;
-  height: 100vh;
-  padding-left: 2vw;
-  display: flex;
-  gap: 1vw;
-  flex-direction: column;
-  box-shadow: 1px 0px 5px #b3b3b3;
-  font-family: "Poppins", sans-serif;
-}
-
-.slideBar h1 {
-  font-size: 1.5vw;
-  color: #1B3168;
-}
-
-.slideBar h3 {
-  font-size: 0.8vw;
-}
-
-.slidetitle {
-  display: flex;
-  gap: 1vw;
-  margin-top: 10px;
-}
-
-.slidetitle img {
-  margin-top: 3vw;
-  width: 3vw;
-  height: 3vw;
-}
-
-.slide {
-  width: 16vw;
-  filter: grayscale(100%);
-  margin-top: 1vw;
-  display: flex;
-  color: #5D7285;
-  gap: 1vw;
-}
-
-.slide:hover {
-  filter: grayscale(0%);
-  background-color: #F6F6F6;
-  color: #1B3168;
-}
-
-.slide img {
-  margin-top: 0.1vw;
-  width: 2.5vw;
-  height: 2.5vw;
-}
 .container{
   display: flex;
   flex-direction: column;
   white-space: initial;
 }
+
 .container h1{
   color: #1B3168;
   font-size: 1.5vw;
 }
+
 .container h3,p,li{
   font-size: 0.8vw;
 }
+
 .connect{
   display: flex;
   text-align: center;
@@ -190,9 +141,20 @@ body {
   font-size: 0.5vw;
   background-color: #ffffff;
 }
+
+.connect a {
+  text-decoration: none;
+  color: black;
+}
+
+.connect a:hover {
+  text-decoration: underline;
+}
+
 .connect img{
   width: 1vw;
 }
+
 .containerHome{
   width: 100%;
   height: 100%;
@@ -201,16 +163,28 @@ body {
   background-color:#EFF2F4;
   padding: 4vw;
 }
+
 .containerHome div{
   background-color: #ffffff;
   padding: 2vw;
   height: 70%;
   width: 85%;
 }
+
 .containerHome li{
   margin-top: 2vw;
 }
+
 .legalMentions{
   position: absolute;
   bottom: 1vw;
+}
+
+.legalMentions a {
+  text-decoration: none;
+  color: black;
+}
+
+.legalMentions a:hover {
+  text-decoration: underline;
 }
