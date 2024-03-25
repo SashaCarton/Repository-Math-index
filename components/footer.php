@@ -8,9 +8,20 @@
         .legalMentions{
         position: relative;
         }
+
+        .legalMentions a {
+        text-decoration: none;
+        color: black;
+        }
+
+        .legalMentions a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
-    <p class="legalMentions">Mentions Légales ● Contact ● Lycée Saint-Vincent</p>
+    <p class="legalMentions"><a href="">Mentions Légales</a>
+    ● <a href="">Contact</a> ● 
+    <a href="">Lycée Saint-Vincent</a></p>
 </body>
 </html>

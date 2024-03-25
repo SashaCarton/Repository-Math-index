@@ -36,7 +36,7 @@
 
         <div class="slide math">
             <img src="assets/images/logo-fonction.png" alt="Logo fonction Mathématique">
-            <h3><a href="">Exercice</a></h3>
+            <h3><a href="">Exercices</a></h3>
         </div>
     </div>
 
@@ -48,17 +48,23 @@
         <div class="containerHome">
             <h1>Accueil</h1>
             <div>
+
                 <p>Nous sommes ravis de vous accueillir sur Math Index, la plateforme mathématique exclusive du lycée
                     Saint-Vincent Senlis. Développée avec passion pour enrichir l'expérience éducative de nos étudiants,
                     cette ressource en ligne offre un accès simplifié à une vaste bibliothèque d'exercices mathématiques
                     de qualité.</p>
+
                 <h3>Explorez les Avantages Spécifiques à Notre Lycée :</h3>
+
                    <ol>
                     <li>Exercices Personnalisés : Découvrez une collection soigneusement sélectionnée d'exercices qui complètent notre programme éducatif, adaptés aux niveaux et aux besoins spécifiques de nos élèves.</li>
                     <li>Soutien Pédagogique : Math Index sert de complément idéal à nos cours, offrant aux enseignants et aux étudiants un outil puissant pour renforcer la compréhension des concepts mathématiques enseignés en classe.</li>
                     <li>Collaboration Communautaire : En tant que membre de notre lycée, participez à la communauté en partageant vos propres exercices, collaborez avec d'autres enseignants et favorisez un environnement d'apprentissage collaboratif.</li>
                    </ol>
-                <p class="legalMentions">Mentions Légales ● Contact ● Lycée Saint-Vincent</p>
+
+                <p class="legalMentions"><a href="">Mentions Légales</a>
+                ● <a href="">Contact</a> ● 
+                <a href="">Lycée Saint-Vincent</a></p>
             </div>
         </div>
     </div>

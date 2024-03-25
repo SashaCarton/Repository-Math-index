@@ -142,6 +142,15 @@ body {
   background-color: #ffffff;
 }
 
+.connect a {
+  text-decoration: none;
+  color: black;
+}
+
+.connect a:hover {
+  text-decoration: underline;
+}
+
 .connect img{
   width: 1vw;
 }
@@ -169,4 +178,13 @@ body {
 .legalMentions{
   position: absolute;
   bottom: 1vw;
+}
+
+.legalMentions a {
+  text-decoration: none;
+  color: black;
+}
+
+.legalMentions a:hover {
+  text-decoration: underline;
 }

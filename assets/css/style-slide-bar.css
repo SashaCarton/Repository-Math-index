@@ -145,7 +145,7 @@ body {
 }
 
 .slidetitle img {
-  margin-top: 3vw;
+  align-self: center;
   width: 3vw;
   height: 3vw;
 }

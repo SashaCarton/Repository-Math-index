@@ -11,6 +11,19 @@
     background-color: #ffffff;
 }
 
+.connect a {
+  text-decoration: none;
+  color: black;
+}
+
+.connect a:hover {
+  text-decoration: underline;
+}
+
+.connect a:active {
+    color: black;
+}
+
 .container {
     display: flex;
     flex-direction: column;
