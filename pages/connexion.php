@@ -18,13 +18,14 @@
     // Association des paramètres aux variables/valeurs
     $query->bindParam(':login', $username);
 
+
     // Execution de la requête
     $query->execute();    
 
     // Récupération dans la variable $result de toutes les lignes que retourne la requête
-    $result = $query->fetchAll();
+    $result = $query->fetch();
 
-                if (empty($result)) {
+                if (false === $result || empty($result)) {
                     // Si la requête ne retourne rien, alors l'utilisateur n'existe pas dans la BD, on lui
                     // affiche un message d'erreur
                     $message = "Le nom d'utilisateur ou le mot de passe est incorrect.";
@@ -96,7 +97,6 @@
     <title>Connexion</title>
 </head>
 <body>
-    <?php var_dump($result); ?>
     <div class="container">
         <div class="connect">
             <img src="../assets/images/Logo login.png" alt="logo connexion"> <!--Rectangle on the top with the "Connexion title"-->
@@ -116,7 +116,7 @@
                     directement en envoyant un email à <a href="">contact@lyceestvincent.net</a>
                 </p>
 
-                <form action="" method="POST" name="login">
+                <form action="connexion.php" method="POST" name="login">
                     <div class="form-email">
                         <label for="email">Email : <br></label>
                         <input id="email" type="text" name="email" placeholder="Saisissez votre adresse email"> 
@@ -136,7 +136,7 @@
                     <?php } ?>
 
                     <div class="form-option">
-                        <input type="submit" value="Connexion" value="envoyer">
+                        <input type="submit" value="Connexion" name="submit">
 
 
                         <a href="">

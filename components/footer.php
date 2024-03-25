@@ -6,8 +6,7 @@
     <title>Document</title>
     <style>
         .legalMentions{
-        position: absolute;
-        bottom: 1vw;
+        position: relative;
         }
     </style>
 </head>

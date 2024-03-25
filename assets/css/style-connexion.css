@@ -22,7 +22,7 @@
     background-color: rgb(217, 221, 321);
     width: 90%;
     padding: 30px;
-    padding-bottom: 80px;
+    padding-bottom: 170px;
 }
 
 .grey-bloc h1 {
@@ -38,7 +38,7 @@
 .description-form {
     background-color: #ffffff;
     padding: 30px;
-    padding-bottom: 15%;
+    padding-bottom: 5%;
 }
 
 form {
@@ -85,7 +85,7 @@ label {
     color: black;
     opacity: 0.7;
     text-decoration: none;
-    
 }
+
 
 
