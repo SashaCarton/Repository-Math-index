@@ -15,32 +15,6 @@
     <link href="assets/css/styleRecherche.css" rel="stylesheet">
     <!-- Title of the page -->
     <title>Math Index</title>
-    <!-- CSS styles for table -->
-    <style>
-        /* CSS for table */
-        .table {
-            margin: 20px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            padding: 8px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-    </style>
 </head>
 
 <body>
