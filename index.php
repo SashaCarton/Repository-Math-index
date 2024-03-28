@@ -19,7 +19,7 @@
         <div class="slidetitle">
             <img src="assets/images/Logo-Saint-Vincent.png" alt="logo Saint-Vincent">
             <div>
-                <h1>Math Indexx</h1>
+                <h1>Math Index</h1>
                 <h3>Lycée Saint-Vincent-Senlis</h3>
             </div>
         </div>
