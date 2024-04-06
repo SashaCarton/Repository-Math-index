@@ -115,13 +115,13 @@ body {
 }
 
 .slideBar {
-  width: 18vw;
+  width: 31vw;
   height: 100vh;
   padding-left: 2vw;
   display: flex;
   gap: 1vw;
   flex-direction: column;
-  box-shadow: 1px 0px 5px #b3b3b3;
+  box-shadow: 1px 0px 5px #b3b3b3 inset;
   font-family: "Poppins", sans-serif;
 }
 
@@ -149,7 +149,7 @@ body {
 }
 
 .slide {
-  width: 10.5vw;
+  width: 15.5vw;
   filter: grayscale(100%);
   margin-top: 1vw;
   display: flex;
@@ -164,7 +164,7 @@ body {
 }
 
 .slide img {
-  margin-top: 0.1vw;
+  margin-top: 0.6vw;
   width: 2.5vw;
   height: 2.5vw;
 }

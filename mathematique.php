@@ -9,7 +9,7 @@
         rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="assets/css/styleRecherche.css" rel="stylesheet">
+    <link href="assets/css/styleMathematique.css" rel="stylesheet">
     <title>Math Index</title>
 </head>
 <body>
@@ -34,6 +34,22 @@
             <a>Mathématique</a>
         </div>
     </div>
+    ()) {
+        echo "Nom de l'exercice: " . $row["NomExercice"]. "<br>";
+        echo "Thématique: " . $row["Thematique"]. "<br>";
+        echo "Difficulté: " . $row["Difficulte"]. "<br>";
+        echo "Durée: " . $row["Duree"]. "<br>";
+        echo "Mots clés: " . $row["MotsCles"]. "<br>";
+        echo "Nom de la matière: " . $row["NomMatiere"]. "<br>";
+        echo "<br>";
+    }
+} else {
+    echo "Aucun résultat trouvé pour '$search_term'";
+}
+
+// Fermeture de la connexion
+$conn->close();
+?>
 </body>
 
 </html>
