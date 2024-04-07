@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Fonction pour afficher les erreurs de validation du formulaire
 function displayErrors($errors, $field) {
     if (!empty($errors[$field])) {
@@ -9,7 +10,6 @@ function displayErrors($errors, $field) {
 // Include the database connection file
 require_once '../assets/components/slide-bar.php';
 require_once '../assets/database/connexion_db.php';
-
 // Define variables to store user input
 $email = $password = '';
 $errors = array();
@@ -64,18 +64,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if (empty($row)) {
                 // If the query returns no rows, the user does not exist in the database, display an error message
-                $message = "Le nom d'utilisateur ou le mot de passe est incorrect.";
+                $errors['email'] = "Le nom d'utilisateur est incorrect.";
             } else {
                 $password_hash = $row["password"];
                 $valid = password_verify($password, $password_hash);
                 if ($valid) {
-                    // Set the session variable 'username' with the value entered by the user
-                    $_SESSION['username'] = $email;
+                    // Set the session variable 'nom' with the value from the database
+                    $_SESSION['nom'] = $row['nom'];
+                    echo "Bonjour, " . $_SESSION['nom'];
                     // Redirect to the index.php page
-                    header("Location: index.php");
+                    header("Location: ../index.php");
                     exit();
                 } else {
-                    $message = "Le nom d'utilisateur ou le mot de passe est incorrect.";
+                    // Set the error message for incorrect password
+                    $errors['password'] = 'Le mot de passe est incorrect.';
                 }
             }
         }
@@ -97,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div class="container">
         <div class="connect">
-            <img src="../assets/images/Logo login.png" alt="logo connexion">
+            <img src="assets/images/Icon login.png" alt="logo connexion">
             <h2><a href="connexion.php">Connexion</a></h2>
         </div>
 

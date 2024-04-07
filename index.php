@@ -1,3 +1,5 @@
+
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -33,8 +35,14 @@
     </div>
     <div class="container"> <!--Everything next to the slide bar like containerHome and connect-->
         <div class="connect">
-            <img src="assets/images/Icon login.png" alt="logo connexion"><!--Rectangle on the top with the "Connexion title"-->
-            <a href="assets/connexion.php">connexion</a>
+            <img src="assets/images/Icon login.png" alt="logo connexion">
+            <?php
+            if (isset($_SESSION['nom'])) {
+                echo "Bonjour, " . $_SESSION['nom'];
+            } else {
+                echo '<a href="assets/connexion.php">connexion</a>';
+            }
+            ?>
         </div>
         <div class="containerHome"> <!--Rectangle background of the "Acceuil"-->
             <h1>Accueil</h1>
