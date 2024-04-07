@@ -23,14 +23,14 @@
         </div>
         <div class="slide home">
             <img src="assets/images/Logo-Home.png" alt="Logo home">
-            <a href="/">Accueil</a>
+            <a href="../index.php">Accueil</a>
         </div>
         <div class="slide search">
             <img src="assets/images/Logo-loupe.png" alt="Logo loupe">
             <a href="recherche.html">Recherche</a>
         </div>
         <div class=" slide math">
-            <img src="assets/images/logo-fonction.png" alt="Logo fonction Mathématique">
+            <img src="../assets/images/logo-fonction.png" alt="Logo fonction Mathématique">
             <a>Mathématique</a>
         </div>
     </div>

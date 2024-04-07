@@ -1,20 +1,24 @@
 <?php
-	#Fonction � appeler pour se connecter � la base de donn�es
-	function connexionBdd() {
-		// Permet d'utiliser les variables d'identification pour la connexion
+	# Function to connect to the database
+	function connectToDatabase() {
+		// Include the configuration file
 		require('config.php');
 		
-		// Tentative de connexion � la base de donn�es MySQL 
-		try{
-            // chaine de connexion avec API PDO
-			$co = new PDO("mysql:host=" . $server .";dbname=" . $dbName, $user, $pass);
-			//On d�finit le mode d'erreur de PDO sur Exception
-			$co->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-		}		
-		// En cas de probl�me dans la tentative connexion on termine le script php et on affichera le message d'erreur
-		catch(PDOException $e){
-			die('Erreur : ' . $e->getMessage());
+		// Attempt to connect to the MySQL database
+		try {
+			// Create a PDO connection string
+			$connection = new PDO("mysql:host=" . $server . ";dbname=" . $dbName, $user, $pass);
+			
+			// Set PDO error mode to exception
+			$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			
+			// Set default fetch mode to associative array
+			$connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+		} catch(PDOException $e) {
+			// Handle connection errors
+			die('Error: ' . $e->getMessage());
 		}
-        return $co;
-	}	
+		
+		return $connection;
+	}
 ?>
