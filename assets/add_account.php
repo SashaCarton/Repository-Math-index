@@ -71,7 +71,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Rediriger vers une page de succès ou afficher un message de succès
     header("Location: success.php");
     exit;
-    //test
 }
 ?>
 
