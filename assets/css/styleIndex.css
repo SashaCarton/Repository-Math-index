@@ -181,19 +181,22 @@ body {
   font-size: 0.8vw;
 }
 .connect{
+  margin-top: 1.5vw;
+  margin-right: 3vw;
   display: flex;
-  text-align: center;
-  align-items: center;
   justify-content: end;
   gap: 1vw;
-  padding-right: 10vw;
-  height: 5vw;
-  width: 90%;
-  font-size: 0.5vw;
-  background-color: #ffffff;
+  align-items: center;
+  padding-bottom: 2vw;
 }
 .connect img{
-  width: 1vw;
+  width: 1.5vw;
+  height: 1.5vw;
+}
+.connect a{
+  margin-top: 0.1vw;
+  color: #1B3168;
+  text-decoration: none;
 }
 .containerHome{
   width: 100%;
