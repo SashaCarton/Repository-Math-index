@@ -40,7 +40,7 @@
             if (isset($_SESSION['nom'])) {
                 echo "Bonjour, " . $_SESSION['nom'];
             } else {
-                echo '<a href="assets/connexion.php">Connexion</a>';
+                echo '<a href="assets\connexion.php">Connexion</a>';
             }
             ?>
         </div>
