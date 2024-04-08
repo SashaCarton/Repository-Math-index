@@ -55,3 +55,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <input type="submit" value="S'inscrire">
 </form>
+<a href="index.php">Retour</a>
