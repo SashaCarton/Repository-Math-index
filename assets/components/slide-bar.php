@@ -10,7 +10,7 @@
     <div class="slideBar"> <!--For the bar on the left -->
         <div class="slidetitle">
             <img src="../assets/images/Logo-Saint-Vincent.png" alt="logo Saint-Vincent">
-            <div>
+            <div class="titles">
                 <h1>Math Index</h1>
                 <h3>Lycée Saint-Vincent-Senlis</h3>
             </div>

@@ -7,15 +7,18 @@
     align-items: center;
     padding-bottom: 2vw;
   }
-  .connect img{
+.connect img{
     width: 1.25vw;
     height: 1.25vw;
-  }
-  .connect a{
+}
+
+.connect a{
     font-size: 1vw;
-    color: #1B3168;
+    color:black;
     text-decoration: none;
-  }
+    font-weight: 500;
+    vertical-align: middle;
+}
 
 .connect a:hover {
   text-decoration: underline;
