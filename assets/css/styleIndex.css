@@ -115,7 +115,7 @@ body {
 }
 
 .slideBar {
-  width: 31vw;
+  width: 27vw;
   height: 100vh;
   padding-left: 2vw;
   display: flex;
@@ -128,12 +128,25 @@ body {
 .slideBar h1 {
   font-size: 1.5vw;
   color: #1B3168;
+  font-weight: 500;
 }
 
 .slideBar h3,a {
-  margin-top: 8%;
+  align-self: center;
   font-size: 0.8vw;
   text-decoration: none;
+  font-weight: 500;
+}
+
+.slideBar a{
+  opacity: 0.8;
+}
+
+.titles h3 {
+  margin-top: -0.9vw;
+  font-weight: 500;
+  color: #1B3168;
+  opacity: 0.8;
 }
 
 .slidetitle {
@@ -143,15 +156,14 @@ body {
 }
 
 .slidetitle img {
-  margin-top: 3vw;
-  width: 3vw;
-  height: 3vw;
+  width: 2.5vw;
+  height: 2.5vw;
+  margin-top: 2vw;
 }
 
 .slide {
   width: 15.5vw;
   filter: grayscale(100%);
-  margin-top: 1vw;
   display: flex;
   color: #5D7285;
   gap: 1vw;
@@ -164,40 +176,56 @@ body {
 }
 
 .slide img {
-  margin-top: 0.6vw;
   width: 2.5vw;
   height: 2.5vw;
 }
+
 .container{
   display: flex;
   flex-direction: column;
   white-space: initial;
 }
+
 .container h1{
   color: #1B3168;
   font-size: 1.5vw;
 }
+
 .container h3,p,li,a{
   font-size: 0.8vw;
 }
+
 .connect{
   margin-top: 1.5vw;
-  margin-right: 3vw;
+  margin-right: 7vw;
   display: flex;
   justify-content: end;
-  gap: 1vw;
+  gap: 0.6vw;
   align-items: center;
   padding-bottom: 2vw;
 }
+
 .connect img{
-  width: 1.5vw;
-  height: 1.5vw;
+  width: 1.1vw;
+  height: 1.1vw;
 }
+
 .connect a{
   margin-top: 0.1vw;
-  color: #1B3168;
+  color: black;
+  vertical-align: middle;
   text-decoration: none;
+  font-size: 1vw;
 }
+
+.connect a:hover {
+  text-decoration: underline;
+}
+
+.connect a:active {
+    color: black;
+}
+
 .containerHome{
   width: 100%;
   height: 100%;
@@ -206,15 +234,18 @@ body {
   background-color:#EFF2F4;
   padding: 4vw;
 }
+
 .containerHome div{
   background-color: #ffffff;
   padding: 2vw;
   height: 70%;
   width: 85%;
 }
+
 .containerHome li{
   margin-top: 2vw;
 }
+
 .legalMentions{
   position: absolute;
   bottom: 1vw;

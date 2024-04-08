@@ -15,7 +15,7 @@
     <div class="slideBar"> <!--For the bar on the left -->
         <div class="slidetitle">
             <img src="assets/images/Logo-Saint-Vincent.png" alt="logo Saint-Vincent">
-            <div>
+            <div class="titles">
                 <h1>Math Index</h1>
                 <h3>Lycée Saint-Vincent-Senlis</h3>
             </div>
@@ -35,12 +35,12 @@
     </div>
     <div class="container"> <!--Everything next to the slide bar like containerHome and connect-->
         <div class="connect">
-            <img src="assets/images/Icon login.png" alt="logo connexion">
+            <img src="assets/images/Icon-login.png" alt="logo connexion">
             <?php
             if (isset($_SESSION['nom'])) {
                 echo "Bonjour, " . $_SESSION['nom'];
             } else {
-                echo '<a href="assets/connexion.php">connexion</a>';
+                echo '<a href="assets/connexion.php">Connexion</a>';
             }
             ?>
         </div>

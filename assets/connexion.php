@@ -99,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div class="container">
         <div class="connect">
-            <img src="assets/images/Icon login.png" alt="logo connexion">
+            <img src="images/Icon-login.png" alt="logo connexion">
             <h2><a href="connexion.php">Connexion</a></h2>
         </div>
 

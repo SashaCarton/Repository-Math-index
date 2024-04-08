@@ -116,6 +116,7 @@ body {
 
 .slideBar a {
   text-decoration: none;
+  opacity: 0.8;
 }
 
 .slideBar {
@@ -132,10 +133,13 @@ body {
 .slideBar h1 {
   font-size: 1.5vw;
   color: #1B3168;
+  font-weight: 500;
 }
 
 .slideBar h3 {
   font-size: 0.8vw;
+  font-weight: 500;
+  
 }
 
 .slidetitle {
@@ -145,15 +149,21 @@ body {
 }
 
 .slidetitle img {
-  align-self: center;
-  width: 3vw;
-  height: 3vw;
+  width: 2.5vw;
+  height: 2.5vw;
+  margin-top: 2vw;
+}
+
+.titles h3 {
+  margin-top: -0.9vw;
+  font-weight: 500;
+  color: #1B3168;
+  opacity: 0.8;
 }
 
 .slide {
   width: 16vw;
   filter: grayscale(100%);
-  margin-top: 1vw;
   display: flex;
   color: #5D7285;
   gap: 1vw;
@@ -166,7 +176,6 @@ body {
 }
 
 .slide img {
-  margin-top: 0.1vw;
   width: 2.5vw;
   height: 2.5vw;
 }
