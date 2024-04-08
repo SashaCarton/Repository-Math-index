@@ -28,7 +28,7 @@
 
         <div class="slide math">
             <img src="../assets/images/logo-fonction.png" alt="Logo fonction Mathématique">
-            <h3><a href="">Exercice</a></h3>
+            <h3><a href="">Mathématique</a></h3>
         </div>
     </div>
 </body>

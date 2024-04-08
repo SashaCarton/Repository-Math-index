@@ -1,55 +1,129 @@
+<?php 
+    require_once '../assets/components/slide-bar.php';
+    require_once '../assets/database/connexion_db.php'; 
+
+    // Include the configuration file
+    require('../assets/database/config.php');
+    
+    // Attempt to connect to the MySQL database
+    $connection = mysqli_connect($server, $user, $pass, $dbName);
+    
+    // Check connection
+    if (!$connection) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+    
+    // Votre requête SQL pour récupérer les 5 derniers exercices ajoutés
+    $sqlLatestExercises = "SELECT * FROM exercices ORDER BY Date_Creation DESC LIMIT 5";
+    $resultLatestExercises = mysqli_query($connection, $sqlLatestExercises);
+    
+    
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="assets/css/styleMathematique.css" rel="stylesheet">
+    <link href="../assets/css/styleMathematique.css" rel="stylesheet">
     <title>Math Index</title>
 </head>
-<body>
-    <div class="slideBar"> <!--For the bar on the left -->
-        <div class="slidetitle">
-            <img src="assets/images/Logo-Saint-Vincent.png" alt="logo Saint-Vincent">
-            <div>
-                <h1>Math Index</h1>
-                <h3>Lycée Saint-Vincent-Senlis</h3>
-            </div>
-        </div>
-        <div class="slide home">
-            <img src="assets/images/Logo-Home.png" alt="Logo home">
-            <a href="../index.php">Accueil</a>
-        </div>
-        <div class="slide search">
-            <img src="assets/images/Logo-loupe.png" alt="Logo loupe">
-            <a href="recherche.html">Recherche</a>
-        </div>
-        <div class=" slide math">
-            <img src="../assets/images/logo-fonction.png" alt="Logo fonction Mathématique">
-            <a>Mathématique</a>
-        </div>
-    </div>
-    ()) {
-        echo "Nom de l'exercice: " . $row["NomExercice"]. "<br>";
-        echo "Thématique: " . $row["Thematique"]. "<br>";
-        echo "Difficulté: " . $row["Difficulte"]. "<br>";
-        echo "Durée: " . $row["Duree"]. "<br>";
-        echo "Mots clés: " . $row["MotsCles"]. "<br>";
-        echo "Nom de la matière: " . $row["NomMatiere"]. "<br>";
-        echo "<br>";
-    }
-} else {
-    echo "Aucun résultat trouvé pour '$search_term'";
-}
 
-// Fermeture de la connexion
-$conn->close();
-?>
+<body>
+    <div class="container">
+    <div class="exercises">
+        <h2>Les 5 derniers exercices ajoutés</h2>
+        <table>
+            <tr>
+                <th>Nom de l'exercice</th>
+                <th>Thématique</th>
+                <th>Difficulté</th>
+                <th>Durée</th>
+                <th>Mots clés</th>
+                <th>Fichiers</th>
+            </tr>
+            <?php
+            // Check if query was successful
+            if ($resultLatestExercises) {
+                // Fetch and display the exercises
+                while ($row = mysqli_fetch_assoc($resultLatestExercises)) {
+                    echo "<tr>";
+                echo "<td>" . $row["Nom"] . "</td>";
+                echo "<td>" . $row["Thematique"] . "</td>";
+                echo "<td>" . $row["Difficulte"] . "</td>";
+                echo "<td>" . $row["Duree"] . "</td>";
+                echo "<td>" . $row["MotsCles"] . "</td>";
+                echo "<td>";
+                echo "<a href='" . $row["fichier_exercice"] . "' download><img src='../assets/images/Groupe.png" . $row["fichier_exercice"] . "' alt='Exercice Image'>Exercice</a><br>";
+                echo "<a href='" . $row["fichier_exercice"] . "' download><img src='../assets/images/Groupe.png" . $row["fichier_exercice"] . "' alt='Exercice Image'>Corriger</a>";
+                echo "</td>";
+                echo "</tr>";
+                }
+            } else {
+                echo "Error: " . mysqli_error($connection);
+            }
+            ?>
+        </table>
+    </div>
+
+    <div class="exercises">
+        <h2>Tous les exercices</h2>
+        <table>
+            <tr>
+                <th>Nom de l'exercice</th>
+                <th>Thématique</th>
+                <th>Difficulté</th>
+                <th>Durée</th>
+                <th>Mots clés</th>
+                <th>Fichiers</th>
+            </tr>
+            <?php
+            // Pagination variables
+            $resultsPerPage = 5;
+            $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
+            $offset = ($currentPage - 1) * $resultsPerPage;
+
+            // Votre requête SQL pour récupérer les exercices avec pagination
+            $sqlAllExercises = "SELECT * FROM exercices LIMIT $offset, $resultsPerPage";
+            $resultAllExercises = mysqli_query($connection, $sqlAllExercises);
+
+            // Affichage des exercices
+            while ($row = mysqli_fetch_assoc($resultAllExercises)) {
+                echo "<tr>";
+                echo "<td>" . $row["Nom"] . "</td>";
+                echo "<td>" . $row["Thematique"] . "</td>";
+                echo "<td>" . $row["Difficulte"] . "</td>";
+                echo "<td>" . $row["Duree"] . "</td>";
+                echo "<td>" . $row["MotsCles"] . "</td>";
+                echo "<td>";
+                echo "<a href='" . $row["fichier_exercice"] . "' download><img src='" . $row["fichier_exercice"] . "' alt='Exercice Image'>Exercice</a><br>";
+                echo "<a href='" . $row["fichier_exercice"] . "' download><img src='" . $row["fichier_exercice"] . "' alt='Exercice Image'>Corriger</a>";
+                echo "</td>";
+                echo "</tr>";
+            }
+            ?>
+        </table>
+
+        <?php
+        // Pagination links
+        $sqlTotalExercises = "SELECT COUNT(*) AS total FROM exercices";
+        $resultTotalExercises = mysqli_query($connection, $sqlTotalExercises);
+        $rowTotalExercises = mysqli_fetch_assoc($resultTotalExercises);
+        $totalPages = ceil($rowTotalExercises['total'] / $resultsPerPage);
+
+        echo "<div class='pagination'>";
+        for ($i = 1; $i <= $totalPages; $i++) {
+            echo "<a class=pagination href='mathematique.php?page=$i'>$i</a>";
+        }
+        echo "</div>";
+        ?>
+    </div>
+    </div>
+    
 </body>
 
 </html>
