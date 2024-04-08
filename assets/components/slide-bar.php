@@ -28,7 +28,11 @@
 
         <div class="slide math">
             <img src="../assets/images/logo-fonction.png" alt="Logo fonction Mathématique">
+<<<<<<< Updated upstream
             <h3><a href="">Exercice</a></h3>
+=======
+            <h3><a href="mathematique.php">Mathématique</a></h3>
+>>>>>>> Stashed changes
         </div>
     </div>
 </body>
