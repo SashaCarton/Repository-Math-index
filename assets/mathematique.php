@@ -1,7 +1,6 @@
 <?php 
     require_once '../assets/components/slide-bar.php';
     require_once '../assets/database/connexion_db.php'; 
-
     require('../assets/database/config.php');
     
     $connection = mysqli_connect($server, $user, $pass, $dbName);
