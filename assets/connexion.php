@@ -88,53 +88,53 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link href="../assets/css/style-connexion.css" rel="stylesheet">
-    <title>Connexion</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="../assets/css/style-connexion.css" rel="stylesheet">
+        <title>Connexion</title>
+    </head>
 
-<body>
-    <div class="container">
-        <div class="connect">
-            <img src="images/Icon-login.png" alt="logo connexion">
-            <h2><a href="connexion.php">Connexion</a></h2>
-        </div>
-
-        <div class="grey-bloc">
-            <h1>Connexion</h1>
-
-            <div class="description-form">
-                <p>
-                    Cet espace est réservé aux enseignants du lycée Saint-Vincent - Senlis.
-                    Si vous n'avez pas encore de compte, veuillez effectuer votre demande
-                    directement en envoyant un email à <a href="">contact@lyceestvincent.net</a>
-                </p>
-
-                <form action="connexion.php" method="POST" name="login">
-                    <div class="form-email">
-                        <label for="email">Email : <br></label>
-                        <input id="email" type="text" name="email" placeholder="Saisissez votre adresse email">
-                        <?php displayErrors($errors, 'email'); ?>
-                    </div>
-
-                    <div class="form-password">
-                        <label for="password">Mot de passe : <br></label>
-                        <input type="password" id="password" name="password" placeholder="Saisissez votre mot de passe">
-                        <?php displayErrors($errors, 'password'); ?>
-                    </div>
-
-                    <div class="form-option">
-                        <input type="submit" value="Connexion" name="submit">
-                        <a href="">Mot de passe oublié ?</a>
-                    </div>
-                </form>
+    <body>
+        <div class="container">
+            <div class="connect">
+                <img src="images/Icon-login.png" alt="logo connexion">
+                <h2><a href="connexion.php">Connexion</a></h2>
             </div>
-            <?php require_once("../assets/components/footer.php"); ?>
+
+            <div class="grey-bloc">
+                <h1>Connexion</h1>
+
+                <div class="description-form">
+                    <p>
+                        Cet espace est réservé aux enseignants du lycée Saint-Vincent - Senlis.
+                        Si vous n'avez pas encore de compte, veuillez effectuer votre demande
+                        directement en envoyant un email à <a href="">contact@lyceestvincent.net</a>
+                    </p>
+
+                    <form action="connexion.php" method="POST" name="login">
+                        <div class="form-email">
+                            <label for="email">Email : <br></label>
+                            <input id="email" type="text" name="email" placeholder="Saisissez votre adresse email">
+                            <?php displayErrors($errors, 'email'); ?>
+                        </div>
+
+                        <div class="form-password">
+                            <label for="password">Mot de passe : <br></label>
+                            <input type="password" id="password" name="password" placeholder="Saisissez votre mot de passe">
+                            <?php displayErrors($errors, 'password'); ?>
+                        </div>
+
+                        <div class="form-option">
+                            <input type="submit" value="Connexion" name="submit">
+                            <a href="">Mot de passe oublié ?</a>
+                        </div>
+                    </form>
+                </div>
+                <?php require_once("../assets/components/footer.php"); ?>
+            </div>
         </div>
-    </div>
-</body>
+    </body>
 
 </html>

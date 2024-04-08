@@ -41,7 +41,7 @@
                 echo "Bonjour, " . $_SESSION['nom'];
                 echo '<a href="assets/deconnexion.php">Déconnexion</a>';
             } else {
-                echo '<a href="assets/connexion.php">Connexion</a>';
+                echo '<a href="assets\connexion.php">Connexion</a>';
             }
             ?>
         </div>

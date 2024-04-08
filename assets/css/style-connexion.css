@@ -6,7 +6,8 @@
     gap: 1vw;
     align-items: center;
     padding-bottom: 2vw;
-  }
+}
+
 .connect img{
     width: 1.25vw;
     height: 1.25vw;
@@ -32,12 +33,10 @@
     display: flex;
     flex-direction: column;
     white-space: initial;
-    width: 98%;
-    margin-left: 2%;
+    width: 100%;
 }
 .grey-bloc {
     background-color: rgb(217, 221, 321);
-    width: 90%;
     padding: 30px;
     padding-bottom: 170px;
 }
@@ -63,7 +62,7 @@ form {
 }
 
 .form-password {
-    margin-top: 2%
+    margin-top: 2%;
 }
 
 .form-option {
