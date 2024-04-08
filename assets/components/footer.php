@@ -22,6 +22,6 @@
 <body>
     <p class="legalMentions"><a href="">Mentions Légales</a>
     ● <a href="">Contact</a> ● 
-    <a href="">Lycée Saint-Vincent</a></p>
+    <a href="https://www.lycee-stvincent.fr/">Lycée Saint-Vincent</a></p>
 </body>
 </html>
