@@ -12,36 +12,18 @@
     <title>Math Index</title>
 </head>
 <body>
-    <div class="slideBar"> <!--For the bar on the left -->
-        <div class="slidetitle">
-            <img src="assets/images/Logo-Saint-Vincent.png" alt="logo Saint-Vincent">
-            <div class="titles">
-                <h1>Math Index</h1>
-                <h3>Lycée Saint-Vincent-Senlis</h3>
-            </div>
-        </div>
-        <div class="slide home">
-            <img src="assets/images/Logo-Home.png" alt="Logo home">
-            <a href="index.php">Accueil</a>
-        </div>
-        <div class="slide search">
-            <img src="assets/images/Logo-loupe.png" alt="Logo loupe">
-            <a href="recherche.php">Recherche</a>
-        </div>
-        <div class="slide math">
-            <img src="assets/images/logo-fonction.png" alt="Logo fonction Mathématique">
-            <a href="assets/mathematique.php">Mathématique</a>
-        </div>
-    </div>
+    <?php 
+    require_once('slide-bar.php')
+    ?>
     <div class="container"> <!--Everything next to the slide bar like containerHome and connect-->
         <div class="connect">
             <img src="assets/images/Icon-login.png" alt="logo connexion">
             <?php
             if (isset($_SESSION['nom'])) {
                 echo "Bonjour, " . $_SESSION['nom'];
-                echo '<a href="assets/deconnexion.php">Déconnexion</a>';
+                echo '<a href="deconnexion.php">Déconnexion</a>';
             } else {
-                echo '<a href="assets\connexion.php">Connexion</a>';
+                echo '<a href="connexion.php">Connexion</a>';
             }
             ?>
         </div>
@@ -55,8 +37,10 @@
                     <li>Soutien Pédagogique : Math Index sert de complément idéal à nos cours, offrant aux enseignants et aux étudiants un outil puissant pour renforcer la compréhension des concepts mathématiques enseignés en classe.</li>
                     <li>Collaboration Communautaire : En tant que membre de notre lycée, participez à la communauté en partageant vos propres exercices, collaborez avec d'autres enseignants et favorisez un environnement d'apprentissage collaboratif.</li>
                 </ol>
-                <p class="legalMentions">Mentions Légales ● Contact ● Lycée Saint-Vincent</p> <!--Litlle title under containerHome-->
             </div>
+            <?php 
+                    require_once('footer.php')
+            ?>
         </div>
     </div>
 </body>
