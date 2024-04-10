@@ -1,5 +1,5 @@
 <?php
-    require_once '../assets/components/slide-bar.php';
+    require_once 'slide-bar.php';
 
     session_start();
     session_destroy();
