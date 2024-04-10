@@ -13,20 +13,12 @@
 </head>
 <body>
     <?php 
-    require_once('slide-bar.php')
+        require_once('slide-bar.php')
     ?>
     <div class="container"> <!--Everything next to the slide bar like containerHome and connect-->
-        <div class="connect">
-            <img src="assets/images/Icon-login.png" alt="logo connexion">
-            <?php
-            if (isset($_SESSION['nom'])) {
-                echo "Bonjour, " . $_SESSION['nom'];
-                echo '<a href="deconnexion.php">Déconnexion</a>';
-            } else {
-                echo '<a href="connexion.php">Connexion</a>';
-            }
-            ?>
-        </div>
+        <?php
+            require_once('connect-bar.php');
+        ?>
         <div class="containerHome"> <!--Rectangle background of the "Acceuil"-->
             <h1>Accueil</h1>
             <div>

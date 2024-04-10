@@ -28,6 +28,9 @@
 
 <body>
     <div class="container">
+        <?php 
+            require_once('connect-bar.php');
+        ?>
     <div class="exercises">
         <h2>Les 5 derniers exercices ajoutés</h2>
         <table>
