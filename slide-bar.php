@@ -39,7 +39,7 @@
 
                 <div class="slide submit">
                     <img src="assets/images/logo-fonction.png" alt="Logo fonction submit exercice">
-                    <h3><a href="submit.php">Soumettre</a></h3>
+                    <h3><a href="submit-exercice.php">Soumettre</a></h3>
                 </div>');
             }
         ?>

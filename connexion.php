@@ -100,10 +100,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
     <div class="container">
-        <div class="connect">
-            <img src="assets\images\Icon-login.png" alt="logo connexion">
-            <h2><a href="connexion.php">Connexion</a></h2>
-        </div>
+        
+        <?php 
+            require_once("connect-bar.php"); 
+        ?>
 
         <div class="grey-bloc">
             <h1>Connexion</h1>
