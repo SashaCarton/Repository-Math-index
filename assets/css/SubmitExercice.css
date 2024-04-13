@@ -116,10 +116,6 @@ body {
 
 .legalMentions{
     text-align: start;
-<<<<<<< Updated upstream
-=======
-    font-size: 1vw;
->>>>>>> Stashed changes
 }
 
 .container {
@@ -133,20 +129,12 @@ body {
 .grey-bloc {
     background-color: rgb(217, 221, 321);
     padding: 30px;
-<<<<<<< Updated upstream
-=======
-    height: 100%;
->>>>>>> Stashed changes
 }
 
 .grey-bloc h1 {
     color: rgb(27, 49, 104);
     font-weight: 700;
     text-align: start;
-<<<<<<< Updated upstream
-=======
-    font-size: 1vw;
->>>>>>> Stashed changes
 }
 
 .grey-bloc a {
@@ -154,11 +142,6 @@ body {
     color: rgb(27, 49, 104);
 }
 
-<<<<<<< Updated upstream
-.tabs {
-    background-color: #ffffff;
-    border-radius: 5px;
-=======
 .grey-bloc label span {
   color: rgb(27, 49, 104);
   font-size: 1vw;
@@ -167,7 +150,6 @@ body {
 .tabs {
     background-color: #ffffff;
     border-radius: 10px;
->>>>>>> Stashed changes
     max-width: 100vw;
     display: grid;
     grid-template-rows: min-content 1fr;
@@ -193,10 +175,6 @@ body {
     background-color: rgb(27, 49, 104);
     color: #ffffff;
     opacity: 0.7;
-<<<<<<< Updated upstream
-=======
-    
->>>>>>> Stashed changes
 }
 
 .tab:hover {
@@ -212,76 +190,9 @@ body {
     opacity: 0;
     visibility: hidden; 
     transition: opacity 0.4s ease-out;
-<<<<<<< Updated upstream
-=======
-    font-size: 1vw;
->>>>>>> Stashed changes
 }
 
 .active-tab-content {
     opacity: 1;
     visibility: visible;
-<<<<<<< Updated upstream
 }
-=======
-    
-}
-
-.tab-content-sources-form {
-  text-align: start;
-  padding-left: 2vw;
-  font-weight: 500;
-  margin-bottom: 1vw;
-  min-width: 100%;
-}
-
-.tab-content-sources-form input[type="text"], select {
-  padding: 1vw 0vw 1vw 1vw;
-  border-radius: 5px;
-  border: 1px solid rgba(102, 102, 102, 0.5);
-  font-size: 1vw;
-  width: 90%;
-}
-
-select {
-  background-color: white;
-  cursor: pointer;
-}
-
-.tab-content-sources-form textarea {
-  padding: 1vw 0vw 0vw 1vw;
-  border-radius: 5px;
-  border: 1px solid rgba(102, 102, 102, 0.5);
-  font-size: 1vw;
-  margin-bottom: 1vw;
-  width: 90%;
-}
-
-.tab-content-sources-form-btn {
-  text-align: start;
-  padding-left: 2vw;
-  font-weight: 500;
-  margin-bottom: 1vw;
-}
-
-.tab-content-sources-form-btn input {
-  padding: 1vw 3vw 1vw 3vw;
-  background-color: rgba(102, 102, 102, 0.1);
-  color: rgb(102, 102, 102);
-  border-radius: 10px;
-  border: none;
-  font-size: 1vw;
-}
-
-.tab-content-sources-form-btn input:hover {
-  background-color: rgb(27, 49, 104);
-  color: #ffffff;
-}
-
-.tab-content-sources-form label {
-  color: rgb(102, 102, 102);
-}
-
-
-
->>>>>>> Stashed changes
