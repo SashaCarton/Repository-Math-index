@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 // Fonction pour afficher les erreurs de validation du formulaire
 function displayErrors($errors, $field) {
