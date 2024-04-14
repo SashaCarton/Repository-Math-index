@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $password_hash = $row["password"];
                 $valid = password_verify($password, $password_hash);
                 if ($valid) {
-                    // Set the session variable 'nom' with the value from the database
+                    // Set the session variable 'frist_name' with the value from the database
                     $_SESSION['first_name'] = $row['first_name'];
                     echo "Bonjour, " . $_SESSION['first_name'];
                     // Redirect to the index.php page
