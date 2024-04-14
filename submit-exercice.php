@@ -47,6 +47,8 @@
                     <button>
                         Continuer
                     </button>
+                    <br>
+                    <br>
                 </div>
 
                 <div class="tab-content">
