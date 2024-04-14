@@ -75,6 +75,7 @@ require_once('connexion_db.php');
                             <input type="text" id="exercise-chapitre" name="exercise-chapitre" placeholder="Chapitre 1"class="holder">
                             <br>
                             <br>
+                            <button type="submit" class="custom-submit-button">Continuer</button>
                         </div>
 
                         <div class="bloc2">

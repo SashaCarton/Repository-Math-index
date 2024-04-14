@@ -210,31 +210,31 @@ body {
 }
 .bloc2 {
 
-width: 80%;
+width: 82%;
 }
 input#exercise-name {
   border-radius: 9px;
-  width: 189%;
+  width: 217%;
   height: 24%;
 }
 select#exercise-subject {
   border-radius: 9px;
-  width: 189%;
+  width: 217%;
   height: 24%;
 }
 select#exercise-level {
   border-radius: 9px;
-  width: 189%;
+  width: 217%;
   height: 24%;
 }
 select#exercise-type {
   border-radius: 9px;
-  width: 189%;
+  width: 217%;
   height: 24%;
 }
 input#exercise-chapitre {
   border-radius: 9px;
-  width: 189%;
+  width: 217%;
   height: 24%;
 }
 select#exercise-difficulty {
@@ -246,4 +246,14 @@ input#exercise-duration {
   border-radius: 9px;
   width: 36%;
   height: 24%;
+}
+
+.custom-submit-button {
+  margin-top: 20px;
+  padding: 16px 44px;
+  background-color: #f6f6f6;
+  border: none;
+  border-radius: 5px;
+  color: #868686;
+  margin-right: 30px;
 }
