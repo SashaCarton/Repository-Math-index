@@ -52,8 +52,8 @@
                     echo "<td>" . $row["Duree"] . "</td>";
                     echo "<td>" . $row["MotsCles"] . "</td>";
                     echo "<td>";
-                    echo "<a href='" . $row["fichier_exercice"] . "' download><img src='../assets/images/Groupe.png" . $row["fichier_exercice"] . "' alt='Exercice Image'>Exercice</a><br>";
-                    echo "<a href='" . $row["fichier_exercice"] . "' download><img src='../assets/images/Groupe.png" . $row["fichier_exercice"] . "' alt='Exercice Image'>Corriger</a>";
+                    echo "<a href='" . $row["fichier_exercice"] . "' download><img src='assets/images/Group.png" . $row["fichier_exercice"] . "' alt='Exercice Image'>Exercice</a><br>";
+                    echo "<a href='" . $row["fichier_exercice"] . "' download><img src='assets/images/Group.png" . $row["fichier_exercice"] . "' alt='Exercice Image'>Corriger</a>";
                     echo "</td>";
                     echo "</tr>";
                 }
@@ -91,8 +91,8 @@
                 echo "<td>" . $row["Duree"] . "</td>";
                 echo "<td>" . $row["MotsCles"] . "</td>";
                 echo "<td>";
-                echo "<a href='" . $row["fichier_exercice"] . "' download><img src='../assets/images/Group.png" . $row["fichier_exercice"] . "' alt='Exercice Image'>Exercice</a><br>";
-                echo "<a href='" . $row["fichier_exercice"] . "' download><img src='../assets/images/Group.png" . $row["fichier_exercice"] . "' alt='Exercice Image'>Corriger</a>";
+                echo "<a href='" . $row["fichier_exercice"] . "' download><img src='assets/images/Group.png" . $row["fichier_exercice"] . "' alt='Exercice Image'>Exercice</a><br>";
+                echo "<a href='" . $row["fichier_exercice"] . "' download><img src='assets/images/Group.png" . $row["fichier_exercice"] . "' alt='Exercice Image'>Corriger</a>";
                 echo "</td>";
                 echo "</tr>";
             }
