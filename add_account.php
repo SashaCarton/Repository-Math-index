@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $connexion = connexionBdd();
 
-        $requete = $connexion->prepare("INSERT INTO utilisateur (nom, email, password, profile_pic) VALUES (?, ?, ?, ?)");
+        $requete = $connexion->prepare("INSERT INTO user (last_name, email, password, profile_pic) VALUES (?, ?, ?, ?)");
 
         $requete->bind_param("ssss", $nom, $email, $password, $new_file_name);
         $requete->execute();
