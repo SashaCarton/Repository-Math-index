@@ -1,3 +1,4 @@
+<?php session_start();?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,8 +29,8 @@
             <h3><a href="./mathematique.php">Exercices</a></h3>
         </div>
 
-        <?php
-            if (isset($_SESSION["nom"])) {
+        <?php 
+            if (isset($_SESSION["first_name"])) {
                 echo('<div class="slide exercice">
                         <img src="./assets/images/logo-fonction.png" alt="Logo fonction Mes Exercice">
                          <h3><a href="./mathematique.php">Mes exercices</a></h3>

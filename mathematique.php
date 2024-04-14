@@ -1,15 +1,31 @@
 <?php
     require_once 'slide-bar.php';
+<<<<<<< HEAD
     require_once 'connexion_db.php';
     require('config.php');
 
+=======
+    require_once 'connexion_db.php'; 
+    require 'config.php';
+    
+>>>>>>> a8bb380479a928272fca921ee6f276bb0639ed38
     $connection = mysqli_connect($server, $user, $pass, $dbName);
 
     if (!$connection) {
         die("Connection failed: " . mysqli_connect_error());
     }
+<<<<<<< HEAD
 
     $sqlLatestExercises = "SELECT * FROM exercices ORDER BY Date_Creation DESC LIMIT 5";
+=======
+    // Effectuer une requête SQL pour récupérer les exercices
+    $sqlLatestExercises = "SELECT e.name, t.name as thematic, e.difficulty, e.duration, e.keywords, f1.name as exercise_file, f2.name as correction_file 
+        FROM exercise e 
+        JOIN thematic t ON e.thematic_id = t.id 
+        JOIN file f1 ON e.exercise_file_id = f1.id 
+        JOIN file f2 ON e.correction_file_id = f2.id
+        LIMIT 5";
+>>>>>>> a8bb380479a928272fca921ee6f276bb0639ed38
     $resultLatestExercises = mysqli_query($connection, $sqlLatestExercises);
 ?>
 
@@ -23,8 +39,13 @@
 
 <body>
     <div class="container">
+<<<<<<< HEAD
         <?php
             require_once('connect-bar.php');
+=======
+        <?php 
+            require_once 'connect-bar.php';
+>>>>>>> a8bb380479a928272fca921ee6f276bb0639ed38
         ?>
     <div class="exercises">
         <h2>Les 5 derniers exercices ajoutés</h2>
@@ -41,14 +62,14 @@
             if ($resultLatestExercises) {
                 while ($row = mysqli_fetch_assoc($resultLatestExercises)) {
                     echo "<tr>";
-                    echo "<td>" . $row["Nom"] . "</td>";
-                    echo "<td>" . $row["Thematique"] . "</td>";
-                    echo "<td>" . $row["Difficulte"] . "</td>";
-                    echo "<td>" . $row["Duree"] . "</td>";
-                    echo "<td>" . $row["MotsCles"] . "</td>";
+                    echo "<td>" . $row["name"] . "</td>";
+                    echo "<td>" . $row["thematic"] . "</td>";
+                    echo "<td>" . $row["difficulty"] . "</td>";
+                    echo "<td>" . $row["duration"] . "</td>";
+                    echo "<td>" . $row["keywords"] . "</td>";
                     echo "<td>";
-                    echo "<a href='" . $row["fichier_exercice"] . "' download><img src='assets/images/Group.png" . $row["fichier_exercice"] . "' alt='Exercice Image'>Exercice</a><br>";
-                    echo "<a href='" . $row["fichier_exercice"] . "' download><img src='assets/images/Group.png" . $row["fichier_exercice"] . "' alt='Exercice Image'>Corriger</a>";
+                    echo "<a href='" . $row["exercise_file"] . "' download><img src='../assets/images/Groupe.png' alt='Exercice Image'>Exercice</a><br>";
+                    echo "<a href='" . $row["correction_file"] . "' download><img src='../assets/images/Groupe.png' alt='Exercice Image'>Corriger</a>";
                     echo "</td>";
                     echo "</tr>";
                 }
@@ -75,19 +96,24 @@
             $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
             $offset = ($currentPage - 1) * $resultsPerPage;
 
-            $sqlAllExercises = "SELECT * FROM exercices LIMIT $offset, $resultsPerPage";
+            $sqlAllExercises = "SELECT e.name, t.name as thematic, e.difficulty, e.duration, e.keywords, f1.name as exercise_file, f2.name as correction_file 
+            FROM exercise e 
+            JOIN thematic t ON e.thematic_id = t.id 
+            JOIN file f1 ON e.exercise_file_id = f1.id 
+            JOIN file f2 ON e.correction_file_id = f2.id
+            LIMIT $offset, $resultsPerPage";
             $resultAllExercises = mysqli_query($connection, $sqlAllExercises);
 
             while ($row = mysqli_fetch_assoc($resultAllExercises)) {
                 echo "<tr>";
-                echo "<td>" . $row["Nom"] . "</td>";
-                echo "<td>" . $row["Thematique"] . "</td>";
-                echo "<td>" . $row["Difficulte"] . "</td>";
-                echo "<td>" . $row["Duree"] . "</td>";
-                echo "<td>" . $row["MotsCles"] . "</td>";
+                echo "<td>" . $row["name"] . "</td>";
+                echo "<td>" . $row["thematic"] . "</td>";
+                echo "<td>" . $row["difficulty"] . "</td>";
+                echo "<td>" . $row["duration"] . "</td>";
+                echo "<td>" . $row["keywords"] . "</td>";
                 echo "<td>";
-                echo "<a href='" . $row["fichier_exercice"] . "' download><img src='assets/images/Group.png" . $row["fichier_exercice"] . "' alt='Exercice Image'>Exercice</a><br>";
-                echo "<a href='" . $row["fichier_exercice"] . "' download><img src='assets/images/Group.png" . $row["fichier_exercice"] . "' alt='Exercice Image'>Corriger</a>";
+                echo "<a href='" . $row["exercise_file"] . "' download><img src='../assets/images/Group.png' alt='Exercice Image'>Exercice</a><br>";
+                echo "<a href='" . $row["correction_file"] . "' download><img src='../assets/images/Group.png' alt='Exercice Image'>Corriger</a>";
                 echo "</td>";
                 echo "</tr>";
             }
@@ -95,14 +121,14 @@
         </table>
 
         <?php
-        $sqlTotalExercises = "SELECT COUNT(*) AS total FROM exercices";
+        $sqlTotalExercises = "SELECT COUNT(*) AS total FROM exercise";
         $resultTotalExercises = mysqli_query($connection, $sqlTotalExercises);
         $rowTotalExercises = mysqli_fetch_assoc($resultTotalExercises);
         $totalPages = ceil($rowTotalExercises['total'] / $resultsPerPage);
 
         echo "<div class='pagination'>";
         for ($i = 1; $i <= $totalPages; $i++) {
-            echo "<a class=pagination href='mathematique.php?page=$i'>$i</a>";
+            echo "<a class='pagination' href='mathematique.php?page=$i'>$i</a>";
         }
         echo "</div>";
         ?>
