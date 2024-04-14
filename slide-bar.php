@@ -31,7 +31,7 @@
 
 
         <?php 
-            if (isset($_SESSION["nom"])) {
+            if (isset($_SESSION["first_name"])) {
                 echo('<div class="slide exercice">
                         <img src="assets/images/logo-fonction.png" alt="Logo fonction Mes Exercice">
                          <h3><a href="mathematique.php">Mes exercices</a></h3>
