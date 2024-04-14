@@ -1,14 +1,14 @@
-<?php 
+<?php
     require_once 'slide-bar.php';
-    require_once 'connexion_db.php'; 
+    require_once 'connexion_db.php';
     require('config.php');
-    
+
     $connection = mysqli_connect($server, $user, $pass, $dbName);
-    
+
     if (!$connection) {
         die("Connection failed: " . mysqli_connect_error());
     }
-    
+
     $sqlLatestExercises = "SELECT * FROM exercices ORDER BY Date_Creation DESC LIMIT 5";
     $resultLatestExercises = mysqli_query($connection, $sqlLatestExercises);
 ?>
@@ -17,18 +17,13 @@
 <html lang="fr">
 
 <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="assets/css/styleMathematique.css" rel="stylesheet">
+    <?php include ('./header.php') ?>
     <title>Math Index</title>
 </head>
 
 <body>
     <div class="container">
-        <?php 
+        <?php
             require_once('connect-bar.php');
         ?>
     <div class="exercises">
@@ -113,7 +108,7 @@
         ?>
     </div>
     </div>
-    
+
 </body>
 
 </html>

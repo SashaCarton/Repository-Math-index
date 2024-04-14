@@ -1,5 +1,5 @@
 <head>
-    <link href="assets/css/connect-bar.css" rel="stylesheet">
+    <link href="./assets/css/connect-bar.css" rel="stylesheet">
 </head>
 
 <div class="connect">
