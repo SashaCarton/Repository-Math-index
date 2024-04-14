@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email = $_POST['email'];
 
             // Prepare the query
-            $query = $mysqli->prepare('SELECT * FROM utilisateurs WHERE email = ?');
+            $query = $mysqli->prepare('SELECT * FROM user WHERE email = ?');
 
             if ($query === false) {
                 die('Failed to prepare the SQL query: ' . $mysqli->error);
@@ -72,8 +72,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $valid = password_verify($password, $password_hash);
                 if ($valid) {
                     // Set the session variable 'nom' with the value from the database
-                    $_SESSION['nom'] = $row['nom'];
-                    echo "Bonjour, " . $_SESSION['nom'];
+                    $_SESSION['first_name'] = $row['first_name'];
+                    echo "Bonjour, " . $_SESSION['first_name'];
                     // Redirect to the index.php page
                     header("Location: index.php");
                     exit();

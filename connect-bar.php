@@ -5,7 +5,7 @@
 <div class="connect">
             <img src="assets/images/Icon-login.png" alt="logo connexion">
             <?php
-            if (isset($_SESSION['nom'])) {
+            if (isset($_SESSION['first_name'])) {
                 echo "Bonjour, " . $_SESSION['nom'];
                 echo '<a href="deconnexion.php">Déconnexion</a>';
             } else {
