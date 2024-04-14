@@ -2,5 +2,5 @@
 	$server = "localhost";
 	$user = "root";
 	$pass = "";
-	$dbName = "math index";
+	$dbName = "math_index";
 ?>
