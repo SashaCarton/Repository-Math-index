@@ -20,7 +20,7 @@
 
         <div class="slide search">
             <img src="assets/images/Logo-loupe.png" alt="Logo loupe">
-            <h3><a href="">Recherche</a></h3>
+            <h3><a href="research.php">Recherche</a></h3>
         </div>
 
         <div class="slide exercice">
