@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .container {
   display: flex;
   flex-direction: column;
@@ -56,8 +55,6 @@
   opacity: 1;
   visibility: visible;
 }
-=======
->>>>>>> a8bb380479a928272fca921ee6f276bb0639ed38
 
 .container-bloc {
   width: 100%;
@@ -70,70 +67,9 @@
   padding: 25px;
 }
 
-.bloc2 {
-width: 82%;
-}
-input#exercise-name {
-  border-radius: 9px;
-  width: 217%;
-  height: 24%;
-}
-select#exercise-subject {
-  border-radius: 9px;
-  width: 217%;
-  height: 24%;
-}
-select#exercise-level {
-  border-radius: 9px;
-  width: 217%;
-  height: 24%;
-}
-select#exercise-type {
-  border-radius: 9px;
-  width: 217%;
-  height: 24%;
-}
-input#exercise-chapitre {
-  border-radius: 9px;
-  width: 217%;
-  height: 24%;
-}
-select#exercise-difficulty {
-  border-radius: 9px;
-  width: 36%;
-  height: 24%;
-}
-input#exercise-duration {
-  border-radius: 9px;
-  width: 36%;
-  height: 24%;
-}
-
-.custom-submit-button {
-  margin-top: 20px;
-  padding: 16px 44px;
-  background-color: #f6f6f6;
-  border: none;
-  border-radius: 5px;
-  color: #868686;
-  margin-right: 30px;
-}
-.container-bloc {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: stretch;
-  align-content: stretch;
-}
-
 .bloc1 {
-<<<<<<< HEAD
   width: 50%;
   text-align: left;
-=======
-  width: 82%;
->>>>>>> a8bb380479a928272fca921ee6f276bb0639ed38
 }
 
 .bloc2 {

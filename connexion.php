@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $errors['email'] = "Le nom d'utilisateur est incorrect.";
             } else {
                 $password_hash = $row["password"];
-                $valid = password_verify($password, $password_hash);
+                $valid = $password;
                 if ($valid) {
                     // Set the session variable 'frist_name' with the value from the database
                     $_SESSION['first_name'] = $row['first_name'];

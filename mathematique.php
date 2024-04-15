@@ -1,52 +1,36 @@
 <?php
-    require_once 'slide-bar.php';
-<<<<<<< HEAD
-    require_once 'connexion_db.php';
-    require('config.php');
+require_once 'slide-bar.php';
+require_once 'connexion_db.php';
+require 'config.php';
 
-=======
-    require_once 'connexion_db.php'; 
-    require 'config.php';
-    
->>>>>>> a8bb380479a928272fca921ee6f276bb0639ed38
-    $connection = mysqli_connect($server, $user, $pass, $dbName);
+$connection = mysqli_connect($server, $user, $pass, $dbName);
 
-    if (!$connection) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
-<<<<<<< HEAD
-
-    $sqlLatestExercises = "SELECT * FROM exercices ORDER BY Date_Creation DESC LIMIT 5";
-=======
-    // Effectuer une requête SQL pour récupérer les exercices
-    $sqlLatestExercises = "SELECT e.name, t.name as thematic, e.difficulty, e.duration, e.keywords, f1.name as exercise_file, f2.name as correction_file 
+if (!$connection) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+// Effectuer une requête SQL pour récupérer les exercices
+$sqlLatestExercises = "SELECT e.name, t.name as thematic, e.difficulty, e.duration, e.keywords, f1.name as exercise_file, f2.name as correction_file 
         FROM exercise e 
         JOIN thematic t ON e.thematic_id = t.id 
         JOIN file f1 ON e.exercise_file_id = f1.id 
         JOIN file f2 ON e.correction_file_id = f2.id
         LIMIT 5";
->>>>>>> a8bb380479a928272fca921ee6f276bb0639ed38
-    $resultLatestExercises = mysqli_query($connection, $sqlLatestExercises);
+$resultLatestExercises = mysqli_query($connection, $sqlLatestExercises);
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
-    <?php include ('./header.php') ?>
+   <?php include ('./header.php')?>
     <title>Math Index</title>
 </head>
 
 <body>
-    <div class="container">
-<<<<<<< HEAD
-        <?php
-            require_once('connect-bar.php');
-=======
-        <?php 
-            require_once 'connect-bar.php';
->>>>>>> a8bb380479a928272fca921ee6f276bb0639ed38
-        ?>
+<div class="container">
+    <?php
+    require_once 'connect-bar.php';
+    ?>
     <div class="exercises">
         <h2>Les 5 derniers exercices ajoutés</h2>
         <table>
@@ -133,7 +117,7 @@
         echo "</div>";
         ?>
     </div>
-    </div>
+</div>
 
 </body>
 
