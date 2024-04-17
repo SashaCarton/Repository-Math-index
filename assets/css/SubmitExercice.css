@@ -335,7 +335,7 @@ select {
   cursor: pointer;
 }
 
-#fileName {
+#fileName, #fileName-corrigé {
   font-weight: 500;
 }
 
