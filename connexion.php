@@ -9,8 +9,8 @@ function displayErrors($errors, $field) {
 }
 
 // Include the database connection file
-require_once '../assets/components/slide-bar.php';
-require_once '../assets/database/connexion_db.php';
+require_once 'slide-bar.php';
+require_once 'connexion_db.php';
 
 // Define variables to store user input
 $email = $password = '';
@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $_SESSION['nom'] = $row['nom'];
                     echo "Bonjour, " . $_SESSION['nom'];
                     // Redirect to the index.php page
-                    header("Location: ../index.php");
+                    header("Location: index.php");
                     exit();
                 } else {
                     // Set the error message for incorrect password
@@ -94,16 +94,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link href="../assets/css/style-connexion.css" rel="stylesheet">
+    <link href="assets/css/style-connexion.css" rel="stylesheet">
     <title>Connexion</title>
 </head>
 
 <body>
     <div class="container">
-        <div class="connect">
-            <img src="images/Icon-login.png" alt="logo connexion">
-            <h2><a href="connexion.php">Connexion</a></h2>
-        </div>
+        
+        <?php 
+            require_once("connect-bar.php"); 
+        ?>
 
         <div class="grey-bloc">
             <h1>Connexion</h1>
@@ -130,11 +130,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <div class="form-option">
                         <input type="submit" value="Connexion" name="submit">
-                        <a href="">Mot de passe oublié ?</a>
+                        <a href="lost-password.php">Mot de passe oublié ?</a>
                     </div>
                 </form>
             </div>
-            <?php require_once("../assets/components/footer.php"); ?>
+            <?php require_once("footer.php"); ?>
         </div>
     </div>
 </body>

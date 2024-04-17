@@ -1,0 +1,25 @@
+footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 18vw;
+}
+
+ul.footer-list {
+    text-align: left;
+}
+
+li {
+    display: inline;
+}
+
+.legalMentions{
+    text-align: start;
+}
+li.footer-list {
+    list-style-type: circle;
+}
+a.footerLink {
+    text-decoration: auto;
+    color: black;
+}
