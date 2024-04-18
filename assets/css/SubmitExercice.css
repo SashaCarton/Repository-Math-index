@@ -1,3 +1,124 @@
+body {
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+}
+
+.poppins-thin {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.poppins-extralight {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.poppins-light {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-medium {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.poppins-semibold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.poppins-extrabold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.poppins-black {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.poppins-thin-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.poppins-extralight-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.poppins-light-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.poppins-regular-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.poppins-medium-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.poppins-semibold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.poppins-bold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.poppins-extrabold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.poppins-black-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+.legalMentions{
+    text-align: start;
+    font-size: 1vw;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -6,180 +127,221 @@
   width: 100%;
 }
 
+.container p {
+  color: rgb(102, 102, 102);
+}
+
+.grey-bloc {
+    background-color: rgb(217, 221, 321);
+    padding: 30px;
+    height: 100%;
+}
+
+.grey-bloc h1 {
+    color: rgb(27, 49, 104);
+    font-weight: 700;
+    text-align: start;
+    font-size: 1.5vw;
+}
+
+.grey-bloc a {
+    text-decoration: none;
+    color: rgb(27, 49, 104);
+}
+
+span {
+  color: rgb(27, 49, 104);
+  font-size: 1.2vw;
+}
+
 .tabs {
-  background-color: #ffffff;
-  border-radius: 10px;
-  max-width: 100vw;
-  display: grid;
-  grid-template-rows: min-content 1fr;
+    background-color: #ffffff;
+    border-radius: 10px;
+    max-width: 100vw;
+    display: grid;
+    grid-template-rows: min-content 1fr;
 }
 
 .tabs-btn-container {
-  gap: 0.5vw;
-  display: flex;
-  background-color: #eff2f4;
+    gap: 0.5vw;
+    display: flex;
+    background-color: rgb(217, 221, 321);
 }
 
 .container h2 {
-  text-align: start;
-  padding: 1vw 0 1vw 2vw;
+    text-align: start;
+    padding: 0.5vw 0 0 2vw;
+    
 }
 
 .tab {
-  padding: 0.5vw 1.5vw 0.5vw 1.5vw;
-  border: 1px solid rgb(27, 49, 104);
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  cursor: pointer;
-  background-color: rgb(27, 49, 104);
-  color: #ffffff;
-  opacity: 0.7;
+    padding: 0.5vw 1.5vw 0.5vw 1.5vw;
+    border: 1px solid rgb(27, 49, 104);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(27, 49, 104);
+    color: #ffffff;
+    opacity: 0.7;
+    font-size: 1vw;
 }
 
 .tab:hover {
-  opacity: 1;
+    opacity: 1;
 }
 
 .tab.active {
-  opacity: 1;
-}
+    opacity: 1;
+}   
 
 .tab-content {
-  grid-area: 2 / 1 / 3 / 2;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s ease-out;
+    grid-area: 2 / 1 / 3 / 2;
+    opacity: 0;
+    visibility: hidden; 
+    transition: opacity 0.4s ease-out;
+    font-size: 1vw;
 }
 
 .active-tab-content {
-  opacity: 1;
-  visibility: visible;
+    opacity: 1;
+    visibility: visible;
+    
 }
 
-.container-bloc {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: stretch;
-  align-content: stretch;
-  padding: 25px;
+.tab-content-sources-form {
+  text-align: start;
+  padding-left: 2vw;
+  font-weight: 500;
+  margin-bottom: 1vw;
+  min-width: 100%;
 }
 
-.bloc1 {
-  width: 50%;
-  text-align: left;
-}
-
-.bloc2 {
-  text-align: left;
-  width: 50%;
-}
-
-.custom-submit-button {
-  margin-top: 20px;
-  padding: 16px 44px;
-  background-color: #f6f6f6;
-  border: none;
+.tab-content-sources-form input[type="text"], select {
+  padding: 1vw 0vw 1vw 1vw;
   border-radius: 5px;
-  color: #868686;
-  margin-right: 30px;
-}
-label {
-  font-size: larger;
-  font-weight: bold;
-}
-.holder {
-  border: 2px solid #e9e9e9;
-  border-radius: 9px;
-  width: 50%;
-  height: 20%;
-  padding-left: 20px;
+  border: 1px solid rgba(102, 102, 102, 0.5);
+  font-size: 1vw;
+  width: 90%;
 }
 
-.radio-container {
-  display: flex;
-  width: 50%;
-}
-
-.square-radio {
-
-}
-
-
-.icons ion-icon {
-  padding: 10px;
+select {
+  background-color: white;
   cursor: pointer;
 }
-.tag-container {
-  flex: 1;
-  display: flex;
-  flex-wrap: wrap;
+
+.tab-content-sources-form textarea {
+  padding: 1vw 0vw 0vw 1vw;
+  border-radius: 5px;
+  border: 1px solid rgba(102, 102, 102, 0.5);
+  font-size: 1vw;
+  margin-bottom: 1vw;
+  width: 90%;
 }
-.tag {
-  padding: 5px;
-  margin: 15px 5px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  background-color: #d9d9d9;
+
+.tab-content-sources-form-btn {
+  text-align: start;
+  padding-left: 2vw;
+  font-weight: 500;
+  margin-bottom: 1vw;
+}
+
+.tab-content-sources-form-btn input {
+  padding: 1vw 3vw 1vw 3vw;
+  background-color: rgba(102, 102, 102, 0.1);
+  color: rgb(102, 102, 102);
   border-radius: 10px;
+  border: none;
+  font-size: 1vw;
 }
 
-.tag ion-icon {
-  margin-left: 5px;
+.tab-content-sources-form-btn input:hover {
+  background-color: rgb(27, 49, 104);
+  color: #ffffff;
+}
+
+.tab-content-sources-form label {
+  color: rgb(102, 102, 102);
+}
+
+.tab-content-file-form label {
+  color: rgb(102, 102, 102);
+  margin-bottom: 0.2vw;
+}
+
+.tab-content-file-form-2 label {
+  color: rgb(102, 102, 102);
+  margin-bottom: 0.2vw;
+}
+
+.tab-content-file-form {
+  text-align: start;
+  margin-left: 2vw;
+  font-weight: 500;
+  width: 100%;
+}
+
+.tab-content-file-form label {
+  padding: 0vw 0vw 0vw 1vw;
+  border-radius: 5px;
+  border: 1px solid rgba(102, 102, 102, 0.5);
+  font-size: 0.7vw;
+  margin-bottom: 1vw;
+  width: 24vw;
+  display: flex;
+  justify-content: space-between;
   cursor: pointer;
 }
-.tag-container input {
-  flex: 1;
-  height: 100%;
-  font-size: 16px;
-  padding: 5px;
-  outline: none;
-  border: 0;
-}
-.tags-input {
-  display: inline-block;
-  position: relative;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 5px;
-  box-shadow: 2px 2px 5px #00000033;
-  width: 50%;
+
+.tab-content-file-form-2 {
+  margin-top: 1vw;
 }
 
-.tags-input ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.tab-content-file-form-btn {
+  margin-top: 1vw;
 }
 
-.tags-input li {
-  display: inline-block;
-  background-color: #f2f2f2;
-  color: #333;
-  border-radius: 20px;
-  padding: 5px 10px;
-  margin-right: 5px;
-  margin-bottom: 5px;
-}
-
-.tags-input input[type="text"] {
+.tab-content-file-form-btn input {
+  padding: 1vw 3vw 1vw 3vw;
+  background-color: rgba(102, 102, 102, 0.1);
+  color: rgb(102, 102, 102);
+  border-radius: 10px;
   border: none;
-  outline: none;
-  padding: 5px;
-  font-size: 14px;
-}
-
-.tags-input input[type="text"]:focus {
-  outline: none;
-}
-
-.tags-input .delete-button {
-  background-color: transparent;
-  border: none;
-  color: #999;
+  font-size: 1vw;
   cursor: pointer;
-  margin-left: 5px;
 }
+
+.tab-content-file-form-btn input:hover {
+  background-color: rgb(27, 49, 104);
+  color: #ffffff;
+}
+
+.tab-content-file-form input[type="file"] {
+  display: none;
+}
+
+.tab-content-file-form-2 input[type="file"] {
+  display: none;
+}
+
+.tab-content-file-form-2 label {
+  padding: 0vw 0vw 0vw 1vw;
+  border-radius: 5px;
+  border: 1px solid rgba(102, 102, 102, 0.5);
+  font-size: 0.7vw;
+  margin-bottom: 1vw;
+  width: 24vw;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+#fileName {
+  font-weight: 500;
+}
+
+.tab-content-file-form img {
+  width: 1.5vw;
+  margin-right: 1vw;
+  align-self: center;
+}
+
