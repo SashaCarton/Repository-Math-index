@@ -58,18 +58,7 @@ $resultLatestExercises = mysqli_query($connection, $sqlLatestExercises);
                     <div class="section_filter">
                         <!-- Champ de saisie pour les mots-clés -->
                         <label for="mots_cles" class="style_title">Mots-clés :</label>
-                        <?php
-                    // Vérifie si les mots-clés sont présents dans l'URL
-                    $mots_cles_input = isset($_GET['mots_cles']) ? $_GET['mots_cles'] : '';
-
-                    // Divise la chaîne de mots-clés en un tableau
-                    $mots_cles_array = explode(', ', $mots_cles_input);
-
-                    // Affiche un champ de saisie pour chaque mot-clé
-                    foreach ($mots_cles_array as $index => $mot_cle) {
-                        echo '<input type="text" name="mots_cles[]" value="' . htmlspecialchars($mot_cle) . '" placeholder="Entrez un mot-clé" class="style_filter">';
-                    }
-                    ?>
+                        <input type="text" name="mots_cles" id="mots_cles" placeholder="Entrez des mots-clés" class="style_filter">
                     </div>
 
                     <!-- Bouton de soumission -->
@@ -91,7 +80,10 @@ $resultLatestExercises = mysqli_query($connection, $sqlLatestExercises);
                     }
 
                     if(isset($_GET['mots_cles']) && !empty($_GET['mots_cles'])) {
-                        $mots_cles = htmlspecialchars($_GET['mots_cles']);
+                        $mots_cles = "";
+                        if (is_string($_GET['mots_cles'])) {
+                            $mots_cles = htmlspecialchars($_GET['mots_cles']);
+                        }
                         $sql .= " AND (name LIKE '%$mots_cles%' OR keywords LIKE '%$mots_cles%')";
                     }
 
@@ -122,7 +114,7 @@ $resultLatestExercises = mysqli_query($connection, $sqlLatestExercises);
                             echo "<tr>";
                             echo "<td class='color_police_table'>" . $row["name"] . "</td>";
                             echo "<td class='color_police_table'>Niveau " . $row["difficulty"] . "</td>";
-                            echo "<td><span class='bordure>'" . $row["keywords"] . "</span></td>";
+                            echo "<td>" . $row["keywords"] . "</td>";
                             echo "<td>" . $row["duration"] . "</td>";
                             echo "<td>";
                             if ($row["exercise_file_id"]) {
