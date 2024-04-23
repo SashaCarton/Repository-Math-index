@@ -22,7 +22,7 @@ require_once('connexion_db.php');
                 <button class="tab">Contributeurs</button>
                 <button class="tab">Exercices </button>
                 <button class="tab">Matières</button>
-                <button class="tab">Classes0</button>
+                <button class="tab">Classes</button>
                 <button class="tab">Thématiques</button>
                 <button class="tab">Compétences</button>
                 <button class="tab">Origines</button>
