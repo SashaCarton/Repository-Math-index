@@ -30,7 +30,7 @@ require_once('connexion_db.php');
 
             <div class="tab-content active-tab-content">
                 <div class="contributeurs">
-                    <h3>Gestion des contributeurs</h3>
+                    <h2>Gestion des contributeurs</h2>
                     <label for="search">Rechercher un contributeur par nom, prénom ou email :</label>
                     <div class="search">
                         <form>
@@ -39,7 +39,7 @@ require_once('connexion_db.php');
                             <input type="button" id="buttonAdd" value="Ajouter +">
                         </form>
                     </div>
-            
+                    <!-- Mettre ici php -->
                 </div>
                 
             </div>
