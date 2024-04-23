@@ -90,7 +90,7 @@ require_once('connexion_db.php');
             <label for="password">Mot de passe :</label>
             <input type="password" id="password" name="password" placeholder="Saisissez le mot de passe">
 
-            <input type="button" value="Retour à la liste">
+            <input type="button" value="Retour à la liste" onclick="window.location.href='administration.php'">
             <input type="submit" value="Enregistrer">
         `;
 

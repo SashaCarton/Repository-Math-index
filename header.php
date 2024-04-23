@@ -12,3 +12,5 @@
     <link href="./assets/css/footer.css" rel="stylesheet">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link rel="icon" href="assets/images/Logo-Saint-Vincent.png" type="image/x-icon">
+    <title>Math Index Saint Vincent</title>
