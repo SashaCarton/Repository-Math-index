@@ -31,7 +31,7 @@ span {
 .tabs-btn-container {
   gap: 0.5vw;
   display: flex;
-  background-color: rgb(217, 221, 321);
+  background-color: rgb(239 242 244);
 }
 
 .container h2 {
