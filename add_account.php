@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $requete->bind_param("ssss", $nom, $email, $password, $new_file_name);
         $requete->execute();
-    } 
+    }
 
     header("Location: success.php");
     exit;
@@ -54,21 +54,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Ajout de compte</title>
 </head>
 <body>
-    <h1>Ajout de compte</h1>
-    <form method="POST" action="" enctype="multipart/form-data">
-        <label for="nom">Nom :</label>
-        <input type="text" name="nom" id="nom" required><br>
+<h1>Ajout de compte</h1>
+<form method="POST" action="" enctype="multipart/form-data">
+    <label for="nom">Nom :</label>
+    <input type="text" name="nom" id="nom" required><br>
 
-        <label for="email">Email :</label>
-        <input type="email" name="email" id="email" required><br>
+    <label for="email">Email :</label>
+    <input type="email" name="email" id="email" required><br>
 
-        <label for="password">Mot de passe :</label>
-        <input type="password" name="password" id="password" required><br>
+    <label for="password">Mot de passe :</label>
+    <input type="password" name="password" id="password" required><br>
 
-        <label for="profile_pic">Photo de profil :</label>
-        <input type="file" id="profile_pic" name="profile_pic">
+    <label for="profile_pic">Photo de profil :</label>
+    <input type="file" id="profile_pic" name="profile_pic">
 
-        <input type="submit" value="Ajouter">
-    </form>
+    <input type="submit" value="Ajouter">
+</form>
 </body>
 </html>

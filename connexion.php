@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 // Fonction pour afficher les erreurs de validation du formulaire
 function displayErrors($errors, $field) {
@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email = $_POST['email'];
 
             // Prepare the query
-            $query = $mysqli->prepare('SELECT * FROM utilisateurs WHERE email = ?');
+            $query = $mysqli->prepare('SELECT * FROM user WHERE email = ?');
 
             if ($query === false) {
                 die('Failed to prepare the SQL query: ' . $mysqli->error);
@@ -71,9 +71,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $password_hash = $row["password"];
                 $valid = password_verify($password, $password_hash);
                 if ($valid) {
-                    // Set the session variable 'nom' with the value from the database
-                    $_SESSION['nom'] = $row['nom'];
-                    echo "Bonjour, " . $_SESSION['nom'];
+                    // Set the session variable 'frist_name' with the value from the database
+                    $_SESSION['first_name'] = $row['first_name'];
+                    echo "Bonjour, " . $_SESSION['first_name'];
                     // Redirect to the index.php page
                     header("Location: index.php");
                     exit();
@@ -91,19 +91,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link href="assets/css/style-connexion.css" rel="stylesheet">
+    <?php include ('./header.php'); ?>
     <title>Connexion</title>
 </head>
 
 <body>
     <div class="container">
-        
-        <?php 
-            require_once("connect-bar.php"); 
-        ?>
+
+        <?php require_once("connect-bar.php"); ?>
 
         <div class="grey-bloc">
             <h1>Connexion</h1>
@@ -130,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <div class="form-option">
                         <input type="submit" value="Connexion" name="submit">
-                        <a href="lost-password.php">Mot de passe oublié ?</a>
+                        <a href="">Mot de passe oublié ?</a>
                     </div>
                 </form>
             </div>

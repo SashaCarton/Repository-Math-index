@@ -1,180 +1,3 @@
-body {
-  margin: 0;
-  overflow-x: hidden;
-  overflow-y  : hidden;
-  display: flex;
-  font-family: "Poppins", sans-serif;
-}
-
-.poppins-thin {
-  font-family: "Poppins", sans-serif;
-  font-weight: 100;
-  font-style: normal;
-}
-
-.poppins-extralight {
-  font-family: "Poppins", sans-serif;
-  font-weight: 200;
-  font-style: normal;
-}
-
-.poppins-light {
-  font-family: "Poppins", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-}
-
-.poppins-regular {
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.poppins-medium {
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-}
-
-.poppins-semibold {
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  font-style: normal;
-}
-
-.poppins-bold {
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.poppins-extrabold {
-  font-family: "Poppins", sans-serif;
-  font-weight: 800;
-  font-style: normal;
-}
-
-.poppins-black {
-  font-family: "Poppins", sans-serif;
-  font-weight: 900;
-  font-style: normal;
-}
-
-.poppins-thin-italic {
-  font-family: "Poppins", sans-serif;
-  font-weight: 100;
-  font-style: italic;
-}
-
-.poppins-extralight-italic {
-  font-family: "Poppins", sans-serif;
-  font-weight: 200;
-  font-style: italic;
-}
-
-.poppins-light-italic {
-  font-family: "Poppins", sans-serif;
-  font-weight: 300;
-  font-style: italic;
-}
-
-.poppins-regular-italic {
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.poppins-medium-italic {
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  font-style: italic;
-}
-
-.poppins-semibold-italic {
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  font-style: italic;
-}
-
-.poppins-bold-italic {
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  font-style: italic;
-}
-
-.poppins-extrabold-italic {
-  font-family: "Poppins", sans-serif;
-  font-weight: 800;
-  font-style: italic;
-}
-
-.poppins-black-italic {
-  font-family: "Poppins", sans-serif;
-  font-weight: 900;
-  font-style: italic;
-}
-
-.slideBar {
-  width: 27vw;
-  height: 100vh;
-  padding-left: 2vw;
-  display: flex;
-  gap: 1vw;
-  flex-direction: column;
-  box-shadow: 1px 0px 5px #b3b3b3 inset;
-  font-family: "Poppins", sans-serif;
-}
-
-.slideBar h1 {
-  font-size: 1.5vw;
-  color: #1B3168;
-  font-weight: 500;
-}
-
-.slideBar h3,a {
-  align-self: center;
-  font-size: 0.8vw;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.slideBar a{
-  opacity: 0.8;
-}
-
-.titles h3 {
-  margin-top: -0.9vw;
-  font-weight: 500;
-  color: #1B3168;
-  opacity: 0.8;
-}
-
-.slidetitle {
-  display: flex;
-  gap: 1vw;
-  margin-top: 10px;
-}
-
-.slidetitle img {
-  width: 2.5vw;
-  height: 2.5vw;
-  margin-top: 2vw;
-}
-
-.slide {
-  width: 15.5vw;
-  filter: grayscale(100%);
-  display: flex;
-  color: #5D7285;
-  gap: 1vw;
-}
-
-.slide:hover {
-  filter: grayscale(0%);
-  background-color: #F6F6F6;
-  color: #1B3168;
-}
-
 .slide img {
   width: 2.5vw;
   height: 2.5vw;
@@ -189,6 +12,11 @@ body {
 .container h1{
   color: #1B3168;
   font-size: 1.5vw;
+  text-align: left;
+}
+
+p {
+  text-align: left;
 }
 
 .container h3,p,li,a{
@@ -207,7 +35,7 @@ body {
 .containerHome div{
   background-color: #ffffff;
   padding: 2vw;
-  height: 70%;
+  height: 55%;
   width: 85%;
 }
 

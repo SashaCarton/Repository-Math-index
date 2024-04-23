@@ -43,24 +43,14 @@
                 </div>
 
                 <div class="tab-content">
-                    <h2>
-                        Sources
-                    </h2>
+                    <h2>Sources</h2>
                     <div class="tab-content-sources-form">
                         <label for="origines">Origines <span>*</span> :</label>
                         <div>
                             <select name="origines" id="origines">
-                                <option value="livre">
-                                    Livre
-                                </option>
-
-                                <option value="professeur">
-                                    Professeur
-                                </option>
-
-                                <option value="internet">
-                                    Internet
-                                </option>
+                                <option value="livre">Livre</option>
+                                <option value="professeur">Professeur</option>
+                                <option value="internet">Internet</option>
                             </select>
                         </div>
                     </div>
@@ -89,9 +79,7 @@
                 </div>
 
                 <div class="tab-content">
-                    <h2>
-                        Fichiers
-                    </h2>
+                    <h2>Fichiers</h2>
                         <div class="tab-content-file-form">
                             <div>
                                 <p>
@@ -100,9 +88,7 @@
                             </div>
                             <label for="fichier">
                                 <input type="file" id="fichier" size="125" placeholder="Sélectionner un fichier à télécharger" accept=".pdf,.word" required>
-                                <h3 id="fileName">
-                                    Selectionnez un fichier à envoyer
-                                </h3>
+                                <h3 id="fileName">Selectionnez un fichier à télécharger</h3>
                                 <img id="upload-img" src="assets\images\upload.png" alt="logo of upload">
                             </label>
 
@@ -114,9 +100,7 @@
                             </div>
                             <label for="fichier-corrigé">
                                 <input type="file" id="fichier-corrigé" size="125" placeholder="Sélectionner un fichier à télécharger" accept=".pdf,.word" required>
-                                <h3 id="fileName-corrigé">
-                                    Selectionnez un fichier à envoyer
-                                </h3>
+                                <h3 id="fileName">Selectionnez un fichier à télécharger</h3>
                                 <img id="upload-img" src="assets\images\upload.png" alt="logo of upload">
                             </label>
                         </div>
@@ -125,24 +109,6 @@
                             <input type="button" value="Enregistrer" name="Enregistrer" >
                         </div>
                 </div>
-
-                <!-- Script pour modifier le texte qui sert de placeholder pour afficher le nom du fichier téléchargé (pour le fichier de l'exercice) -->
-
-                <script>
-                    document.getElementById('fichier').addEventListener('change', function(e) {
-                        var fileName = e.target.files[0].name;
-                        document.getElementById('fileName').textContent = "Fichier téléchargé: " + fileName;
-                    });
-                </script>
-
-                <!-- Script pour modifier le texte qui sert de placeholder pour afficher le nom du fichier téléchargé (pour le fichier corrigé) -->
-
-                <script>
-                    document.getElementById('fichier-corrigé').addEventListener('change', function(e) {
-                        var fileName = e.target.files[0].name;
-                        document.getElementById('fileName-corrigé').textContent = "Fichier téléchargé: " + fileName;
-                    });
-                </script>
 
         <!-- Script pour l'affichage des onglets selon celui qui est selectionné -->
                 <script src="assets\scripts\tabs.js"></script>
