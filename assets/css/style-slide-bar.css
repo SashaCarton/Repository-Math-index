@@ -5,6 +5,11 @@
   font-size: 0.8vw;
 }
 
+.footer-list a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
 .slideBar {
   width: 18vw;
   height: 100vh;

@@ -125,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <div class="form-option">
                         <input type="submit" value="Connexion" name="submit">
-                        <a href="">Mot de passe oublié ?</a>
+                        <a href="lost-password.php">Mot de passe oublié ?</a>
                     </div>
                 </form>
             </div>
