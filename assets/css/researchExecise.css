@@ -1,4 +1,4 @@
-body{
+body {
   margin: 0;
   padding: 0;
   display: flex;
@@ -6,154 +6,153 @@ body{
 }
 
 th, td {
-    padding: 10px;
-    text-align: left;
-    border-top: 1px solid #ddd;
-    font-size: 1vw;
-    min-width: auto;
-  }
-  
-  th {
-    background-color: #f5f5f5;
-    font-weight: bold;
-  }
+  padding: 10px;
+  text-align: left;
+  border-top: 1px solid #ddd;
+  font-size: 1vw;
+  min-width: auto;
+}
 
-  td{
-    padding-right: 50px;
-    position: relative;
-    background-color: white;
-  }
+th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
 
-  .exercices{
-    text-align: center;
-  }
-  
-  .pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    gap: 1%;
-  }
-  
-  .pagination a {
-    color: #000;
-    padding: 8px 16px;
-    text-decoration: none;
-    transition: background-color 0.3s;
-    border-radius: 25px;
-  }
-  
-  .pagination a:hover {
-  
-    background-color: #405fac;
-  }
-  
-  .pagination a:active {
-    background-color: #405fac;
-    color: white;
-  }
-  
-  .section_filter{
-    display: flex;
-    flex-direction: column;
-    font-size: larger;
-    font-weight: 400;
-  }
-  
-  .container_filter{
-    display: flex;
-  }
-  .container{
-    background-color: #ffffff;
-    height: 70%;
-    width: 85%;
-  }
-  
-  .containerExercise{
-    background-color:#EFF2F4;
-    padding: 2vw;
-    padding-bottom: 100%;
-  }
-  
-  .section_inside_exercise{
-    background-color: #ffffff;
-    border-radius: 7.36px;
-    padding: 2vw;
-    height: 55%;
-  }
-  
-  .style_filter{
-    width: 16vw;
-    padding: 1vw;
-    color: grey;
-    border: solid 2px whitesmoke;
-    border-radius: 10px;
-    display: flex;
-    margin-right: 30px;
-    font-size: 1vw;
-  }
-  
-  .style_submit{
-    margin-top: 1.5vw;
-    justify-content: center;
-    width: 12vw;
-    padding: 1vw;
-    color: grey;
-    border: solid 2px whitesmoke;
-    border-radius: 10px;
-    display: flex;
-    font-size: 1vw;
-    height: 3.5vw;
-  }
-  
-  .style_title{
-    color: black;
-    text-align: left;
-    font-size: medium;
-    font-size: 1vw;
-  }
-  
-  .reseach_button:hover{
-    cursor: pointer;
-  }
-  
-  .color_text{
-    color: #1B3168;
-    font-size: 1.2vw;
-    padding: 0;
-  }
-  
-  .section_column{
-    border-spacing: 0;
-    border: solid 1px #ddd;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  
-  .section_title_column_left{
-    border-top-left-radius: 10px;
-    
-  }
-  
-  .section_title_column_right{
-    border-top-right-radius: 10px;
-  }
-  .section_title_title_column_right{
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-  }
+td {
+  padding-right: 50px;
+  position: relative;
+  background-color: white;
+}
 
-.style_filter_file-1{
+.exercices {
+  text-align: center;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 1%;
+}
+
+.pagination a {
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  border-radius: 25px;
+}
+
+.pagination a:hover {
+  background-color: #405fac;
+}
+
+.pagination a:active {
+  background-color: #405fac;
+  color: white;
+}
+
+.section_filter {
+  display: flex;
+  flex-direction: column;
+  font-size: larger;
+  font-weight: 400;
+}
+
+.container_filter {
+  display: flex;
+}
+
+.container {
+  background-color: #ffffff;
+  height: 70%;
+  width: 85%;
+}
+
+.containerExercise {
+  background-color: #eff2f4;
+  padding: 2vw;
+  padding-bottom: 100%;
+}
+
+.section_inside_exercise {
+  background-color: #ffffff;
+  border-radius: 7.36px;
+  padding: 2vw;
+  height: 55%;
+}
+
+.style_filter {
+  width: 16vw;
+  padding: 1vw;
+  color: grey;
+  border: solid 2px whitesmoke;
+  border-radius: 10px;
+  display: flex;
+  margin-right: 30px;
   font-size: 1vw;
 }
 
-.style_filter_file-2{
+.style_submit {
+  margin-top: 1.5vw;
+  justify-content: center;
+  width: 12vw;
+  padding: 1vw;
+  color: grey;
+  border: solid 2px whitesmoke;
+  border-radius: 10px;
+  display: flex;
+  font-size: 1vw;
+  height: 3.5vw;
+}
+
+.style_title {
+  color: black;
+  text-align: left;
+  font-size: medium;
+  font-size: 1vw;
+}
+
+.reseach_button:hover {
+  cursor: pointer;
+}
+
+.color_text {
+  color: #1b3168;
+  font-size: 1.2vw;
+  padding: 0;
+}
+
+.section_column {
+  border-spacing: 0;
+  border: solid 1px #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.section_title_column_left {
+  border-top-left-radius: 10px;
+}
+
+.section_title_column_right {
+  border-top-right-radius: 10px;
+}
+
+.section_title_title_column_right {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.style_filter_file-1 {
+  font-size: 1vw;
+}
+
+.style_filter_file-2 {
   margin-left: 30px;
   font-size: 1vw;
 }
 
-
-.icon_download{
+.icon_download {
   position: absolute;
   left: -15px;
   bottom: 12px;
@@ -161,7 +160,7 @@ th, td {
   height: 1.5vw;
 }
 
-.icon_correction{
+.icon_correction {
   position: absolute;
   right: 115px;
   bottom: 12px;
@@ -169,17 +168,17 @@ th, td {
   height: 1.5vw;
 }
 
-.color_police_table{
-  color: #74828F;
+.color_police_table {
+  color: #74828f;
 }
 
-.style_filter_key_word{
+.style_filter_key_word {
   background-color: pink;
 }
 
 .keyword {
   color: black;
-  background-color: #DBDBDB;
+  background-color: #dbdbdb;
   border-radius: 20px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -189,58 +188,56 @@ th, td {
   font-size: 1vw;
 }
 
-.font_weight_title{
-  font-weight:normal;
+.font_weight_title {
+  font-weight: normal;
   color: #464646;
 }
 
-.table_padding{
+.table_padding {
   padding-right: 40px;
 }
 
-table{
+table {
   overflow-y: auto;
 }
 
 @media screen and (max-width: 1076px) {
   .icon_download {
-    left: -6px;
-    bottom: 23px;
-}
+      left: -6px;
+      bottom: 23px;
+  }
 
   .icon_correction {
-    left: -5px;
-    bottom: 11px;
-}
+      left: -5px;
+      bottom: 11px;
+  }
 }
 
 @media screen and (max-width: 986px) {
-  .style_filter_file-2{
-    margin-left: 0px;
-    font-size: 1vw;
+  .style_filter_file-2 {
+      margin-left: 0px;
+      font-size: 1vw;
   }
 
   .icon_download {
-    left: -6px;
-    bottom: 23px;
-}
+      left: -6px;
+      bottom: 23px;
+  }
 
   .icon_correction {
-    left: -5px;
-    bottom: 11px;
-}
+      left: -5px;
+      bottom: 11px;
+  }
 }
 
 @media screen and (max-width: 810px) {
   .icon_download {
-    left: -6px;
-    bottom: 23px;
-}
+      left: -6px;
+      bottom: 23px;
+  }
 
   .icon_correction {
-    left: -5px;
-    bottom: 11px;
+      left: -5px;
+      bottom: 11px;
+  }
 }
-}
-
-
