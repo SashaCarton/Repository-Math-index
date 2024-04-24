@@ -40,7 +40,7 @@ require_once('connexion_db.php');
                         <form>
                             <input type="text" id="search" name="search">
                             <input type="submit" id="buttonSearch" value="Rechercher">
-                            <input type="button" id="buttonAdd" value="Ajouter +">
+                            <input type="button" id="buttonAdd" value="Ajouter +" onclick="showAddContributorForm()">
                         </form>
                     </div>
                     <!-- Mettre ici php -->
@@ -73,32 +73,30 @@ require_once('connexion_db.php');
                         } else {
                             echo "0 results";
                         }
-
-                        
                         ?>
+                    </table>
+                    <?php
+                    $sql = "SELECT COUNT(*) AS total FROM user";
+                    $result = $connection->query($sql);
+                    $row = $result->fetch_assoc();
+                    $total_pages = ceil($row["total"] / $limit);
 
-                        
-                        </table>
-                        <?php
-                        $sql = "SELECT COUNT(*) AS total FROM user";
-                        $result = $connection->query($sql);
-                        $row = $result->fetch_assoc();
-                        $total_pages = ceil($row["total"] / $limit);
-
-                        echo "<div class='pagination'>";
-                        for ($i = 1; $i <= $total_pages; $i++) {
-                            echo "<a href='administration.php?page=" . $i . "'";
-                            if ($i == $page) {
-                                echo " class='active'";
-                            }
-                            echo ">" . $i . "</a>";
+                    echo "<div class='pagination'>";
+                    for ($i = 1; $i <= $total_pages; $i++) {
+                        echo "<a href='administration.php?page=" . $i . "'";
+                        if ($i == $page) {
+                            echo " class='active'";
                         }
-                        echo "</div>";
-                        ?>
+                        echo ">" . $i . "</a>";
+                    }
+                    echo "</div>";
+                    if (isset($_GET['success']) && $_GET['success'] == 1) {
+                        echo "<script>alert('Contributeur ajouté avec succès');</script>";
+                    }
+                    ?>
                 </div>
-                
             </div>
-            
+
             <div class="tab-content">
                 <h2>Sources</h2>
             </div>
@@ -113,45 +111,37 @@ require_once('connexion_db.php');
     </div>
 </div>
 <script>
-    // Sélectionnez le bouton Ajouter
-    const addButton = document.querySelector('input[value="Ajouter +"]');
-
-    // Ajoutez un gestionnaire d'événements click au bouton
-    addButton.addEventListener('click', function(event) {
-        // Empêchez le formulaire d'être soumis (ce qui rafraîchirait la page)
-        event.preventDefault();
-
+    function showAddContributorForm() {
         // Sélectionnez la div contributeurs
         const contributorsDiv = document.querySelector('.contributeurs');
 
         // Changez le contenu de la div
         contributorsDiv.innerHTML =`
             <h3>Ajouter un contributeur</h3>
-            <label for="nom">Nom :</label>
-            <input type="text" id="nom" name="nom" placeholder="Saisissez le nom du contributeur">
+            <form method="POST" action="register.php">
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" name="nom" placeholder="Saisissez le nom du contributeur" required>
 
-            <label for="role">Rôle :</label>
-            <select id="role" name="role">
-                <option value="Enseignant">Enseignant</option>
-                <option value="Elève">Elève</option>
-            </select>
+                <label for="role">Rôle :</label>
+                <select id="role" name="role" required>
+                    <option value="Enseignant">Enseignant</option>
+                    <option value="Elève">Elève</option>
+                </select>
 
-            <label for="prenom">Prénom :</label>
-            <input type="text" id="prenom" name="prenom" placeholder="Saisissez le prénom">
+                <label for="prenom">Prénom :</label>
+                <input type="text" id="prenom" name="prenom" placeholder="Saisissez le prénom" required>
 
-            <label for="email">Email :</label>
-            <input type="email" id="email" name="email" placeholder="Saisissez l'email">
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" placeholder="Saisissez l'email" required>
 
-            <label for="password">Mot de passe :</label>
-            <input type="password" id="password" name="password" placeholder="Saisissez le mot de passe">
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" name="password" placeholder="Saisissez le mot de passe" required>
 
-            <input type="button" value="Retour à la liste" onclick="window.location.href='administration.php'">
-            <input type="submit" value="Enregistrer">
+                <input type="submit" value="Enregistrer">
+                <input type="button" value="Retour à la liste" onclick="window.location.href='administration.php'">
+            </form>
         `;
-
-        // Ajoutez le formulaire à la div contributeurs
-        contributorsDiv.appendChild(form);
-    });
+    }
 </script>
 <?php require_once('footer.php');?>
 </body>
