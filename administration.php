@@ -67,7 +67,7 @@ require_once('connexion_db.php');
                                 echo "<td>" . $row["first_name"] . "</td>";
                                 echo "<td>" . $row["email"] . "</td>";
                                 echo "<td>" . $row["role"] . "</td>";
-                                echo "<td><a href='modifierContributeur.php?id=" . $row["id"] . "'>Modifier</a> | <a href='supprimerContributeur.php?id=" . $row["id"] . "'>Supprimer</a></td>";
+                                echo "<td><a href='edit_contributor.php?id=" . $row["id"] . "'>Modifier</a> | <a href='supprimerContributeur.php?id=" . $row["id"] . "'>Supprimer</a></td>";
                                 echo "</tr>";
                             }
                         } else {
@@ -118,7 +118,7 @@ require_once('connexion_db.php');
         // Changez le contenu de la div
         contributorsDiv.innerHTML =`
             <h3>Ajouter un contributeur</h3>
-            <form method="POST" action="register.php">
+            <form method="POST" action="register.php" class="add-contributor">
                 <label for="nom">Nom :</label>
                 <input type="text" id="nom" name="nom" placeholder="Saisissez le nom du contributeur" required>
 
@@ -144,5 +144,6 @@ require_once('connexion_db.php');
     }
 </script>
 <?php require_once('footer.php');?>
+
 </body>
 </html>

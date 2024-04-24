@@ -75,3 +75,45 @@ table{
 .pagination a:hover:not(.active) {
     background-color: #ddd;
 }
+.add-contributor {
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.add-contributor h3 {
+    margin-top: 0;
+}
+
+.add-contributor label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.add-contributor input[type="text"],
+.add-contributor input[type="email"],
+.add-contributor input[type="password"],
+.add-contributor select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #f5f5f5;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.add-contributor input[type="submit"],
+.add-contributor input[type="button"] {
+    background-color: #52B788;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.add-contributor input[type="submit"]:hover,
+.add-contributor input[type="button"]:hover {
+    background-color: #3d8e63;
+}
