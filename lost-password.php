@@ -1,6 +1,4 @@
 <?php
-// référence a la config SMTP du mailcatcher
-    require_once 'config-SMTP.php';
 
 // Fonction pour afficher les erreurs de validation du formulaire
 function displayErrors($errors, $field) {
@@ -22,7 +20,7 @@ $message = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Validate email
     if (empty($_POST['email'])) {
-        $errors['email'] = 'Email is required';
+        $errors['email'] = 'Un email est requis pour continuer.';
     } else {
         $email = $_POST['email'];
     }
@@ -39,37 +37,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_POST['submit'])) {
             $email = $_POST['email'];
 
-            // Prepare the query
-            $query = $mysqli->prepare('SELECT * FROM user WHERE email = ?');
+            // Preparation de la requête SQL
+            $query = $mysqli->prepare('SELECT email FROM utilisateurs WHERE email = ?');
 
+            // Si la requête échoue, afficher un message d'erreur
             if ($query === false) {
                 die('Failed to prepare the SQL query: ' . $mysqli->error);
             }
 
-            // Bind the parameters
+            // Utilisation des BindParam pour sécuriser la requête
             $query->bind_param('s', $email);
 
             // Execute the query
             $query->execute();
 
-            // Get the result
+            // Stockage du résultat de la requête dans une variable $result
             $result = $query->get_result();
 
             // Fetch the row
             $row = $result->fetch_assoc();
 
-            if (empty($row)) 
-                // If the query returns no rows, the user does not exist in the database, display an error message
-                $errors['email'] = "L'Email est incorrect.";
-             
-            
+            // Vérification de l'existence de l'email dans la base de données.
+            if ($row) {
+                // Si l'email existe dans la base de données
+            } else {
+                // Si l'email n'existe pas dans la base de données, afficher un message d'erreur
+                $errors['email'] = 'L\'adresse email n\'existe pas, Veuillez réessayer.';
+            }
         }
     }
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <?php include ('./header.php'); ?>
@@ -87,9 +88,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div class="description-form">
                 <p>
-                    Cet espace est réservé aux enseignants du lycée Saint-Vincent - Senlis.
-                    Si vous avez perdu votre mot de passe, veuille renseigner votre email si dessous
-                    pour envoyer automatiquement un mail a l'administrateur via le mail <a href="">contact@lyceestvincent.net</a>
+                Cet espace est réservé aux enseignants du lycée Saint-Vincent - Senlis.
+                Si vous avez perdu votre mot de passe, veuillez renseigner votre email ci-dessous
+                pour envoyer automatiquement un mail à l'administrateur via le mail <a href="">contact@lyceestvincent.net</a>
                 </p>
 
                 <form action="lost-password.php" method="POST" name="login">
@@ -100,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
 
                     <div class="form-option">
-                        <input type="submit" value="Connexion" name="submit">
+                        <input type="submit" value="Envoyer" name="submit">
                         <a href="lost-password.php">Mot de passe oublié ?</a>
                     </div>
                 </form>
