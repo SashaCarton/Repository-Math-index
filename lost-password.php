@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // If there are no validation errors, proceed with login
     if (empty($errors)) {
-        // Create a new mysqli instance
+        // Création d'une connexion mysqli à la base de données
         $mysqli = new mysqli('localhost', 'root', '', 'math_index');
 
         if ($mysqli->connect_errno) {
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email = $_POST['email'];
 
             // Preparation de la requête SQL
-            $query = $mysqli->prepare('SELECT email FROM utilisateurs WHERE email = ?');
+            $query = $mysqli->prepare('SELECT * FROM utilisateurs WHERE email = ?');
 
             // Si la requête échoue, afficher un message d'erreur
             if ($query === false) {
@@ -60,9 +60,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Vérification de l'existence de l'email dans la base de données.
             if ($row) {
                 // Si l'email existe dans la base de données
+                mail(
+                     $to = 'contact@lyceestvincent.net',
+                     $subject = 'MathIndex : ' . $row['nom'] . ' demande un changement de mot de passe.',
+                     $message = $row['nom'] . ' demande un changement de mot de passe. ' . "\n" .
+                     'Adresse email de la personne : ' . $row['email'] . '.' . "\n" . 
+                     'Après changement, merci de notifier l’utilisateur de son nouveau mot de passe.',
+                     $headers[] = 'Content-Type: text/plain; charset="UTF-8"',
+                );
+                $errors['email'] = 'Un email a été envoyé à l\'administrateur, veuillez patienter.';
             } else {
                 // Si l'email n'existe pas dans la base de données, afficher un message d'erreur
-                $errors['email'] = 'L\'adresse email n\'existe pas, Veuillez réessayer.';
+                $errors['email'] = 'L\'adresse email n\'existe pas, veuillez réessayer.';
             }
         }
     }
