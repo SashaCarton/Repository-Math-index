@@ -1,3 +1,10 @@
+body{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+}
+
 th, td {
     padding: 10px;
     text-align: left;
@@ -11,6 +18,7 @@ th, td {
 
   td{
     padding-right: 50px;
+    position: relative;
   }
 
   .exercices{
@@ -81,16 +89,16 @@ th, td {
   }
   
   .style_submit{
-    margin-top: 1.49vw;
-    color:#757575;
-    border: solid 2px;
-    border-color: rgba(239,239,239,255);
+    margin-top: 17px;
+    color: #757575;
     font-weight: 600;
+    border: none;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     width: 11vw;
-    height: 3.5vw;
+    padding: 1vw;
+
   }
   
   .style_title{
@@ -124,3 +132,32 @@ th, td {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
   }
+
+.style_filter_file-1{
+  margin-left: 15px;
+}
+
+.style_filter_file-2{
+  margin-left: 30px;
+}
+
+
+.test-1{
+  position: absolute;
+  left: 5px;
+  bottom: 10px;
+}
+
+.test-2{
+  position: absolute;
+  right: 109px;
+  bottom: 10px;
+}
+
+.color_police_table{
+  color: #74828F;
+}
+
+.style_filter_key_word{
+  background-color: pink;
+}
