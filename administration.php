@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <?php include ('./header.php') ?>
-    <title>Soumettre un exercice</title>
+    <?php
+    include ('./header.php');
+    require_once 'connexion_db.php';
+    require 'config.php';
+    $connection = mysqli_connect($server, $user, $pass, $dbName);
+    ?>
 </head>
 <?php
 require_once('slide-bar.php');
@@ -40,6 +44,57 @@ require_once('connexion_db.php');
                         </form>
                     </div>
                     <!-- Mettre ici php -->
+                    <table>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>Email</th>
+                            <th>Rôle</th>
+                            <th>Actions</th>
+                        </tr>
+                        <?php
+                        $page = isset($_GET['page']) ? $_GET['page'] : 1;
+                        $limit = 5;
+                        $start = ($page - 1) * $limit;
+
+                        $sql = "SELECT * FROM user LIMIT $start, $limit";
+                        $result = $connection->query($sql);
+
+                        if ($result->num_rows > 0) {
+                            while($row = $result->fetch_assoc()) {
+                                echo "<tr>";
+                                echo "<td>" . $row["last_name"] . "</td>";
+                                echo "<td>" . $row["first_name"] . "</td>";
+                                echo "<td>" . $row["email"] . "</td>";
+                                echo "<td>" . $row["role"] . "</td>";
+                                echo "<td><a href='modifierContributeur.php?id=" . $row["id"] . "'>Modifier</a> | <a href='supprimerContributeur.php?id=" . $row["id"] . "'>Supprimer</a></td>";
+                                echo "</tr>";
+                            }
+                        } else {
+                            echo "0 results";
+                        }
+
+                        
+                        ?>
+
+                        
+                        </table>
+                        <?php
+                        $sql = "SELECT COUNT(*) AS total FROM user";
+                        $result = $connection->query($sql);
+                        $row = $result->fetch_assoc();
+                        $total_pages = ceil($row["total"] / $limit);
+
+                        echo "<div class='pagination'>";
+                        for ($i = 1; $i <= $total_pages; $i++) {
+                            echo "<a href='administration.php?page=" . $i . "'";
+                            if ($i == $page) {
+                                echo " class='active'";
+                            }
+                            echo ">" . $i . "</a>";
+                        }
+                        echo "</div>";
+                        ?>
                 </div>
                 
             </div>
