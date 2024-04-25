@@ -154,7 +154,7 @@ td {
     width: 233px;
 }
 
-form {
+.container_title_form{
     margin-bottom: 4%;
     display: flex;
     justify-content: flex-start;
