@@ -43,7 +43,6 @@ require_once('connexion_db.php');
                             <input type="button" id="buttonAdd" value="Ajouter +" onclick="showAddContributorForm()">
                         </form>
                     </div>
-                    <!-- Mettre ici php -->
                     <table>
                         <tr>
                             <th>Nom</th>
