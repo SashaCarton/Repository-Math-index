@@ -37,8 +37,8 @@ require_once('connexion_db.php');
                         <h2>Gestion des contributeurs</h2>
                         <label for="search">Rechercher un contributeur par nom, prénom ou email :</label>
                         <div class="search">
-                            <form>
-                                <div class="title_form">
+                            <form class="container_title_form">
+                                <div class="section_title_form">
                                     <input type="text" id="search" name="search">
                                     <input type="submit" id="buttonSearch" value="Rechercher">
                                 </div>
