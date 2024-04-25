@@ -1,34 +1,40 @@
-.grey-bloc{
+.grey-bloc {
     background-color: #f5f5f5;
     border-radius: 5px;
     padding-bottom: 100%;
 }
-.tabs-btn-container{
+
+.tabs-btn-container {
     background-color: #f5f5f5;
 }
-.contributeurs{
+
+.contributeurs {
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
     text-align: left;
     padding-left: 30px;
     border-radius: 7.36px;
-    padding-right: 30px
+    padding-right: 30px;
 }
-h2{
+
+h2 {
     padding: 0!important;
 }
-table{
+
+table {
     width: 100%;
     margin-top: -20px;
 }
-#search{
+
+#search {
     height: 2.5vw;
     width: 30vw;
     border: solid #f5f5f5;
     border-radius: 5px;
 }
-#buttonSearch{
+
+#buttonSearch {
     background-color: #e2e1e1;
     border: solid #ffffff;
     border-radius: 10px;
@@ -37,10 +43,11 @@ table{
     padding-right: 2.5vw;
     padding-top: 1vw;
     padding-bottom: 1vw;
-    color:  #636262;
+    color: #636262;
 }
-#buttonAdd{
-    background-color:  #52B788;
+
+#buttonAdd {
+    background-color: #52B788;
     border: solid #ffffff;
     border-radius: 10px;
     padding: 0.5vw;
@@ -48,8 +55,9 @@ table{
     padding-right: 2.5vw;
     padding-top: 1vw;
     padding-bottom: 1vw;
-    color:  #ffffff;
+    color: #ffffff;
 }
+
 .pagination {
     display: flex;
     justify-content: center;
@@ -68,7 +76,6 @@ table{
 }
 
 .pagination a.active {
-
     background-color: gainsboro;
     color: black;
     border: black;
@@ -79,6 +86,7 @@ table{
     color: white;
     border: black;
 }
+
 .add-contributor {
     background-color: #f5f5f5;
     border-radius: 5px;
@@ -122,7 +130,7 @@ table{
     background-color: #3d8e63;
 }
 
-.tabs{
+.tabs {
     background-color: #f5f5f5;
 }
 
@@ -130,19 +138,19 @@ th {
     background-color: #f5f5f5;
     font-weight: bold;
 }
-  
+
 td {
     padding-right: 50px;
     position: relative;
     background-color: white;
 }
 
-.color_police_table img{
+.color_police_table img {
     margin-left: 20px;
     margin-right: 5px;
 }
 
-.font_weight_title:nth-child(0n+1){
+.font_weight_title:nth-child(0n+1) {
     width: 233px;
 }
 
@@ -150,10 +158,10 @@ form {
     margin-bottom: 4%;
     display: flex;
     justify-content: flex-start;
-    gap: 50px
+    gap: 50px;
 }
 
-.title_form{
+.title_form {
     display: flex;
     justify-content: space-between;
     width: 45vw;
