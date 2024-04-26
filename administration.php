@@ -17,14 +17,12 @@ require_once('connexion_db.php');
 <div class="container">
     <?php require_once('connect-bar.php'); ?>
     <div class="grey-bloc">
-        <h1>
-            Administration
-        </h1>
+        <h1>Administration</h1>
 
         <div class="tabs">
             <div class="tabs-btn-container">
                 <button class="tab">Contributeurs</button>
-                <button class="tab">Exercices </button>
+                <button class="tab">Exercices</button>
                 <button class="tab">Matières</button>
                 <button class="tab">Classes</button>
                 <button class="tab">Thématiques</button>
@@ -35,15 +33,16 @@ require_once('connexion_db.php');
             <div class="tab-content active-tab-content">
                 <div class="contributeurs">
                     <h2>Gestion des contributeurs</h2>
-                    <label for="search"><?php 
-
-$search = isset($_GET['search']) ? $_GET['search'] : '';
-if(isset($_GET['search']) && !empty($_GET['search'])) {
-    echo 'Résultat pour : ' . $search;
-} else {
-    echo 'Rechercher un contributeur par nom, prénom ou email :';
-}
-?></label>
+                    <label for="search">
+                        <?php 
+                        $search = isset($_GET['search']) ? $_GET['search'] : '';
+                        if(isset($_GET['search']) && !empty($_GET['search'])) {
+                            echo 'Résultat pour : ' . $search;
+                        } else {
+                            echo 'Rechercher un contributeur par nom, prénom ou email :';
+                        }
+                        ?>
+                    </label>
                     
                     <div class="search">
                         <form>
@@ -97,7 +96,6 @@ if(isset($_GET['search']) && !empty($_GET['search'])) {
                             echo "<script>alert('Contributeur ajouté avec succès');</script>";
                         }
                         ?>
-                        
                     </table>
                     <?php
                     $sql = "SELECT COUNT(*) AS total FROM user";
@@ -129,7 +127,7 @@ if(isset($_GET['search']) && !empty($_GET['search'])) {
                 <h2>Fichiers</h2>
             </div>
 
-            <!-- Script pour l'affichage des onglets selon celui qui est selectionné -->
+            <!-- Script pour l'affichage des onglets selon celui qui est sélectionné -->
             <script src="./assets/scripts/tabs.js"></script>
         </div>
     </div>
@@ -168,6 +166,5 @@ if(isset($_GET['search']) && !empty($_GET['search'])) {
     }
 </script>
 <?php require_once('footer.php');?>
-
 </body>
 </html>
