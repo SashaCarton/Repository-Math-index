@@ -103,29 +103,29 @@ require_once('connexion_db.php');
                     $row = $result->fetch_assoc();
                     $total_pages = ceil($row["total"] / $limit);
 
-                    echo "<div class='pagination'>";
-                    for ($i = 1; $i <= $total_pages; $i++) {
-                        echo "<a href='administration.php?page=" . $i . "'";
-                        if ($i == $page) {
-                            echo " class='active'";
-                        }
-                        echo ">" . $i . "</a>";
-                    }
-                    echo "</div>";
-                    if (isset($_GET['success']) && $_GET['success'] == 1) {
-                        echo "<script>alert('Contributeur ajouté avec succès');</script>";
-                    }
-                    ?>
+                            echo "<div class='pagination'>";
+                            for ($i = 1; $i <= $total_pages; $i++) {
+                                echo "<a href='administration.php?page=" . $i . "'";
+                                if ($i == $page) {
+                                    echo " class='active'";
+                                }
+                                echo ">" . $i . "</a>";
+                            }
+                            echo "</div>";
+                            if (isset($_GET['success']) && $_GET['success'] == 1) {
+                                echo "<script>alert('Contributeur ajouté avec succès');</script>";
+                            }
+                        ?>
+                    </div>
                 </div>
-            </div>
 
-            <div class="tab-content">
-                <h2>Sources</h2>
-            </div>
+                <div class="tab-content">
+                    <h2>Sources</h2>
+                </div>
 
-            <div class="tab-content">
-                <h2>Fichiers</h2>
-            </div>
+                <div class="tab-content">
+                    <h2>Fichiers</h2>
+                </div>
 
             <!-- Script pour l'affichage des onglets selon celui qui est sélectionné -->
             <script src="./assets/scripts/tabs.js"></script>
@@ -137,27 +137,27 @@ require_once('connexion_db.php');
         // Sélectionnez la div contributeurs
         const contributorsDiv = document.querySelector('.contributeurs');
 
-        // Changez le contenu de la div
-        contributorsDiv.innerHTML =`
-            <h3>Ajouter un contributeur</h3>
-            <form method="POST" action="register.php" class="add-contributor">
-                <label for="nom">Nom :</label>
-                <input type="text" id="nom" name="nom" placeholder="Saisissez le nom du contributeur" required>
+            // Changez le contenu de la div
+            contributorsDiv.innerHTML =`
+                <h3>Ajouter un contributeur</h3>
+                <form method="POST" action="register.php" class="add-contributor">
+                    <label for="nom">Nom :</label>
+                    <input type="text" id="nom" name="nom" placeholder="Saisissez le nom du contributeur" required>
 
-                <label for="role">Rôle :</label>
-                <select id="role" name="role" required>
-                    <option value="Enseignant">Enseignant</option>
-                    <option value="Elève">Elève</option>
-                </select>
+                    <label for="role">Rôle :</label>
+                    <select id="role" name="role" required>
+                        <option value="Enseignant">Enseignant</option>
+                        <option value="Elève">Elève</option>
+                    </select>
 
-                <label for="prenom">Prénom :</label>
-                <input type="text" id="prenom" name="prenom" placeholder="Saisissez le prénom" required>
+                    <label for="prenom">Prénom :</label>
+                    <input type="text" id="prenom" name="prenom" placeholder="Saisissez le prénom" required>
 
-                <label for="email">Email :</label>
-                <input type="email" id="email" name="email" placeholder="Saisissez l'email" required>
+                    <label for="email">Email :</label>
+                    <input type="email" id="email" name="email" placeholder="Saisissez l'email" required>
 
-                <label for="password">Mot de passe :</label>
-                <input type="password" id="password" name="password" placeholder="Saisissez le mot de passe" required>
+                    <label for="password">Mot de passe :</label>
+                    <input type="password" id="password" name="password" placeholder="Saisissez le mot de passe" required>
 
                 <input type="submit" value="Enregistrer">
                 <input type="button" value="Retour à la liste" onclick="window.location.href='administration.php'">
