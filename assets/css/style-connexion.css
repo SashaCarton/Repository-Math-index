@@ -179,16 +179,16 @@ input[type=password] {
   width: 37%;
   height: 57px;
   padding-left: 10px;
-  border-radius: 5px;
-  border: 2px solid #f0f0f3
+  border: 2px solid #F6F6F6 ;
+  border-radius: 7.36px;
 }
 
 input#email {
-  border-radius: 5px;
   height: 57px;
   width: 37%;
   padding-left: 9px;
-  border: 2px solid #f0f0f3
+  border: 2px solid #F6F6F6 ;
+  border-radius: 7.36px;
 }
 
 label {
