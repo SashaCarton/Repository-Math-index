@@ -144,17 +144,17 @@ require_once('connexion_db.php');
                     <div class="container_form">
                         <div class="section_form_1">
                             <label for="nom">Nom :</label>
-                            <input class="text_form" type="text" id="nom" name="nom" placeholder="Saisissez le nom du contributeur" required>
+                            <input class="text_form" type="text" id="nom" name="nom" placeholder=" Saisissez le nom du contributeur" required>
 
                             <label for="prenom">Prénom :</label>
-                            <input class="text_form" type="text" id="prenom" name="prenom" placeholder="Saisissez le prénom" required>
+                            <input class="text_form" type="text" id="prenom" name="prenom" placeholder=" Saisissez le prénom" required>
 
                             <label for="email">Email :</label>
-                            <input class="text_form" type="email" id="email" name="email" placeholder="Saisissez l'email" required>
+                            <input class="text_form" type="email" id="email" name="email" placeholder=" Saisissez l'email" required>
 
 
                             <label for="password">Mot de passe :</label>
-                            <input class="text_form" type="password" id="password" name="password" placeholder="Saisissez le mot de passe" required>
+                            <input class="text_form" type="password" id="password" name="password" placeholder=" Saisissez le mot de passe" required>
                             <div class="container_input">
                                 <input class="btn_add_exercise_1" type="button" value="< Retour à la liste" onclick="window.location.href='administration.php'"> 
                                 <input class="btn_add_exercise_2" type="submit" value="Enregistrer">
