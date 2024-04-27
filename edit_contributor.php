@@ -43,7 +43,6 @@ require_once('connexion_db.php');
 
             <div class="tab-content active-tab-content">
                 <div class="add-contributor">
-                    <!-- Partie retirée -->
                     <h3>Modifier un contributeur</h3>
                     <form method="POST" action="update_contributor.php" class="update-contributor">
                         <label for="id">ID :</label>
