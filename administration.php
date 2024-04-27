@@ -84,7 +84,7 @@ require_once('connexion_db.php');
                                 echo "</tr>";
                             }
                         } else {
-                            echo "0 results";
+                            echo "0 resultats trouvés";
                         }
 
                         $sql = "SELECT COUNT(*) AS total FROM user";
@@ -126,8 +126,6 @@ require_once('connexion_db.php');
                 <div class="tab-content">
                     <h2>Fichiers</h2>
                 </div>
-
-            <!-- Script pour l'affichage des onglets selon celui qui est sélectionné -->
             <script src="./assets/scripts/tabs.js"></script>
         </div>
     </div>

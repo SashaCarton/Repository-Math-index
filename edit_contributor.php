@@ -7,11 +7,9 @@
     require 'config.php';
     $connection = mysqli_connect($server, $user, $pass, $dbName);
     
-    // Retrieve the ID from the URL parameter
     $id = $_GET['id'];
     
-    // Fetch the contributor information from the database based on the ID
-    $query = "SELECT * FROM contributors WHERE id = $id";
+    $query = "SELECT * FROM user WHERE id = $id";
     $result = mysqli_query($connection, $query);
     $contributor = mysqli_fetch_assoc($result);
     ?>
@@ -29,7 +27,6 @@ require_once('connexion_db.php');
         <h1>
             Administration
         </h1>
-
         <div class="tabs">
             <div class="tabs-btn-container">
                 <button class="tab">Contributeurs</button>
@@ -40,35 +37,37 @@ require_once('connexion_db.php');
                 <button class="tab">Compétences</button>
                 <button class="tab">Origines</button>
             </div>
-
             <div class="tab-content active-tab-content">
                 <div class="add-contributor">
                     <h3>Modifier un contributeur</h3>
-                    <form method="POST" action="update_contributor.php" class="update-contributor">
-                        <label for="id">ID :</label>
-                        <input type="text" id="id" name="id" value="<?php echo $contributor['id']; ?>" required>
-
+                    <form method="POST"  class="update-contributor">
                         <label for="nom">Nom :</label>
-                        <input type="text" id="nom" name="nom" value="<?php echo $contributor['nom']; ?>" required>
+                        <input class="text_form" type="text" id="nom" name="nom" value="<?php echo $contributor['last_name']; ?>" required>
 
                         <label for="role">Rôle :</label>
-                        <select id="role" name="role" required>
-                            <option value="Enseignant" <?php if($contributor['role'] == 'Enseignant') echo 'selected'; ?>>Enseignant</option>
-                            <option value="Elève" <?php if($contributor['role'] == 'Elève') echo 'selected'; ?>>Elève</option>
-                        </select>
+                        <div class="custom_select">
+                            <select class="text_form_1" id="role" name="role" required>
+                                <option value="Enseignant" <?php if($contributor['role'] == 'Enseignant') echo 'selected'; ?>>Enseignant</option>
+                                <option value="Elève" <?php if($contributor['role'] == 'Elève') echo 'selected'; ?>>Elève</option>
+                            </select>
+                        </div>
 
                         <label for="prenom">Prénom :</label>
-                        <input type="text" id="prenom" name="prenom" value="<?php echo $contributor['prenom']; ?>" required>
+                        <input class="text_form" type="text" id="prenom" name="prenom" value="<?php echo $contributor['first_name']; ?>" required>
 
                         <label for="email">Email :</label>
-                        <input type="email" id="email" name="email" value="<?php echo $contributor['email']; ?>" required>
+                        <input class="text_form" type="email" id="email" name="email" value="<?php echo $contributor['email']; ?>" required>
 
                         <label for="password">Mot de passe :</label>
-                        <input type="password" id="password" name="password" placeholder="Saisissez le mot de passe" required>
+                        <input class="text_form" type="password" id="password" name="password" value="<?php echo $contributor['password']; ?>" required>
 
-                        <input type="submit" value="Modifier">
-                        <input type="button" value="Retour à la liste" onclick="window.location.href='administration.php'">
+                        <div class="container_input">
+                            <input class="btn_add_exercise_1" type="button" value="< Retour à la liste" onclick="window.location.href='administration.php'"> 
+                            <input class="btn_add_exercise_2" type="submit" value="Enregistrer">
+                        </div>
                     </form>
+                </div>
+            </div>
                 </div>
             </div>
 
@@ -79,8 +78,28 @@ require_once('connexion_db.php');
             <div class="tab-content">
                 <h2>Fichiers</h2>
             </div>
+            <?php
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                header('Location: administration.php' );
+                $nom = $_POST['nom'];
+                $role = $_POST['role'];
+                $prenom = $_POST['prenom'];
+                $email = $_POST['email'];
+                $password = $_POST['password'];
 
-            <!-- Script pour l'affichage des onglets selon celui qui est selectionné -->
+                $query = "UPDATE user SET last_name = '$nom', role = '$role', first_name = '$prenom', email = '$email', password = '$password' WHERE id = $id";
+                $result = mysqli_query($connection, $query);
+
+                if ($result) {
+                    header('Location: administration.php');
+                    exit;
+                } else {
+                    echo "Error updating contributor: " . mysqli_error($connection);
+                }
+            }
+            
+            ?>
+
             <script src="./assets/scripts/tabs.js"></script>
         </div>
     </div>

@@ -7,7 +7,6 @@
     <?php
     if (isset($_SESSION['first_name'])) {
         echo "Bonjour, <a href=\"administration.php\">" . $_SESSION['first_name'] . "</a>";
-        echo '<a href="deconnexion.php">Déconnexion</a>';
     } else {
         echo '<a href="connexion.php">Connexion</a>';
     }
