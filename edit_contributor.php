@@ -7,11 +7,13 @@
     require 'config.php';
     $connection = mysqli_connect($server, $user, $pass, $dbName);
     
-    $id = $_GET['id'];
+    if (isset($_GET['id'])) {
+        $id = mysqli_real_escape_string($connection, $_GET['id']);
     
-    $query = "SELECT * FROM user WHERE id = $id";
-    $result = mysqli_query($connection, $query);
-    $contributor = mysqli_fetch_assoc($result);
+        $query = "SELECT * FROM user WHERE id = $id";
+        $result = mysqli_query($connection, $query);
+        $contributor = mysqli_fetch_assoc($result);
+    }
     ?>
     <link rel="stylesheet" href="assets/css/administration.css">
 </head>
@@ -58,9 +60,9 @@ require_once('connexion_db.php');
                         <label for="email">Email :</label>
                         <input class="text_form" type="email" id="email" name="email" value="<?php echo $contributor['email']; ?>" required>
 
-                        <label for="password">Mot de passe :</label>
-                        <input class="text_form" type="password" id="password" name="password" value="<?php echo $contributor['password']; ?>" required>
-
+                        <label for="password">Nouveau Mot de passe :</label>
+                        <input class="text_form" type="password" id="password" name="password" value="">
+                        
                         <div class="container_input">
                             <input class="btn_add_exercise_1" type="button" value="< Retour à la liste" onclick="window.location.href='administration.php'"> 
                             <input class="btn_add_exercise_2" type="submit" value="Enregistrer">
@@ -68,41 +70,41 @@ require_once('connexion_db.php');
                     </form>
                 </div>
             </div>
-                </div>
-            </div>
-
-            <div class="tab-content">
-                <h2>Sources</h2>
-            </div>
-
-            <div class="tab-content">
-                <h2>Fichiers</h2>
-            </div>
-            <?php
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                header('Location: administration.php' );
-                $nom = $_POST['nom'];
-                $role = $_POST['role'];
-                $prenom = $_POST['prenom'];
-                $email = $_POST['email'];
-                $password = $_POST['password'];
-
-                $query = "UPDATE user SET last_name = '$nom', role = '$role', first_name = '$prenom', email = '$email', password = '$password' WHERE id = $id";
-                $result = mysqli_query($connection, $query);
-
-                if ($result) {
-                    header('Location: administration.php');
-                    exit;
-                } else {
-                    echo "Error updating contributor: " . mysqli_error($connection);
-                }
-            }
-            
-            ?>
-
-            <script src="./assets/scripts/tabs.js"></script>
         </div>
     </div>
+
+    <div class="tab-content">
+        <h2>Sources</h2>
+    </div>
+
+    <div class="tab-content">
+        <h2>Fichiers</h2>
+    </div>
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (isset($_POST['nom']) && isset($_POST['role']) && isset($_POST['prenom']) && isset($_POST['email'])) {
+            $nom = mysqli_real_escape_string($connection, $_POST['nom']);
+            $role = mysqli_real_escape_string($connection, $_POST['role']);
+            $prenom = mysqli_real_escape_string($connection, $_POST['prenom']);
+            $email = mysqli_real_escape_string($connection, $_POST['email']);
+            $password = mysqli_real_escape_string($connection, $_POST['password']);
+
+            $query = "UPDATE user SET last_name = '$nom', role = '$role', first_name = '$prenom', email = '$email', password = '$password' WHERE id = $id";
+            $result = mysqli_query($connection, $query);
+
+            if ($result) {
+                header('Location: administration.php');
+                exit;
+            } else {
+                echo "Error updating contributor: " . mysqli_error($connection);
+            }
+        }
+    }
+    ?>
+
+    <script src="./assets/scripts/tabs.js"></script>
+</div>
+</div>
 </div>
 <?php require_once('footer.php');?>
 </body>
