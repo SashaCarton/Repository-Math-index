@@ -5,8 +5,15 @@
 <div class="connect">
     <img src="assets/images/Icon-login.png" alt="logo connexion">
     <?php
+    $heure = date("H");
+
     if (isset($_SESSION['first_name'])) {
-        echo "Bonjour, <a href=\"administration.php\">" . $_SESSION['first_name'] . "</a>";
+        if($heure < 18 && $heure > 5) {
+            echo "<p>Bonjour,</p><a href=\"administration.php\">" . $_SESSION['first_name'] . "</a>";
+        } else {
+            echo "<p>Bonsoir,</p><a href=\"administration.php\">" . $_SESSION['first_name'] . "</a>";
+
+        }
     } else {
         echo '<a href="connexion.php">Connexion</a>';
     }
