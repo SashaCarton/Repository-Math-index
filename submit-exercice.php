@@ -98,9 +98,6 @@ require_once('connexion_db.php');
                                 <input name="exercise-chapitre" class="holder tag-container"/>
                             </div>
 
-                            <br>
-                            <br>
-
                             <label for="exercise-difficulty">Difficulté :</label>
                             <br>
                             <select class="holder" id="exercise-difficulty" name="exercise-difficulty">

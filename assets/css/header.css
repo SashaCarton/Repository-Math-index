@@ -123,7 +123,8 @@ body {
 
 .grey-bloc {
     background-color: rgb(239 242 244);
-    padding: 30px 30px 0px 30px;
+    padding: 0px 30px 0px 30px;
+    margin-top: -1%;
 }
 
 .grey-bloc h1 {

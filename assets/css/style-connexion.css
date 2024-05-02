@@ -152,6 +152,7 @@
 
 form {
   margin-bottom: 6%;
+  margin-top: -1%;
 }
 
 .form-password {
@@ -195,6 +196,8 @@ label {
   opacity: 0.7;
   font-weight: 500;
   font-size: 14px;
+  margin-left: 5px;
+
 }
 
 .form-option input[type=submit] {
