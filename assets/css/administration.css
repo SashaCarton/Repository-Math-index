@@ -1,46 +1,45 @@
-.grey-bloc{
+.grey-bloc {
     background-color: #f5f5f5;
     border-radius: 5px;
     padding-bottom: 100%;
 }
-.tabs-btn-container{
+.tabs-btn-container {
     background-color: #f5f5f5;
 }
-.contributeurs{
+.contributeurs {
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
     text-align: left;
     padding-left: 30px;
     border-radius: 7.36px;
-    padding-right: 30px
+    padding-right: 30px;
 }
-h2{
+h2 {
     padding: 0!important;
 }
-table{
+table {
     width: 100%;
     margin-top: -20px;
 }
-#search{
+#search {
     height: 2.5vw;
     width: 30vw;
     border: solid #f5f5f5;
     border-radius: 5px;
 }
-#buttonSearch{
+#buttonSearch {
     background-color: #e2e1e1;
     border: solid #ffffff;
     border-radius: 10px;
     padding: 0.5vw;
-    padding-left: 2.5vw;
-    padding-right: 2.5vw;
-    padding-top: 1vw;
-    padding-bottom: 1vw;
-    color:  #636262;
+    padding: 1vw 2.5vw;
+    color: #636262;
+    font-weight: bold;
 }
-#buttonAdd{
-    background-color:  #52B788;
+
+#buttonAdd {
+    background-color: #52B788;
     border: solid #ffffff;
     border-radius: 10px;
     padding: 0.5vw;
@@ -48,14 +47,19 @@ table{
     padding-right: 2.5vw;
     padding-top: 1vw;
     padding-bottom: 1vw;
-    color:  #ffffff;
+    color: #ffffff;
+    font-weight: bold;
 }
+
+#buttonAdd:hover, #buttonSearch:hover{
+    cursor: pointer;
+}
+
 .pagination {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
-
 .pagination a {
     color: #000;
     padding: 8px 16px;
@@ -66,95 +70,165 @@ table{
     border-radius: 4px;
     margin-bottom: 10px;
 }
-
 .pagination a.active {
-
     background-color: gainsboro;
     color: black;
     border: black;
 }
-
 .pagination a:hover:not(.active) {
     background-color: black;
     color: white;
     border: black;
 }
+
 .add-contributor {
-    background-color: #f5f5f5;
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 20px;
     text-align: left;
 }
-
 .add-contributor h3 {
     margin-top: 0;
 }
-
 .add-contributor label {
     display: block;
     margin-bottom: 5px;
 }
-
 .add-contributor input[type="text"],
 .add-contributor input[type="email"],
 .add-contributor input[type="password"],
 .add-contributor select {
-    width: 100%;
     padding: 5px;
-    border: 1px solid #f5f5f5;
-    border-radius: 5px;
     margin-bottom: 10px;
 }
 
 .add-contributor input[type="submit"],
 .add-contributor input[type="button"] {
-    background-color: #52B788;
     border: none;
     border-radius: 10px;
     padding: 10px;
     color: #ffffff;
     cursor: pointer;
+    color: #757575;
 }
 
 .add-contributor input[type="submit"]:hover,
 .add-contributor input[type="button"]:hover {
     background-color: #3d8e63;
+    color: #ffffff;
+    padding: 15px 0px;
 }
 
-.tabs{
+.tabs {
     background-color: #f5f5f5;
 }
-
 th {
     background-color: #f5f5f5;
     font-weight: bold;
 }
-  
 td {
     padding-right: 50px;
     position: relative;
     background-color: white;
 }
-
-.color_police_table img{
+.color_police_table img {
     margin-left: 20px;
     margin-right: 5px;
 }
-
-.font_weight_title:nth-child(0n+1){
+.font_weight_title:nth-child(0n+1) {
     width: 233px;
 }
-
-form {
+.container_title_form{
     margin-bottom: 4%;
     display: flex;
     justify-content: flex-start;
-    gap: 50px
+    gap: 50px;
 }
-
-.title_form{
+.title_form {
     display: flex;
     justify-content: space-between;
     width: 45vw;
+}
+
+.container_form{
+    display: flex;
+    gap: 15px;
+}
+
+.section_form_1{
+    display: flex;
+    flex-direction: column;
+}
+
+.section_form_2{
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0.7;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.text_form{
+    width: 469px;
+    height: 47px;
+    border: 2px solid #F6F6F6 ;
+    border-radius: 7.36px;
+    padding: 0 !important;
+    font-size: 1vw;
+}
+
+
+
+.text_form_1 {
+    width: 469px;
+    height: 50px;
+    border: 2px solid #F0EFED;
+    border-radius: 7.36px;
+    padding: 0 !important;
+    font-size: 1vw;
+}
+
+input#email, input[type=password]{
+    width: 100%;
+    height: 47px;
+}
+
+label {
+    opacity: 0.7;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.container_input{
+    display: flex;
+}
+
+.grey-bloc h1 {
+    margin-top: 0px;
+}
+
+.container h3{
+    font-size: 1.4vw;
+    margin-bottom: 0px;
+    padding-left: 10px; 
+}
+
+.container_input{
+    display: flex;
+    gap: 10px;
+}
+
+.btn_add_exercise_1{
+    width: 120px;
+    padding-right: 125px !important;
+    padding-left: 15px !important;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    font-weight: bold;
+}
+
+.btn_add_exercise_2{
+    width: 105px;
+    font-weight: bold;
 }

@@ -37,8 +37,8 @@ require_once('connexion_db.php');
                         <h2>Gestion des contributeurs</h2>
                         <label for="search">Rechercher un contributeur par nom, prénom ou email :</label>
                         <div class="search">
-                            <form>
-                                <div class="title_form">
+                            <form class="container_title_form">
+                                <div class="section_title_form">
                                     <input type="text" id="search" name="search">
                                     <input type="submit" id="buttonSearch" value="Rechercher">
                                 </div>
@@ -116,34 +116,85 @@ require_once('connexion_db.php');
             const contributorsDiv = document.querySelector('.contributeurs');
 
             // Changez le contenu de la div
+
             contributorsDiv.innerHTML =`
+
                 <h3>Ajouter un contributeur</h3>
+
                 <form method="POST" action="register.php" class="add-contributor">
-                    <label for="nom">Nom :</label>
-                    <input type="text" id="nom" name="nom" placeholder="Saisissez le nom du contributeur" required>
 
-                    <label for="role">Rôle :</label>
-                    <select id="role" name="role" required>
-                        <option value="Enseignant">Enseignant</option>
-                        <option value="Elève">Elève</option>
-                    </select>
+                    <div class="container_form">
 
-                    <label for="prenom">Prénom :</label>
-                    <input type="text" id="prenom" name="prenom" placeholder="Saisissez le prénom" required>
+                        <div class="section_form_1">
 
-                    <label for="email">Email :</label>
-                    <input type="email" id="email" name="email" placeholder="Saisissez l'email" required>
+                            <label for="nom">Nom :</label>
 
-                    <label for="password">Mot de passe :</label>
-                    <input type="password" id="password" name="password" placeholder="Saisissez le mot de passe" required>
+                            <input class="text_form" type="text" id="nom" name="nom" placeholder="Saisissez le nom du contributeur" required>
 
-                    <input type="submit" value="Enregistrer">
-                    <input type="button" value="Retour à la liste" onclick="window.location.href='administration.php'">
+
+
+                            <label for="prenom">Prénom :</label>
+
+                            <input class="text_form" type="text" id="prenom" name="prenom" placeholder="Saisissez le prénom" required>
+
+
+
+
+
+
+                            <label for="email">Email :</label>
+
+                            <input class="text_form" type="email" id="email" name="email" placeholder="Saisissez l'email" required>
+
+
+
+                            <label for="password">Mot de passe :</label>
+
+                            <input class="text_form" type="password" id="password" name="password" placeholder="Saisissez le mot de passe" required>
+
+                            <div class="container_input">
+
+                                <input class="btn_add_exercise_1" type="button" value="< Retour à la liste" onclick="window.location.href='administration.php'"> 
+
+                                <input class="btn_add_exercise_2" type="submit" value="Enregistrer">
+
+                            </div>
+
+                        </div>
+
+                        
+
+                        <div class="section_form_2"
+
+                            <label for="role">Rôle :</label>
+
+                                <div class="custom_select">
+
+                                    <select class="text_form_1" id="role" name="role" required>
+
+                                        <option value="Enseignant">Enseignant</option>
+
+                                        <option value="Elève">Elève</option>
+
+                                    </select>
+
+                                </div
+
+                            </div>
+
+                    </div>
+
                 </form>
+
             `;
+
         }
+
     </script>
+
     <?php require_once('footer.php');?>
 
+
     </body>
+
 </html>
