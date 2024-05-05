@@ -130,38 +130,66 @@ require_once('connexion_db.php');
 
         <div class="tab-content">
             <h2>Sources</h2>
-            <div class="tab-content-sources-form">
-                <label for="origines">Origines <span>*</span> :</label>
-                <div>
-                    <select name="origines" id="origines">
-                        <option value="livre">Livre</option>
-                        <option value="professeur">Professeur</option>
-                        <option value="internet">Internet</option>
-                    </select>
+            <div class="container-bloc">
+                <div class="bloc1">
+                    <div class="tab-content-sources-form">
+                        <label for="origines">Origines <span>*</span> :</label>
+                        <div>
+                            <select name="origines" id="origines">
+                                <option value="livre">Livre</option>
+                                <option value="professeur">Professeur</option>
+                                <option value="internet">Internet</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="tab-content-sources-form">
+                        <label for="source-site">Nom de la source/lien du site <span>*</span>:</label>
+                        <div>
+                            <input type="text" id="source-site" size="125" placeholder="Maths Tout-en-un MP/MP*-MPI -6e éd.">
+                        </div>
+                    </div>
+
+                    <div class="tab-content-sources-form">
+                        <label for="info-comp">Informations complémentaires :</label>
+                        <div>
+                            <textarea name="info-comp" id="info-comp" cols="125" rows="6" placeholder="Page 12, 2ème paragraphe"></textarea>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="tab-content-sources-form-btn">
+                            <input type="button" value="Continuer" name="Continuer">
+                        </div>
+                    </div>
+                </div>
+                <div class="bloc2">
+                <div class="tab-content-sources-form">
+                        <label for="origines">Ou proposé par un:</label>
+                        <div>
+                            <select name="origines" id="origines">
+                                <option value="livre">Etudiant</option>
+                                <option value="professeur">Professeur</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="tab-content-sources-form">
+                        <label for="source-site">Nom:</label>
+                        <div>
+                            <textarea name="info-comp" id="info-comp" cols="125" rows="6" placeholder=""></textarea>
+                        </div>
+                    </div>
+
+                    <div class="tab-content-sources-form">
+                        <label for="info-comp">Prénom:</label>
+                        <div>
+                            <textarea name="info-comp" id="info-comp" cols="125" rows="6" placeholder=""></textarea>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-
-            <div class="tab-content-sources-form">
-                <label for="source-site">Nom de la source/lien du site <span>*</span>:</label>
-                <div>
-                    <input type="text" id="source-site" size="125" placeholder="Maths Tout-en-un MP/MP*-MPI -6e éd.">
-                </div>
-            </div>
-
-            <div class="tab-content-sources-form">
-                <label for="info-comp">Informations complémentaires :</label>
-                <div>
-                    <textarea name="info-comp" id="info-comp" cols="125" rows="6" placeholder="Page 12, 2ème paragraphe"></textarea>
-                </div>
-            </div>
-
-            <div>
-                <div class="tab-content-sources-form-btn">
-                    <input type="button" value="Continuer" name="Continuer">
-                </div>
-            </div>
-
-
         </div>
 
         <div class="tab-content">
