@@ -69,11 +69,11 @@ require_once('connexion_db.php');
                             </select>
                             <br>
 
-                            <label for="exercise-chapitre">Chapitre du cours * :</label><br>
+                            <label for="exercise-chapitre">Chapitre du cours :</label><br>
                             <input type="text" id="exercise-chapitre" name="exercise-chapitre" placeholder="Chapitre 1"class="holder">
                             <br>
                             <br>
-                            <button type="submit" class="custom-submit-button">Continuer</button>
+                            <button type="button" class="custom-submit-button" id="continue-btn">Continuer</button>
                         </div>
 
                         <div class="bloc2">
@@ -98,7 +98,7 @@ require_once('connexion_db.php');
                                 <input name="exercise-chapitre" class="holder tag-container"/>
                             </div>
 
-                            <label for="exercise-difficulty">Difficulté :</label>
+                            <label for="exercise-difficulty">Difficulté * :</label>
                             <br>
                             <select class="holder" id="exercise-difficulty" name="exercise-difficulty">
                                 <option value="" disabled selected>Niveau 11</option>
@@ -158,9 +158,9 @@ require_once('connexion_db.php');
                     </div>
 
                     <div>
-                        <div class="tab-content-sources-form-btn">
-                            <input type="button" value="Continuer" name="Continuer">
-                        </div>
+                    <div class="tab-content-sources-form-btn">
+                        <input type="button" id="continue-to-files-btn" value="Continuer" name="Continuer">
+                    </div>
                     </div>
                 </div>
                 <div class="bloc2">
@@ -235,63 +235,57 @@ require_once('connexion_db.php');
 
 
 </body>
+<!-- Après la dernière balise de fermeture de la div "tab-content active-tab-content" -->
+<!-- Après le script précédent -->
 <script>
-    const tagContainer = document.querySelector(".tag-container");
-    const input = document.querySelector(".tag-container input");
+    document.getElementById('continue-btn').addEventListener('click', function() {
+        // Récupérer les valeurs des champs
+        var exerciseName = document.getElementById('exercise-name').value.trim();
+        var exerciseSubject = document.getElementById('exercise-subject').value.trim();
+        var exerciseLevel = document.getElementById('exercise-level').value.trim();
+        var exerciseType = document.getElementById('exercise-type').value.trim();
+        var exerciseDifficulty = document.getElementById('exercise-difficulty').value.trim();
 
-    let tags = [];
-
-    function createTag(tag) {
-        const div = document.createElement("div");
-        div.setAttribute("class", "keyword");
-        const span = document.createElement("span");
-        span.innerHTML = tag;
-        const icon = document.createElement("ion-icon");
-        icon.setAttribute("name", "close-outline");
-        icon.setAttribute("data-item", tag);
-        div.appendChild(span);
-        div.appendChild(icon);
-        return div;
-    }
-
-    function reset() {
-        const tagElements = document.querySelectorAll(".keyword");
-        tagElements.forEach((tag) => {
-            tag.parentElement.removeChild(tag);
-        });
-    }
-
-    function addTags() {
-        reset();
-        tags.slice().reverse().forEach((tag) => {
-            if (tag !== '') {
-                tagContainer.prepend(createTag(tag));
-            }
-        });
-    }
-
-    input.addEventListener("keyup", function (event) {
-        if (event.key === ",") {
-            const data = input.value.trim();
-            const list_of_tags = data.split(",").filter(elm => elm.trim() !== "");
-            tags.push(...list_of_tags);
-
-            tags = [...new Set(tags)];
-
-            input.value = "";
-            addTags();
+        // Vérifier si tous les champs obligatoires sont remplis
+        if (exerciseName === '' || exerciseSubject === '' || exerciseLevel === '' || exerciseType === '' || exerciseDifficulty === '') {
+            alert('Veuillez remplir tous les champs obligatoires.');
+            return;
         }
-    });
 
-    document.addEventListener("click", function (e) {
-        if (e.target.tagName === "ION-ICON") {
-            const data = e.target.getAttribute("data-item");
-            tags = tags.filter((tag) => {
-                return tag !== data;
-            });
-            addTags();
-        }
+        // Si tous les champs sont remplis, passer à la section suivante
+        // Supprimer la classe 'active' du premier bouton et du premier contenu
+        document.querySelector('.tabs-btn-container .active').classList.remove('active');
+        document.querySelector('.tabs .active-tab-content').classList.remove('active-tab-content');
+        
+        // Ajouter la classe 'active' au deuxième bouton et au deuxième contenu
+        document.querySelectorAll('.tabs-btn-container button')[1].classList.add('active');
+        document.querySelectorAll('.tabs .tab-content')[1].classList.add('active-tab-content');
     });
+</script>
+<script>
+    // Écouteur d'événement pour le bouton "Continuer" dans la section "Sources"
+    document.getElementById('continue-to-files-btn').addEventListener('click', function() {
+        // Récupérer les valeurs des champs nécessaires dans la section "Sources"
+        var origine = document.getElementById('origines').value.trim();
+        var sourceSite = document.getElementById('source-site').value.trim();
+
+        // Vérifier si les champs obligatoires sont remplis
+        if (origine === '' || sourceSite === '') {
+            alert('Veuillez remplir tous les champs obligatoires dans la section "Sources".');
+            return;
+        }
+
+        // Si tous les champs nécessaires sont remplis, passer à la section suivante
+        // Supprimer la classe 'active' du deuxième bouton et du deuxième contenu
+        document.querySelectorAll('.tabs-btn-container button')[1].classList.remove('active');
+        document.querySelectorAll('.tabs .tab-content')[1].classList.remove('active-tab-content');
+        
+        // Ajouter la classe 'active' au troisième bouton et au troisième contenu
+        document.querySelectorAll('.tabs-btn-container button')[2].classList.add('active');
+        document.querySelectorAll('.tabs .tab-content')[2].classList.add('active-tab-content');
+    });
+</script>
+
 
 </script>
 <?php
