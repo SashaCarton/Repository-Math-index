@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -6,6 +7,10 @@
     require_once 'connexion_db.php';
     require 'config.php';
     $connection = mysqli_connect($server, $user, $pass, $dbName);
+if (empty($_SESSION['id'])) {
+    header('Location: index.php');
+    exit;
+} 
     ?>
 </head>
 <?php
@@ -35,8 +40,16 @@ require_once('connexion_db.php');
                 <div class="tab-content active-tab-content">
                     <div class="contributeurs">
                         <h2>Gestion des contributeurs</h2>
-                        <label for="search">Rechercher un contributeur par nom, prénom ou email :</label>
-                        
+                        <label for="search">
+                            <?php 
+                                $search = isset($_GET['search']) ? $_GET['search'] : '';
+                                if(isset($_GET['search']) && !empty($_GET['search'])) {
+                                    echo 'Résultat pour : ' . $search;
+                                } else {
+                                    echo 'Rechercher un contributeur par nom, prénom ou email :';
+                                }
+                            ?>
+                        </label>
                         <div class="search">
                             <form class="container_title_form">
                                 <div class="section_title_form">
@@ -46,6 +59,7 @@ require_once('connexion_db.php');
                                 <input type="button" id="buttonAdd" value="Ajouter +" onclick="showAddContributorForm()">
                             </form>
                         </div>
+                        <!-- Mettre ici php -->
                         <table class="section_column">
                             <tr>
                                 <th class="section_title_column_left font_weight_title">Nom</th>
@@ -58,7 +72,12 @@ require_once('connexion_db.php');
                                 $page = isset($_GET['page']) ? $_GET['page'] : 1;
                                 $limit = 4;
                                 $start = ($page - 1) * $limit;
-                                $sql = "SELECT * FROM user LIMIT $start, $limit";
+                                if(isset($_GET['search'])) {
+                                    $search = $_GET['search'];
+                                    $sql = "SELECT * FROM user WHERE last_name LIKE '%$search%' OR first_name LIKE '%$search%' OR email LIKE '%$search%' LIMIT $start, $limit";
+                                } else {
+                                    $sql = "SELECT * FROM user LIMIT $start, $limit";
+                                }
                                 $result = $connection->query($sql);
                                 if ($result->num_rows > 0) {
                                     while($row = $result->fetch_assoc()) {
@@ -72,6 +91,14 @@ require_once('connexion_db.php');
                                     }
                                 } else {
                                     echo "0 results";
+                                }
+                                $sql = "SELECT COUNT(*) AS total FROM user";
+                                $result = $connection->query($sql);
+                                $row = $result->fetch_assoc();
+                                $total_pages = ceil($row["total"] / $limit);
+
+                                if (isset($_GET['success']) && $_GET['success'] == 1) {
+                                    echo "<script>alert('Contributeur ajouté avec succès');</script>";
                                 }
                             ?>
                         </table>

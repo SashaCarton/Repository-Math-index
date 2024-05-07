@@ -1,3 +1,9 @@
+<?php 
+if (!isset($_SESSION['role'])) {
+    header('Location: index.php');
+    exit;
+} 
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -33,7 +39,7 @@ require_once('slide-bar.php');
             $email = mysqli_real_escape_string($connection, $_POST['email']);
             $password = mysqli_real_escape_string($connection, $_POST['password']);
             $id = mysqli_real_escape_string($connection, $_POST['id']);
-            $hashedPassword = password_hash($password, PASSWORD_ARGON2I);
+            $password = password_hash($password, PASSWORD_ARGON2I);
             $query = "UPDATE user SET last_name = '$nom', role = '$role', first_name = '$prenom', email = '$email', password = '$password' WHERE id = $id";
             $result = mysqli_query($connection, $query);
 
