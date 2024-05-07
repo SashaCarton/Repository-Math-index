@@ -36,6 +36,7 @@ require_once('connexion_db.php');
                     <div class="contributeurs">
                         <h2>Gestion des contributeurs</h2>
                         <label for="search">Rechercher un contributeur par nom, prénom ou email :</label>
+                        
                         <div class="search">
                             <form class="container_title_form">
                                 <div class="section_title_form">
@@ -45,7 +46,6 @@ require_once('connexion_db.php');
                                 <input type="button" id="buttonAdd" value="Ajouter +" onclick="showAddContributorForm()">
                             </form>
                         </div>
-                        <!-- Mettre ici php -->
                         <table class="section_column">
                             <tr>
                                 <th class="section_title_column_left font_weight_title">Nom</th>

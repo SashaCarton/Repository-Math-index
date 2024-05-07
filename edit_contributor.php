@@ -19,12 +19,35 @@
 </head>
 <?php
 require_once('slide-bar.php');
-require_once('connexion_db.php');
 ?>
 <link rel="stylesheet" href="assets/css/administration.css">
 <body>
 <div class="container">
     <?php require_once('connect-bar.php'); ?>
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (isset($_POST['nom']) && isset($_POST['role']) && isset($_POST['prenom']) && isset($_POST['email'])) {
+            $nom = mysqli_real_escape_string($connection, $_POST['nom']);
+            $role = mysqli_real_escape_string($connection, $_POST['role']);
+            $prenom = mysqli_real_escape_string($connection, $_POST['prenom']);
+            $email = mysqli_real_escape_string($connection, $_POST['email']);
+            $password = mysqli_real_escape_string($connection, $_POST['password']);
+            $id = mysqli_real_escape_string($connection, $_POST['id']);
+            $hashedPassword = password_hash($password, PASSWORD_ARGON2I);
+            $query = "UPDATE user SET last_name = '$nom', role = '$role', first_name = '$prenom', email = '$email', password = '$password' WHERE id = $id";
+            $result = mysqli_query($connection, $query);
+
+            if ($result) {
+                header('Location: administration.php');
+                exit;
+            } else {
+                echo "Error updating contributor: " . mysqli_error($connection);
+            }
+        } else {
+            echo "Une erreur de saisie dans le formulaire s'est produite";
+        }
+    }
+    ?>
     <div class="grey-bloc">
         <h1>
             Administration
@@ -67,6 +90,7 @@ require_once('connexion_db.php');
                             <input class="btn_add_exercise_1" type="button" value="< Retour à la liste" onclick="window.location.href='administration.php'"> 
                             <input class="btn_add_exercise_2" type="submit" value="Enregistrer">
                         </div>
+                        <input type="hidden" name="id" value="<?php echo $id; ?>">
                     </form>
                 </div>
             </div>
@@ -80,32 +104,4 @@ require_once('connexion_db.php');
     <div class="tab-content">
         <h2>Fichiers</h2>
     </div>
-    <?php
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (isset($_POST['nom']) && isset($_POST['role']) && isset($_POST['prenom']) && isset($_POST['email'])) {
-            $nom = mysqli_real_escape_string($connection, $_POST['nom']);
-            $role = mysqli_real_escape_string($connection, $_POST['role']);
-            $prenom = mysqli_real_escape_string($connection, $_POST['prenom']);
-            $email = mysqli_real_escape_string($connection, $_POST['email']);
-            $password = mysqli_real_escape_string($connection, $_POST['password']);
-
-            $query = "UPDATE user SET last_name = '$nom', role = '$role', first_name = '$prenom', email = '$email', password = '$password' WHERE id = $id";
-            $result = mysqli_query($connection, $query);
-
-            if ($result) {
-                header('Location: administration.php');
-                exit;
-            } else {
-                echo "Error updating contributor: " . mysqli_error($connection);
-            }
-        }
-    }
-    ?>
-
-    <script src="./assets/scripts/tabs.js"></script>
-</div>
-</div>
-</div>
-<?php require_once('footer.php');?>
-</body>
-</html>
+    
