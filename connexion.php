@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if ($valid) {
                     // Set the session variable 'frist_name' with the value from the database
                     $_SESSION['first_name'] = $row['first_name'];
-                    $_SESSION['id'] = $row['id'];
+                    $_SESSION['loggedin'] = true;
                     echo "Bonjour, " . $_SESSION['first_name'];
                     // Redirect to the index.php page
                     header("Location: index.php");

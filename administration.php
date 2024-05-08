@@ -7,15 +7,15 @@
     require_once 'connexion_db.php';
     require 'config.php';
     $connection = mysqli_connect($server, $user, $pass, $dbName);
-if (empty($_SESSION['id'])) {
-    header('Location: index.php');
-    exit;
-} 
     ?>
 </head>
 <?php
 require_once('slide-bar.php');
 require_once('connexion_db.php');
+if($_SESSION['loggedin'] !== true){
+    header('location: connexion.php');
+    exit;
+}
 ?>
 <link rel="stylesheet" href="assets/css/administration.css">
 <body>
