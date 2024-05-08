@@ -235,3 +235,64 @@ label {
     width: 105px;
     font-weight: bold;
 }
+#confirmDialog {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    z-index: 1000;
+    ;
+}
+#successMessage{
+    display: block;
+    position: fixed;
+    top: 10%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    z-index: 1000;
+    transition: 3s;
+    transition: fadeOut 3s;
+    transition: fading 3s;
+}
+.dialog{
+    display: flex;
+    line-height: 0.5vw;
+    margin-bottom: 1vw;
+}
+.dialog img {
+    width: 2.5vw;
+    height: 2.5vw;
+    margin-right: 1vw;
+}
+#confirmDialog button:nth-child(even) {
+    background-color: #4F4F4F;
+    border: solid #ffffff;
+    border-radius: 10px;
+    padding: 0.5vw;
+    padding: 1vw 4vw;
+    color: #ffffff;
+    font-weight: bold;
+}
+#confirmDialog button:nth-child(odd){
+    background-color: #e2e1e1;
+    border: solid #ffffff;
+    border-radius: 10px;
+    padding: 0.5vw;
+    padding: 1vw 4vw;
+    color: #636262;
+    font-weight: bold;
+}
+#croix{
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 10px;
+    cursor: pointer;
+}
