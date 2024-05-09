@@ -14,16 +14,18 @@ function connexionBdd() {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nom = $_POST["nom"];
     $email = $_POST["email"];
+    $last_name = $_POST["last_name"];
+    $first_name = $_POST["first_name"];
     $password = $_POST["password"];
+    $role = $_POST["role"];
 
     if (isset($_FILES["profile_pic"]) && $_FILES["profile_pic"]["error"] == 0) {
         $file_name = $_FILES["profile_pic"]["name"];
         $file_tmp = $_FILES["profile_pic"]["tmp_name"];
         $new_file_name = uniqid() . "_" . $file_name;
 
-        $destination_folder = "../assets/image_user/";
+        $destination_folder = "assets/image_user/";
         if (!is_dir($destination_folder) || !is_writable($destination_folder)) {
             die("Le dossier de destination n'existe pas ou n'a pas les permissions nécessaires.");
         }
@@ -37,13 +39,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $connexion = connexionBdd();
 
-        $requete = $connexion->prepare("INSERT INTO utilisateur (nom, email, password, profile_pic) VALUES (?, ?, ?, ?)");
+        $email = $_POST['email'];
+        $last_name = $_POST['last_name'];
+        $first_name = $_POST['first_name'];
+        $role = $_POST['role'];
+        $password = password_hash($_POST['password'], PASSWORD_ARGON2I);
 
-        $requete->bind_param("ssss", $nom, $email, $password, $new_file_name);
+        $requete = $connexion->prepare("INSERT INTO user (id, email, last_name, first_name, role, password) VALUES (?, ?, ?, ?, ?, ?)");
+
+        $requete->bind_param("isssss", $id, $email, $last_name, $first_name, $role, $password);
         $requete->execute();
     }
 
-    header("Location: success.php");
+    echo "Le compte a été ajouté avec succès.";
     exit;
 }
 ?>
@@ -57,10 +65,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <h1>Ajout de compte</h1>
 <form method="POST" action="" enctype="multipart/form-data">
     <label for="nom">Nom :</label>
-    <input type="text" name="nom" id="nom" required><br>
+    <input type="text" name="last_name" id="last_name" required><br>
+
+    <label for="nom">Prénom :</label>
+    <input type="text" name="first_name" id="first_name" required><br>
 
     <label for="email">Email :</label>
     <input type="email" name="email" id="email" required><br>
+
+    <label for="role">Rôle :</label>
+    <select name="role" id="role">
+        <option value="admin">Administrateur</option>
+        <option value="contributor">Contributeur</option>
 
     <label for="password">Mot de passe :</label>
     <input type="password" name="password" id="password" required><br>

@@ -1,6 +1,4 @@
 <?php
-
-
 // Fonction pour afficher les erreurs de validation du formulaire
 function displayErrors($errors, $field) {
     if (!empty($errors[$field])) {
@@ -75,6 +73,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $_SESSION['first_name'] = $row['first_name'];
                     $_SESSION['loggedin'] = true;
                     echo "Bonjour, " . $_SESSION['first_name'];
+                    // Set the cookie for the user name and user type
+                    setcookie('user_name', $_SESSION['first_name'], time() + 3600*48, '' , '/', true , true);
+                    setcookie('user_type', $row['niveau_droit'], time() + 3600*48, '' , '/', true , true);
                     // Redirect to the index.php page
                     header("Location: index.php");
                     exit();
