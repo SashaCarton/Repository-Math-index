@@ -1,12 +1,13 @@
 .grey-bloc {
     background-color: #f5f5f5;
     border-radius: 5px;
-    padding-bottom: 100%;
-    padding-top: 40px;
+    padding-top: 15px;
 }
+
 .tabs-btn-container {
     background-color: #f5f5f5;
 } 
+
 .contributeurs {
     background-color: #ffffff;
     display: flex;
@@ -15,21 +16,24 @@
     padding-left: 30px;
     border-radius: 7.36px;
     padding-right: 30px;
-    padding-top: 10px;
 }
+
 h2 {
     padding: 0!important;
 }
+
 table {
     width: 100%;
     margin-top: -20px;
 }
+
 #search {
     height: 2.5vw;
     width: 30vw;
     border: solid #f5f5f5;
     border-radius: 5px;
 }
+
 #buttonSearch {
     background-color: #e2e1e1;
     border: solid #ffffff;
@@ -62,6 +66,7 @@ table {
     justify-content: center;
     margin-top: 20px;
 }
+
 .pagination a {
     color: #000;
     padding: 8px 16px;
@@ -72,11 +77,13 @@ table {
     border-radius: 4px;
     margin-bottom: 10px;
 }
+
 .pagination a.active {
     background-color: gainsboro;
     color: black;
     border: black;
 }
+
 .pagination a:hover:not(.active) {
     background-color: black;
     color: white;
@@ -85,17 +92,15 @@ table {
 
 .add-contributor {
     border-radius: 5px;
-    padding: 10px;
+    padding: 25px 10px 0px 10px;
     margin-bottom: 20px;
     text-align: left;
 }
+
 .add-contributor h3 {
     margin-top: 0;
 }
-.add-contributor label {
-    display: block;
-    margin-bottom: 5px;
-}
+
 .add-contributor input[type="text"],
 .add-contributor input[type="email"],
 .add-contributor input[type="password"],
@@ -124,28 +129,34 @@ table {
 .tabs {
     background-color: #f5f5f5;
 }
+
 th {
     background-color: #f5f5f5;
     font-weight: bold;
 }
+
 td {
     padding-right: 50px;
     position: relative;
     background-color: white;
 }
+
 .color_police_table img {
     margin-left: 20px;
     margin-right: 5px;
 }
+
 .font_weight_title:nth-child(0n+1) {
     width: 233px;
 }
+
 .container_title_form{
     margin-bottom: 4%;
     display: flex;
     justify-content: flex-start;
     gap: 50px;
 }
+
 .title_form {
     display: flex;
     justify-content: space-between;
@@ -163,7 +174,6 @@ td {
 }
 
 .section_form_2{
-    padding-top: 5px;
     display: flex;
     flex-direction: column;
     opacity: 0.7;
@@ -171,30 +181,27 @@ td {
     font-size: 14px;
 }
 
-.text_form{
-    width: 469px;
-    height: 47px;
-    border: 2px solid #F6F6F6 ;
+.text_form {
+    width: 469px !important;
+    height: 40px !important;
+    border: 2px solid #F6F6F6;
     border-radius: 7.36px;
-    padding: 0 !important;
     font-size: 1vw;
+    padding-bottom: 85px;
 }
 
-
-
 .text_form_1 {
-    width: 469px;
-    height: 50px;
+    width: 469px !important;
+    height: 53px !important;
     border: 2px solid #F0EFED;
     border-radius: 7.36px;
-    padding: 0 !important;
     font-size: 1vw;
 }
 
 input#email, input[type=password]{
     width: 100%;
     height: 47px;
-}
+} 
 
 label {
     opacity: 0.7;
@@ -235,6 +242,7 @@ label {
     width: 105px;
     font-weight: bold;
 }
+
 #confirmDialog {
     display: block;
     position: fixed;
@@ -245,8 +253,8 @@ label {
     padding: 20px;
     border: 1px solid #ccc;
     z-index: 1000;
-    ;
 }
+
 #successMessage{
     display: block;
     position: fixed;
@@ -261,16 +269,19 @@ label {
     transition: fadeOut 3s;
     transition: fading 3s;
 }
+
 .dialog{
     display: flex;
     line-height: 0.5vw;
     margin-bottom: 1vw;
 }
+
 .dialog img {
     width: 2.5vw;
     height: 2.5vw;
     margin-right: 1vw;
 }
+
 #confirmDialog button:nth-child(even) {
     background-color: #4F4F4F;
     border: solid #ffffff;
@@ -280,6 +291,7 @@ label {
     color: #ffffff;
     font-weight: bold;
 }
+
 #confirmDialog button:nth-child(odd){
     background-color: #e2e1e1;
     border: solid #ffffff;
@@ -289,6 +301,7 @@ label {
     color: #636262;
     font-weight: bold;
 }
+
 #croix{
     position: absolute;
     right: 0;
