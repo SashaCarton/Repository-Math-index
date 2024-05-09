@@ -72,10 +72,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     // Set the session variable 'frist_name' with the value from the database
                     $_SESSION['first_name'] = $row['first_name'];
                     $_SESSION['loggedin'] = true;
+                    $_SESSION['role'] = $row['role'];
                     echo "Bonjour, " . $_SESSION['first_name'];
-                    // Set the cookie for the user name and user type
-                    setcookie('user_name', $_SESSION['first_name'], time() + 3600*48, '' , '/', true , true);
-                    setcookie('user_type', $row['niveau_droit'], time() + 3600*48, '' , '/', true , true);
+                    $_COOKIE['first_name'] = $_SESSION['first_name'];
+                    $_COOKIE['loggedin'] = $_SESSION['loggedin'];
+                    $_COOKIE['role'] = $_SESSION['role'];
                     // Redirect to the index.php page
                     header("Location: index.php");
                     exit();

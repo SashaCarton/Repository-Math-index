@@ -9,6 +9,7 @@
     <?php require_once('slide-bar.php') ?>
     <div class="container-index"> <!--Everything next to the slide bar like containerHome and connect-->
         <?php require_once('connect-bar.php'); ?>
+
         <div class="containerHome"> <!--Rectangle background of the "Acceuil"-->
             <h1>Accueil</h1>
             <div>
