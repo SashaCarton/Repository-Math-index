@@ -37,9 +37,18 @@ $resultLatestExercises = mysqli_query($connection, $sqlLatestExercises);
                         <label for="niveau" class="style_title">Niveau :</label>
                         <select name="niveau" id="niveau" class="style_filter">
                             <option value="">Sélectionnez un niveau</option>
-                            <?php for ($i = 1; $i <= 10; $i++) : ?>
-                                <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                            <?php endfor; ?>
+                            <?php 
+                                $mapping = [
+                                    'Élémentaire' => [2, 3, 4, 5, 6],
+                                    'Collège' => [7, 8, 9, 10],
+                                    'Lycée' => [11, 12, 13]
+                                ];
+
+                                foreach ($mapping as $categorie => $niveaux) {
+                                    $niveauxString = implode(',', $niveaux);
+                                    echo "<option value=\"$niveauxString\">$categorie</option>";
+                                }
+                            ?>
                         </select>
                     </div>
                     <div class="section_filter">
@@ -63,24 +72,16 @@ $resultLatestExercises = mysqli_query($connection, $sqlLatestExercises);
                 <?php
                 $sql = "SELECT * FROM exercise WHERE 1=1";
                 if(isset($_GET['niveau']) && $_GET['niveau'] != '') {
-                    $niveau = $_GET['niveau'];
-                    $sql .= " AND difficulty = '$niveau'";
+                    $niveaux = explode(',', $_GET['niveau']);
+                    $niveauxPlaceholders = implode(',', array_fill(0, count($niveaux), '?'));
+                    $sql .= " AND difficulty IN ($niveauxPlaceholders)";
+                    $stmt = mysqli_prepare($connection, $sql);
+                    mysqli_stmt_bind_param($stmt, str_repeat('i', count($niveaux)), ...$niveaux);
+                    mysqli_stmt_execute($stmt);
+                    $resultExercises = mysqli_stmt_get_result($stmt);
+                } else {
+                    $resultExercises = mysqli_query($connection, $sql);
                 }
-
-                if(isset($_GET['thematique']) && $_GET['thematique'] != '') {
-                    $thematique = $_GET['thematique'];
-                    $sql .= " AND thematic_id = '$thematique'";
-                }
-
-                if(isset($_GET['mots_cles']) && !empty($_GET['mots_cles'])) {
-                    $mots_cles = "";
-                    if (is_string($_GET['mots_cles'])) {
-                        $mots_cles = htmlspecialchars($_GET['mots_cles']);
-                    }
-                    $sql .= " AND (name LIKE '%$mots_cles%' OR keywords LIKE '%$mots_cles%')";
-                }
-
-                $resultExercises = mysqli_query($connection, $sql);
 
                 if(mysqli_num_rows($resultExercises) > 0) { 
                     if ($_SERVER["REQUEST_METHOD"] == "GET") {
@@ -126,18 +127,18 @@ $resultLatestExercises = mysqli_query($connection, $sqlLatestExercises);
                 }
                 ?>
                 <?php
-                $resultsPerPage = 5;
-                $sqlTotalExercises = "SELECT COUNT(*) AS total FROM exercise";
-                $resultTotalExercises = mysqli_query($connection, $sqlTotalExercises);
-                $rowTotalExercises = mysqli_fetch_assoc($resultTotalExercises);
-                $totalPages = ceil($rowTotalExercises['total'] / $resultsPerPage);
+                    $resultsPerPage = 5;
+                    $sqlTotalExercises = "SELECT COUNT(*) AS total FROM exercise";
+                    $resultTotalExercises = mysqli_query($connection, $sqlTotalExercises);
+                    $rowTotalExercises = mysqli_fetch_assoc($resultTotalExercises);
+                    $totalPages = ceil($rowTotalExercises['total'] / $resultsPerPage);
 
-                echo "<div class='pagination'>";
-                for ($i = 1; $i <= $totalPages; $i++) {
-                    echo "<a class=pagination href='research.php?page=$i'>$i</a>";
-                }
-                echo "</div>";
-                require_once('./footer.php');
+                    echo "<div class='pagination'>";
+                    for ($i = 1; $i <= $totalPages; $i++) {
+                        echo "<a class=pagination href='research.php?page=$i'>$i</a>";
+                    }
+                    echo "</div>";
+                    require_once('./footer.php');
                 ?>
             </div>
         </div>  
