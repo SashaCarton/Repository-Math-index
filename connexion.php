@@ -76,9 +76,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $_SESSION['loggedin'] = true;
                     $_SESSION['role'] = $row['role'];
                     echo "Bonjour, " . $_SESSION['first_name'];
-                    setcookie('first_name', $_SESSION['first_name'], time() + 3600, '/');
-                    setcookie('loggedin', $_SESSION['loggedin'], time() + 3600, '/');
-                    setcookie('role', $_SESSION['role'], time() + 3600, '/');
+                    setcookie('first_name', $_SESSION['first_name'], time() + 3600*48, '/');
+                    setcookie('loggedin', $_SESSION['loggedin'], time() + 3600*48, '/');
+                    setcookie('role', $_SESSION['role'], time() + 3600*48, '/');
                     // Redirect to the index.php page
                     header("Location: index.php");
                     exit();
