@@ -96,6 +96,10 @@ table {
     margin-bottom: 20px;
     text-align: left;
 }
+.add-contributor label {
+    display: block;
+    margin-bottom: 5px;
+}
 
 .add-contributor h3 {
     margin-top: 0;

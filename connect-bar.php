@@ -6,6 +6,7 @@
     <img src="assets/images/Icon-login.png" alt="logo connexion">
     <?php
 
+
     if (isset($_COOKIE['loggedin']) == true && $_COOKIE['role'] === 'admin') {
             echo "<p>Bonjour,</p><a href=\"administration.php\">" . $_COOKIE['first_name'] . "</a>";
         } else if (isset($_COOKIE['loggedin']) == true && isset($_COOKIE['role']) == 'contributor') {
