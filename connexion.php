@@ -1,4 +1,5 @@
 <?php
+
 // Fonction pour afficher les erreurs de validation du formulaire
 function displayErrors($errors, $field) {
     if (!empty($errors[$field])) {
@@ -42,6 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (isset($_POST['submit'])) {
             $email = $_POST['email'];
+            session_start();
 
             // Prepare the query
             $query = $mysqli->prepare('SELECT * FROM user WHERE email = ?');
@@ -74,9 +76,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $_SESSION['loggedin'] = true;
                     $_SESSION['role'] = $row['role'];
                     echo "Bonjour, " . $_SESSION['first_name'];
-                    $_COOKIE['first_name'] = $_SESSION['first_name'];
-                    $_COOKIE['loggedin'] = $_SESSION['loggedin'];
-                    $_COOKIE['role'] = $_SESSION['role'];
+                    setcookie('first_name', $_SESSION['first_name'], time() + 3600, '/');
+                    setcookie('loggedin', $_SESSION['loggedin'], time() + 3600, '/');
+                    setcookie('role', $_SESSION['role'], time() + 3600, '/');
                     // Redirect to the index.php page
                     header("Location: index.php");
                     exit();

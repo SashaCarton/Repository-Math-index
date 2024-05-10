@@ -5,16 +5,12 @@
 <div class="connect">
     <img src="assets/images/Icon-login.png" alt="logo connexion">
     <?php
-    $heure = date("H");
 
-    if (isset($_SESSION['first_name'])) {
-        if($heure < 18 && $heure > 5) {
-            echo "<p>Bonjour,</p><a href=\"administration.php\">" . $_SESSION['first_name'] . "</a>";
+    if (isset($_COOKIE['loggedin']) == true && $_COOKIE['role'] === 'admin') {
+            echo "<p>Bonjour,</p><a href=\"administration.php\">" . $_COOKIE['first_name'] . "</a>";
+        } else if (isset($_COOKIE['loggedin']) == true && isset($_COOKIE['role']) == 'contributor') {
+            echo "<p>Bonsoir,</p>" . $_COOKIE['first_name'];
         } else {
-            echo "<p>Bonsoir,</p><a href=\"administration.php\">" . $_SESSION['first_name'] . "</a>";
-
-        }
-    } else {
         echo '<a href="connexion.php">Connexion</a>';
     }
     ?>
