@@ -30,7 +30,7 @@
         </div>
 
         <?php 
-            if (isset($_SESSION["first_name"])) {
+            if (isset($_COOKIE["role"]) && ($_COOKIE["role"] == "contributor" || $_COOKIE["role"] == "admin")) {
                 echo('<div class="slide exercice">
                         <img src="./assets/images/logo-fonction.png" alt="Logo fonction Mes Exercice">
                          <h3><a href="./mathematique.php">Mes exercices</a></h3>
@@ -40,9 +40,14 @@
                     <img src="./assets/images/logo-fonction.png" alt="Logo fonction submit exercice">
                     <h3><a href="./submit-exercice.php">Soumettre</a></h3>
                 </div>');
+            }
 
+            if (isset($_COOKIE['loggedin']) == true) {
                 echo '<div class="disconnection"><img src="assets/images/Frame.png"><a href="deconnexion.php">Déconnexion</a></div>';
             }
+
+                
+            
         
         ?>
 
