@@ -33,10 +33,10 @@ require_once('connexion_db.php');
                 </button>
             </div>
 
+        
             <div class="tab-content active-tab-content">
                 <h2>Informations générales</h2>
-                <form action="">
-
+                
                     <div class="container-bloc">
                         <div class="bloc1">
                             <label for="exercise-name">Nom de l'exercice * :</label><br>
@@ -80,14 +80,14 @@ require_once('connexion_db.php');
                             <label>Compétences :</label><br>
                             <div class="radio-container">
                                 <div class="radio-splitter">
-                                    <label><input class="square-radio" type="checkbox" value="chercher"> Chercher</label><br>
-                                    <label><input class="square-radio" type="checkbox" value="represente"> Représenter</label><br>
-                                    <label><input class="square-radio" type="checkbox" value="calculer"> Calculer</label><br>
+                                    <label><input class="square-radio" type="checkbox" value="chercher" name="exercise-skills[]"> Chercher</label><br>
+                                    <label><input class="square-radio" type="checkbox" value="represente" name="exercise-skills[]"> Représenter</label><br>
+                                    <label><input class="square-radio" type="checkbox" value="calculer" name="exercise-skills[]"> Calculer</label><br>
                                 </div>
                                 <div class="radio-splitter">
-                                    <label><input class="square-radio" type="checkbox" value="modeliser"> Modéliser</label><br>
-                                    <label><input class="square-radio" type="checkbox" value="raisonner"> Raisonner</label><br>
-                                    <label><input class="square-radio" type="checkbox" value="communiquer"> Communiquer</label><br>
+                                    <label><input class="square-radio" type="checkbox" value="modeliser" name="exercise-skills[]"> Modéliser</label><br>
+                                    <label><input class="square-radio" type="checkbox" value="raisonner" name="exercise-skills[]"> Raisonner</label><br>
+                                    <label><input class="square-radio" type="checkbox" value="communiquer" name="exercise-skills[]"> Communiquer</label><br>
                                 </div>
                             </div>
                             <br>
@@ -124,7 +124,6 @@ require_once('connexion_db.php');
                             <br>
                             <br>
                         </div>
-                </form>
             </div>
         </div>
 
@@ -146,14 +145,14 @@ require_once('connexion_db.php');
                     <div class="tab-content-sources-form">
                         <label for="source-site">Nom de la source/lien du site <span>*</span>:</label>
                         <div>
-                            <input type="text" id="source-site" size="125" placeholder="Maths Tout-en-un MP/MP*-MPI -6e éd.">
+                            <input type="text" id="source-site" size="125" placeholder="Maths Tout-en-un MP/MP*-MPI -6e éd." name="source-site">
                         </div>
                     </div>
 
                     <div class="tab-content-sources-form">
                         <label for="info-comp">Informations complémentaires :</label>
                         <div>
-                            <textarea name="info-comp" id="info-comp" cols="125" rows="6" placeholder="Page 12, 2ème paragraphe"></textarea>
+                            <textarea name="info-comp" id="info-comp" cols="125" rows="6" placeholder="Page 12, 2ème paragraphe" name="exercise-additional-info"></textarea>
                         </div>
                     </div>
 
@@ -177,14 +176,14 @@ require_once('connexion_db.php');
                     <div class="tab-content-sources-form">
                         <label for="source-site">Nom:</label>
                         <div>
-                            <textarea name="info-comp" id="info-comp" cols="125" rows="6" placeholder=""></textarea>
+                            <textarea name="info-comp" id="info-comp" cols="125" rows="6" placeholder="" name="student-name"></textarea>
                         </div>
                     </div>
 
                     <div class="tab-content-sources-form">
                         <label for="info-comp">Prénom:</label>
                         <div>
-                            <textarea name="info-comp" id="info-comp" cols="125" rows="6" placeholder=""></textarea>
+                            <textarea name="info-comp" id="info-comp" cols="125" rows="6" placeholder="" name="student-surname"></textarea>
                         </div>
                     </div>
 
@@ -216,12 +215,11 @@ require_once('connexion_db.php');
                         <input type="file" id="fichier-corrigé" size="125" placeholder="Sélectionner un fichier à télécharger" accept=".pdf,.word" required>
                         <h3 id="fileName">Selectionnez un fichier à télécharger</h3>
                         <img id="upload-img" src="assets\images\upload.png" alt="logo of upload">
-                    </label>
                 </div>
 
                 <div class="tab-content-file-form-btn">
-                    <input type="button" value="Enregistrer" name="Enregistrer" >
-                </div>
+                    <input type="submit" value="Enregistrer" name="Enregistrer">
+         </div>
             </div>
 
             <!-- Script pour l'affichage des onglets selon celui qui est selectionné -->
@@ -230,13 +228,12 @@ require_once('connexion_db.php');
         </div>
     </div>
 
-
+</form>
 </div>
 
 
 </body>
-<!-- Après la dernière balise de fermeture de la div "tab-content active-tab-content" -->
-<!-- Après le script précédent -->
+
 <script>
     document.getElementById('continue-btn').addEventListener('click', function() {
         // Récupérer les valeurs des champs
@@ -252,8 +249,7 @@ require_once('connexion_db.php');
             return;
         }
 
-        // Si tous les champs sont remplis, passer à la section suivante
-        // Supprimer la classe 'active' du premier bouton et du premier contenu
+       
         document.querySelector('.tabs-btn-container .active').classList.remove('active');
         document.querySelector('.tabs .active-tab-content').classList.remove('active-tab-content');
         
@@ -275,8 +271,7 @@ require_once('connexion_db.php');
             return;
         }
 
-        // Si tous les champs nécessaires sont remplis, passer à la section suivante
-        // Supprimer la classe 'active' du deuxième bouton et du deuxième contenu
+        
         document.querySelectorAll('.tabs-btn-container button')[1].classList.remove('active');
         document.querySelectorAll('.tabs .tab-content')[1].classList.remove('active-tab-content');
         
@@ -285,9 +280,35 @@ require_once('connexion_db.php');
         document.querySelectorAll('.tabs .tab-content')[2].classList.add('active-tab-content');
     });
 </script>
+<script>
+// Assurez-vous que ce script est inclus dans votre page HTML
+document.addEventListener('DOMContentLoaded', function() {
+    var form = document.querySelector('form');
 
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Empêche la soumission du formulaire par défaut
 
-</script>
+        var formData = new FormData(form);
+
+        // Effectuez une requête AJAX
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'enregistrer_exercice.php');
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                var response = JSON.parse(xhr.responseText);
+                if (response.success) {
+                    // Gérez ici ce que vous voulez faire après l'enregistrement réussi
+                    alert('Les informations générales ont été enregistrées avec succès.');
+                } else {
+                    alert('Erreur : ' + response.message);
+                }
+            }
+        };
+        xhr.send(formData);
+    });
+});
+
 <?php
 require_once('footer.php')
 ?>
