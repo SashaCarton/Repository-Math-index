@@ -44,12 +44,8 @@
 
             if (isset($_COOKIE['loggedin']) == true) {
                 echo '<div class="disconnection"><img src="assets/images/Frame.png"><a href="deconnexion.php">Déconnexion</a></div>';
-            }
-
-                
-            
-        
+            } 
+                                       
         ?>
-
     </div>
 </body>
