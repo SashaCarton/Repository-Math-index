@@ -47,6 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // Prepare the query
             $query = $mysqli->prepare('SELECT * FROM user WHERE email = ?');
+            $id = $mysqli->prepare('SELECT id FROM user WHERE email = ?');
 
             if ($query === false) {
                 die('Failed to prepare the SQL query: ' . $mysqli->error);
@@ -64,6 +65,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Fetch the row
             $row = $result->fetch_assoc();
 
+
+
             if (empty($row)) {
                 // If the query returns no rows, the user does not exist in the database, display an error message
                 $errors['email'] = "Le nom d'utilisateur est incorrect.";
@@ -75,10 +78,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $_SESSION['first_name'] = $row['first_name'];
                     $_SESSION['loggedin'] = true;
                     $_SESSION['role'] = $row['role'];
+                    $_SESSION['id'] = $row['id'];
                     echo "Bonjour, " . $_SESSION['first_name'];
                     setcookie('first_name', $_SESSION['first_name'], time() + 3600*48, '/');
                     setcookie('loggedin', $_SESSION['loggedin'], time() + 3600*48, '/');
                     setcookie('role', $_SESSION['role'], time() + 3600*48, '/');
+                    setcookie('id', $_SESSION['id'], time() + 3600*48, '/');
                     // Redirect to the index.php page
                     header("Location: index.php");
                     exit();

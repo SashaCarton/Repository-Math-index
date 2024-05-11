@@ -26,14 +26,14 @@
 
         <div class="slide exercice">
             <img src="./assets/images/logo-fonction.png" alt="Logo fonction Exercice">
-            <h3><a href="./mathematique.php">Exercices</a></h3>
+            <h3><a href="./mathematique.php">Mathématique</a></h3>
         </div>
 
         <?php 
             if (isset($_COOKIE["role"]) && ($_COOKIE["role"] == "contributor" || $_COOKIE["role"] == "admin")) {
                 echo('<div class="slide exercice">
                         <img src="./assets/images/logo-fonction.png" alt="Logo fonction Mes Exercice">
-                         <h3><a href="./mathematique.php">Mes exercices</a></h3>
+                         <h3><a href="./exercices.php">Mes exercices</a></h3>
                     </div>
 
                 <div class="slide submit">
