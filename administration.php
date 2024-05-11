@@ -12,7 +12,7 @@
 <?php
 require_once('slide-bar.php');
 require_once('connexion_db.php');
-if($_SESSION['loggedin'] !== true){
+if (!isset($_COOKIE['role']) || $_COOKIE['role'] != 'admin'){
     header('location: connexion.php');
     exit;
 }

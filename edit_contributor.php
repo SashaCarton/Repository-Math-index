@@ -2,7 +2,16 @@
 include ('./header.php');
 require_once 'connexion_db.php';
 require 'config.php';
-$connection = mysqli_connect($server, $user, $pass, $dbName);
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "math_index";
+$connection = new mysqli($servername, $username, $password, $dbname);
+
+// Vérifier la connexion
+if ($connection->connect_error) {
+    die("La connexion a échoué : " . $connection->connect_error);
+}
 
 if (isset($_GET['id'])) {
     $id = mysqli_real_escape_string($connection, $_GET['id']);
@@ -34,8 +43,8 @@ if (isset($_GET['id'])) {
                 $email = mysqli_real_escape_string($connection, $_POST['email']);
                 $password = mysqli_real_escape_string($connection, $_POST['password']);
                 $id = mysqli_real_escape_string($connection, $_POST['id']);
-                $password = password_hash($password, PASSWORD_ARGON2I);
-                $query = "UPDATE user SET last_name = '$nom', role = '$role', first_name = '$prenom', email = '$email', password = '$password' WHERE id = $id";
+                $hashedPassword = password_hash($password, PASSWORD_ARGON2I);
+                $query = "UPDATE user SET last_name = '$nom', role = '$role', first_name = '$prenom', email = '$email', password = '$hashedPassword' WHERE id = $id";
                 $result = mysqli_query($connection, $query);
 
                 if ($result) {
@@ -65,7 +74,7 @@ if (isset($_GET['id'])) {
                     <div class="contributeurs">
                     <div class="add-contributor">
                         <h3>Modifier un contributeur</h3>
-                        <form method="POST" action="register.php" class="add-contributor">
+                        <form method="POST" action="edit_contributor.php" class="add-contributor">
                             <div class="container_form">
                                 <div class="section_form_1">
                                     <label for="nom">Nom :</label>
@@ -75,7 +84,7 @@ if (isset($_GET['id'])) {
                                     <label for="email">Email :</label>
                                     <input class="text_form" type="email" id="email" name="email" placeholder="Saisissez l'email" value="<?php echo $contributor['email']; ?>" required>
                                     <label for="password">Mot de passe :</label>
-                                    <input class="text_form" type="password" id="password" name="password" placeholder="Saisissez le mot de passe" required>
+                                    <input class="text_form" type="password" id="password" name="password" placeholder="Saisissez le mot de passe" >
                                     <div class="container_input">
                                         <input class="btn_add_exercise_1" type="button" value="< Retour à la liste" onclick="window.location.href='administration.php'"> 
                                         <input class="btn_add_exercise_2" type="submit" value="Enregistrer">

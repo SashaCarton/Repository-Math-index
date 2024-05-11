@@ -19,8 +19,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = htmlspecialchars($_POST["email"]);
     $role = htmlspecialchars($_POST["role"]);
     $password = htmlspecialchars($_POST["password"]);
-
-    // Hasher le mot de passe avec Argon2i
     $hashedPassword = password_hash($password, PASSWORD_ARGON2I);
 
     // Préparer et exécuter la requête d'insertion

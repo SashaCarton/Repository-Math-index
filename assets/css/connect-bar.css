@@ -20,11 +20,19 @@
   text-decoration: none;
   font-size: 1vw;
 }
+.nonA{
+  text-decoration: none;
+  color: black;
+}
+.nonA:hover{
+  text-decoration: none!important;
+  color: black!important;
+}
 
-.connect a:hover {
+.admin a:hover {
   text-decoration: underline;
 }
 
-.connect a:active {
+.admin a:active {
     color: black;
 }
