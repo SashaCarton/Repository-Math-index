@@ -18,6 +18,13 @@ $resultLatestExercises = mysqli_query($connection, $sqlLatestExercises);
     <?php
     include('header.php');
     ?>
+    <style>
+        .container h2 {
+            padding: 0.5vw 0 0 0vw;
+            margin-top: 10px;
+            margin-bottom: 25px;
+        }
+    </style>
 </head>
 
 <body>
@@ -85,7 +92,7 @@ $resultLatestExercises = mysqli_query($connection, $sqlLatestExercises);
 
                 if(mysqli_num_rows($resultExercises) > 0) { 
                     if ($_SERVER["REQUEST_METHOD"] == "GET") {
-                        echo "<h1 class='color_text'>" . mysqli_num_rows($resultExercises) . " exercices trouvés : </h1>";
+                        echo "<h2 class='color_text'>" . mysqli_num_rows($resultExercises) . " exercices trouvés : </h2>";
                     }
                 ?>
                     
