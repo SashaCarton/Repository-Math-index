@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (isset($_POST['submit'])) {
             $email = $_POST['email'];
-            session_start();
+          
 
             // Prepare the query
             $query = $mysqli->prepare('SELECT * FROM user WHERE email = ?');
