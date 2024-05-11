@@ -98,6 +98,12 @@ $resultLatestExercises = mysqli_query($connection, $sqlLatestExercises);
                         <th class="section_title_column_right font_weight_title">Fichiers</th>
                     </tr>
                     <?php 
+                    $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
+                    $resultsPerPage = 5;
+                    $offset = ($currentPage - 1) * $resultsPerPage;
+                    $sql .= " LIMIT $offset, $resultsPerPage";
+                    $resultExercises = mysqli_query($connection, $sql);
+
                     while($row = mysqli_fetch_assoc($resultExercises)) {
                         echo "<tr>";
                         echo "<td class='color_police_table'>" . $row["name"] . "</td>";
@@ -127,17 +133,18 @@ $resultLatestExercises = mysqli_query($connection, $sqlLatestExercises);
                 }
                 ?>
                 <?php
-                    $resultsPerPage = 5;
-                    $sqlTotalExercises = "SELECT COUNT(*) AS total FROM exercise";
-                    $resultTotalExercises = mysqli_query($connection, $sqlTotalExercises);
-                    $rowTotalExercises = mysqli_fetch_assoc($resultTotalExercises);
-                    $totalPages = ceil($rowTotalExercises['total'] / $resultsPerPage);
+                $sqlTotalExercises = "SELECT COUNT(*) AS total FROM exercise";
+                $resultTotalExercises = mysqli_query($connection, $sqlTotalExercises);
+                $rowTotalExercises = mysqli_fetch_assoc($resultTotalExercises);
+                $totalPages = ceil($rowTotalExercises['total'] / $resultsPerPage);
 
-                    echo "<div class='pagination'>";
-                    for ($i = 1; $i <= $totalPages; $i++) {
-                        echo "<a class=pagination href='research.php?page=$i'>$i</a>";
-                    }
+                
                     echo "</div>";
+                    echo "<div class='pagination'>";
+                for ($i = 1; $i <= $totalPages; $i++) {
+                    echo "<a class=pagination href='research.php?page=$i'>$i</a>";
+                }
+                echo "</div>";
                     require_once('./footer.php');
                 ?>
             </div>

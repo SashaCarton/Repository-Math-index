@@ -31,8 +31,10 @@ td {
 .pagination {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
   gap: 1%;
+  margin-top: -11px;
+  position: relative;
+  z-index: 1;
 }
 
 .pagination a {
