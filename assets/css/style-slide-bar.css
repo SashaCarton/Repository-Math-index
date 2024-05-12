@@ -55,7 +55,8 @@
 }
 
 .slide {
-  width: 16vw;
+  width: 10vw;
+  margin-right: 4vw;
   filter: grayscale(100%);
   display: flex;
   color: #5D7285;

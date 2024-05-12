@@ -3,13 +3,13 @@
   height: 2.5vw;
 }
 
-.container{
+.container {
   display: flex;
   flex-direction: column;
   white-space: initial;
 }
 
-.container h1{
+.container h1 {
   color: #1B3168;
   font-size: 1.5vw;
   text-align: left;
@@ -19,7 +19,10 @@ p {
   text-align: left;
 }
 
-.container h3,p,li,a{
+.container h3,
+p,
+li,
+a {
   font-size: 0.8vw;
 }
 
@@ -45,6 +48,7 @@ p {
   font-size: 1.7vw;
   text-align: left;
 }
-.containerHome h1{
+
+.containerHome h1 {
   color: #1B3168;
 }
