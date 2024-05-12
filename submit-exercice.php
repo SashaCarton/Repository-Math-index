@@ -228,9 +228,12 @@ require_once('connexion_db.php');
             <script src="assets\scripts\tabs.js"></script>
 
         </div>
+        <?php
+require_once('footer.php')
+?>
     </div>
 
-
+    
 </div>
 
 
@@ -288,7 +291,5 @@ require_once('connexion_db.php');
 
 
 </script>
-<?php
-require_once('footer.php')
-?>
+
 </html>
