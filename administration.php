@@ -109,7 +109,7 @@ if (!isset($_COOKIE['role']) || $_COOKIE['role'] != 'admin'){
                         $row = $result->fetch_assoc();
                         $total_pages = ceil($row["total"] / $limit);
 
-                        if (isset($_GET['success']) && $_GET['success'] == 1) {
+                        if (isset($_POST['success'])){
                             echo "<script>
                                 setTimeout(function() {
                                     document.getElementById('successMessage').style.display = 'none';
@@ -287,17 +287,18 @@ if (!isset($_COOKIE['role']) || $_COOKIE['role'] != 'admin'){
                             while ($row = mysqli_fetch_assoc($resultThematics)) {
                                 echo "<tr>";
                                 echo "<td>" . $row["name"] . "</td>";
-                                echo "<td><a href=submit-exercice.php?id=" . $row["id"] . "'>Modifier</a></td>";
+                                echo "<td><a href='submit-exercice.php?id=" . $row["id"] . "'>Modifier</a></td>";
                                 echo "</tr>";
+
                             }
                             ?>
                         </tbody>
                     </table>
+                    <form action="add-thematic.php" method="POST">
+                        <input type="text" class="addmatiere" name="name" placeholder="Nom de la matière">
+                        <input type="submit" value="Ajouter">
+                    </form>
                 </div>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
 
             <div class="tab-content">
                 <div class="classes">

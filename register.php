@@ -39,6 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // Fermer la connexion à la base de données
 $conn->close();
-header("Location: administration.php?success=1");
+header("Location: administration.php");
+$_POST["success"] = 1;
 exit;
 ?>
