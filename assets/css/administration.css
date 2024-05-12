@@ -17,6 +17,7 @@
     padding-left: 30px;
     border-radius: 7.36px;
     padding-right: 30px;
+    padding-bottom: 60px;
 }
 
 h2 {
@@ -65,7 +66,7 @@ table {
 .pagination {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: -20px;
 }
 
 .pagination a {

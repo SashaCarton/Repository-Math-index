@@ -30,10 +30,29 @@ $resultLatestExercises = mysqli_query($connection, $sqlLatestExercises);
         .pagination {
             display: flex;
             justify-content: center;
-            gap: 1%;
-            margin-top: -11px;
-            position: relative;
-            z-index: 1;
+            margin-top: -20px;
+        }
+
+        .pagination a {
+            color: #000;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            border: 1px solid #ddd;
+            margin: 0 4px;
+            border-radius: 4px;
+        }
+
+        .pagination a.active {
+            background-color: gainsboro;
+            color: black;
+            border: black;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: black;
+            color: white;
+            border: black;
         }
     </style>
 </head>
