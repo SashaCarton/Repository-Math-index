@@ -1,0 +1,30 @@
+.connect{
+  margin-top: 1.5vw;
+  margin-right: 7vw;
+  display: flex;
+  justify-content: end;
+  gap: 0.6vw;
+  align-items: center;
+  padding-bottom: 2vw;
+}
+
+.connect img{
+  width: 1.1vw;
+  height: 1.1vw;
+}
+
+.connect a{
+  margin-top: 0.1vw;
+  color: black;
+  vertical-align: middle;
+  text-decoration: none;
+  font-size: 1vw;
+}
+
+.connect a:hover {
+  text-decoration: underline;
+}
+
+.connect a:active {
+    color: black;
+}

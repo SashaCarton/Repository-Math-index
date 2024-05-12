@@ -1,0 +1,89 @@
+.slideBar a {
+  text-decoration: none;
+  opacity: 0.8;
+  font-weight: 500;
+  font-size: 0.8vw;
+}
+
+.footer-list a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.slideBar {
+  width: 18vw;
+  height: 100vh;
+  padding-left: 2vw;
+  display: flex;
+  gap: 1vw;
+  flex-direction: column;
+  box-shadow: 1px 0px 5px #b3b3b3;
+  font-family: "Poppins", sans-serif;
+  margin-right: -10px;
+  z-index: 2;
+}
+
+.slideBar h1 {
+  font-size: 1.5vw;
+  color: #1B3168;
+  font-weight: 500;
+}
+
+.slideBar h3 {
+  font-size: 0.8vw;
+  font-weight: 500;
+
+}
+
+.slidetitle {
+  display: flex;
+  gap: 1vw;
+  margin-top: 10px;
+}
+
+.slidetitle img {
+  width: 2.5vw;
+  height: 2.5vw;
+  margin-top: 2vw;
+}
+
+.titles h3 {
+  margin-top: -0.9vw;
+  font-weight: 500;
+  color: #1B3168;
+  opacity: 0.8;
+}
+
+.slide {
+  width: 16vw;
+  filter: grayscale(100%);
+  display: flex;
+  color: #5D7285;
+  gap: 1vw;
+}
+
+.slide:hover {
+  filter: grayscale(0%);
+  background-color: #F6F6F6;
+  color: #1B3168;
+}
+
+.slide img {
+  margin-top: 0.15vw;
+  width: 2.5vw;
+  height: 2.5vw;
+}
+.disconnection{
+  text-decoration: none;
+  color: #5D7285;
+  position: fixed;
+  bottom: 2vw;
+  display: flex;
+  gap: 20px;
+  background-color: rgb(243, 239, 239);
+ padding-top: 0.5vw;
+ padding-bottom: 0.5vw;
+ padding-left: 2.5vw;
+ padding-right: 2.5vw;
+ border-radius: 10px;
+}

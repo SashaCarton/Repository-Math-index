@@ -1,0 +1,41 @@
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.style_title{
+  color:rgb(96,96,96);
+  font-size:medium;
+}
+
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.exercices{
+  text-align: center;
+}
+
+.color_text{
+  color: #1B3168;
+}
+
+.section_column{
+  border-spacing: 0;
+  border: solid 1px #ddd;
+  border-radius: 10px;
+}
+
+.section_title_column_left{
+  border-top-left-radius: 10px;
+  
+}
+
+
+.pagination a:active {
+  background-color: #405fac;
+  color: white;
+}
