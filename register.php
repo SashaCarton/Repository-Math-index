@@ -19,8 +19,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = htmlspecialchars($_POST["email"]);
     $role = htmlspecialchars($_POST["role"]);
     $password = htmlspecialchars($_POST["password"]);
-
-    // Hasher le mot de passe avec Argon2i
     $hashedPassword = password_hash($password, PASSWORD_ARGON2I);
 
     // Préparer et exécuter la requête d'insertion
@@ -41,6 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // Fermer la connexion à la base de données
 $conn->close();
-header("Location: administration.php?success=1");
+header("Location: administration.php");
+$_POST["success"] = 1;
 exit;
 ?>

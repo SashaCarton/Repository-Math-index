@@ -3,13 +3,13 @@
   height: 2.5vw;
 }
 
-.container{
+.container {
   display: flex;
   flex-direction: column;
   white-space: initial;
 }
 
-.container h1{
+.container h1 {
   color: #1B3168;
   font-size: 1.5vw;
   text-align: left;
@@ -19,29 +19,68 @@ p {
   text-align: left;
 }
 
-.container h3,p,li,a{
+.container h3,
+p,
+li,
+a {
   font-size: 0.8vw;
 }
 
-.containerHome{
+.containerHome {
   width: 100%;
   height: 100%;
   text-align: left;
   position: relative;
-  background-color:#EFF2F4;
-  padding: 4vw;
+  background-color: #EFF2F4;
+  padding: 1vw 2vw 2vw 2vw;
 }
 
-.containerHome div{
+.containerHome div {
   background-color: #ffffff;
   padding: 2vw;
   height: 55%;
   width: 85%;
+  border-radius: 7.36px;
 }
 
-.containerHome li{
-  margin-top: 2vw;
-}
-.containerHome h1{
+.container h1 {
   color: #1B3168;
+  font-size: 1.7vw;
+  text-align: left;
+}
+
+.containerHome h1 {
+  color: #1B3168;
+}
+/* Styles pour les appareils mobiles */
+@media only screen and (max-width: 600px) {
+  .slide img {
+    width: 100%;
+    height: auto;
+  }
+
+  .container h1 {
+    font-size: 16px;
+  }
+
+  .container h3,
+  p,
+  li,
+  a {
+    font-size: 12px;
+  }
+
+  .containerHome div {
+    padding: 10px;
+    height: 40%;
+    width: 90%;
+  }
+
+  .container h1 {
+    font-size: 20px;
+  }
+
+  .containerHome h1 {
+    font-size: 24px;
+  }
 }

@@ -32,7 +32,6 @@
 .slideBar h3 {
   font-size: 0.8vw;
   font-weight: 500;
-
 }
 
 .slidetitle {
@@ -55,7 +54,8 @@
 }
 
 .slide {
-  width: 16vw;
+  width: 10vw;
+  margin-right: 4vw;
   filter: grayscale(100%);
   display: flex;
   color: #5D7285;
@@ -73,7 +73,8 @@
   width: 2.5vw;
   height: 2.5vw;
 }
-.disconnection{
+
+.disconnection {
   text-decoration: none;
   color: #5D7285;
   position: fixed;
@@ -81,9 +82,42 @@
   display: flex;
   gap: 20px;
   background-color: rgb(243, 239, 239);
- padding-top: 0.5vw;
- padding-bottom: 0.5vw;
- padding-left: 2.5vw;
- padding-right: 2.5vw;
- border-radius: 10px;
+  padding-top: 0.5vw;
+  padding-bottom: 0.5vw;
+  padding-left: 2.5vw;
+  padding-right: 2.5vw;
+  border-radius: 10px;
+}
+
+/* Responsive pour les appareils mobiles */
+@media screen and (max-width: 768px) {
+  .slideBar {
+    width: 100%;
+    height: auto;
+    padding: 2vw;
+    margin-right: 0;
+  }
+
+  .slideBar h1 {
+    font-size: 2.5vw;
+  }
+
+  .slideBar h3 {
+    font-size: 1.5vw;
+  }
+
+  .slide {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .slide img {
+    width: 5vw;
+    height: 5vw;
+  }
+
+  .disconnection {
+    bottom: 5vw;
+    padding: 2vw;
+  }
 }

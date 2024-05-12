@@ -148,10 +148,11 @@
   background-color: #ffffff;
   padding: 30px;
   padding-bottom: 5%;
+  border-radius: 7.36px;
 }
 
 form {
-  margin-bottom: 6%;
+  margin-bottom: 3%;
   margin-top: -1%;
 }
 

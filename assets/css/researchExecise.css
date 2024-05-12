@@ -31,8 +31,10 @@ td {
 .pagination {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
   gap: 1%;
+  margin-top: -11px;
+  position: relative;
+  z-index: 1;
 }
 
 .pagination a {
@@ -79,7 +81,7 @@ td {
   background-color: #ffffff;
   border-radius: 7.36px;
   padding: 2vw;
-  height: 55%;
+  height: 62vh;
 }
 
 .style_filter {
@@ -161,11 +163,10 @@ td {
 }
 
 .icon_correction {
-  position: absolute;
-  right: 115px;
-  bottom: 12px;
-  width: 1.5vw;
-  height: 1.5vw;
+  width: 1vw;
+  height: 1vw;
+  margin-right: 0.1vw;
+  margin-bottom: -0.2vw;
 }
 
 .color_police_table {
@@ -240,4 +241,16 @@ table {
       left: -5px;
       bottom: 11px;
   }
+}
+.icon_correction {
+  width: 1vw;
+  height: 1vw;
+  margin-right: 1vw;
+  margin-bottom: 0.1vw;
+}
+.icon_download {
+  width: 1vw;
+  height: 1vw;
+  margin-right: 1vw;
+  margin-bottom: 0.1vw;
 }

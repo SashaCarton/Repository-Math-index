@@ -1,6 +1,6 @@
-<?php 
+<?php
 require_once 'connexion_db.php';
-require('config.php');
+require 'config.php';
 
 $connection = mysqli_connect($server, $user, $pass, $dbName);
 
@@ -10,6 +10,8 @@ if (!$connection) {
 
 $sqlLatestExercises = "SELECT * FROM exercise ORDER BY id DESC LIMIT 5";
 $resultLatestExercises = mysqli_query($connection, $sqlLatestExercises);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +20,41 @@ $resultLatestExercises = mysqli_query($connection, $sqlLatestExercises);
     <?php
     include('header.php');
     ?>
+    <style>
+        .container h2 {
+            padding: 0.5vw 0 0 0vw;
+            margin-top: 10px;
+            margin-bottom: 25px;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: -20px;
+        }
+
+        .pagination a {
+            color: #000;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            border: 1px solid #ddd;
+            margin: 0 4px;
+            border-radius: 4px;
+        }
+
+        .pagination a.active {
+            background-color: gainsboro;
+            color: black;
+            border: black;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: black;
+            color: white;
+            border: black;
+        }
+    </style>
 </head>
 
 <body>
@@ -37,9 +74,19 @@ $resultLatestExercises = mysqli_query($connection, $sqlLatestExercises);
                         <label for="niveau" class="style_title">Niveau :</label>
                         <select name="niveau" id="niveau" class="style_filter">
                             <option value="">Sélectionnez un niveau</option>
-                            <?php for ($i = 1; $i <= 10; $i++) : ?>
-                                <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                            <?php endfor; ?>
+                            <?php 
+                                $mapping = [
+                                    'Élémentaire' => [2, 3, 4, 5, 6],
+                                    'Collège' => [7, 8, 9, 10],
+                                    'Lycée' => [11, 12, 13],
+                                    'Supérieur' => [14, 15, 16, 17, 18, 19, 20]
+                                ];
+
+                                foreach ($mapping as $categorie => $niveaux) {
+                                    $niveauxString = implode(',', $niveaux);
+                                    echo "<option value=\"$niveauxString\">$categorie</option>";
+                                }
+                            ?>
                         </select>
                     </div>
                     <div class="section_filter">
@@ -49,9 +96,10 @@ $resultLatestExercises = mysqli_query($connection, $sqlLatestExercises);
                             <?php 
                             $sqlThematics = "SELECT * FROM thematic";
                             $resultThematics = mysqli_query($connection, $sqlThematics);
-                            while ($row = mysqli_fetch_assoc($resultThematics)) : ?>
-                                <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
-                            <?php endwhile; ?>
+                            while ($row = mysqli_fetch_assoc($resultThematics)) {
+                                echo "<option value=\"" . $row['id'] . "\">" . $row['name'] . "</option>";
+                            }
+                            ?>
                         </select>
                     </div>
                     <div class="section_filter">
@@ -62,30 +110,51 @@ $resultLatestExercises = mysqli_query($connection, $sqlLatestExercises);
                 </form>
                 <?php
                 $sql = "SELECT * FROM exercise WHERE 1=1";
+                $params = array();
+                $types = '';
+
                 if(isset($_GET['niveau']) && $_GET['niveau'] != '') {
-                    $niveau = $_GET['niveau'];
-                    $sql .= " AND difficulty = '$niveau'";
+                    $niveaux = explode(',', $_GET['niveau']);
+                    $niveauxPlaceholders = implode(',', array_fill(0, count($niveaux), '?'));
+
+                    $sql .= " AND difficulty IN ($niveauxPlaceholders)";
+                    $types = str_repeat('i', count($niveaux));
+                    $params = $niveaux;
                 }
 
                 if(isset($_GET['thematique']) && $_GET['thematique'] != '') {
                     $thematique = $_GET['thematique'];
-                    $sql .= " AND thematic_id = '$thematique'";
+                    $sql .= " AND thematic_id = ?";
+                    $types .= 'i';
+                    $params[] = $thematique;
                 }
 
                 if(isset($_GET['mots_cles']) && !empty($_GET['mots_cles'])) {
-                    $mots_cles = "";
-                    if (is_string($_GET['mots_cles'])) {
-                        $mots_cles = htmlspecialchars($_GET['mots_cles']);
-                    }
-                    $sql .= " AND (name LIKE '%$mots_cles%' OR keywords LIKE '%$mots_cles%')";
+                    $mots_cles = htmlspecialchars($_GET['mots_cles']);
+                    $sql .= " AND (name LIKE ? OR keywords LIKE ?)";
+                    $types .= 'ss';
+                    $params[] = '%' . $mots_cles . '%';
+                    $params[] = '%' . $mots_cles . '%';
+                }
+                $resultsPerPage = 5;
+                $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+                $offset = ($page - 1) * $resultsPerPage;
+
+                $sql .= " LIMIT ? OFFSET ?";
+                $types .= 'ii';
+                $params[] = $resultsPerPage;
+                $params[] = $offset;
+                $stmt = mysqli_prepare($connection, $sql);
+
+                if (!empty($params)) {
+                    mysqli_stmt_bind_param($stmt, $types, ...$params);
                 }
 
-                $resultExercises = mysqli_query($connection, $sql);
+                mysqli_stmt_execute($stmt);
+                $resultExercises = mysqli_stmt_get_result($stmt);
 
                 if(mysqli_num_rows($resultExercises) > 0) { 
-                    if ($_SERVER["REQUEST_METHOD"] == "GET") {
-                        echo "<h1 class='color_text'>" . mysqli_num_rows($resultExercises) . " exercices trouvés : </h1>";
-                    }
+                    echo "<h1 class='color_text'>" . mysqli_num_rows($resultExercises) . " exercices trouvés : </h1>";
                 ?>
                     
                 <table class="section_column">
@@ -107,7 +176,7 @@ $resultLatestExercises = mysqli_query($connection, $sqlLatestExercises);
                             echo "<span class='keyword'>" . trim($keyword) . "</span>";
                         }
                         echo "</td>";
-                        echo "<td>" . $row["duration"] . "</td>";
+                        echo "<td>" . $row["duration"] . "h</td>";
                         echo "<td class=''>";
                         if ($row["exercise_file_id"]) {
                             echo "<a href='download.php?id=" . $row["exercise_file_id"] . "' download class='style_filter_file-1 color_police_table'><img class='icon_download' src='assets/images/Group.png'/>Exercice</a> ";
@@ -121,26 +190,34 @@ $resultLatestExercises = mysqli_query($connection, $sqlLatestExercises);
                     ?>
                 </table>
                 <?php
-                } else {
-                    echo "<h2>Aucun exercice trouvé</h2>";
-                }
-                ?>
-                <?php
-                $resultsPerPage = 5;
-                $sqlTotalExercises = "SELECT COUNT(*) AS total FROM exercise";
-                $resultTotalExercises = mysqli_query($connection, $sqlTotalExercises);
-                $rowTotalExercises = mysqli_fetch_assoc($resultTotalExercises);
-                $totalPages = ceil($rowTotalExercises['total'] / $resultsPerPage);
-
-                echo "<div class='pagination'>";
-                for ($i = 1; $i <= $totalPages; $i++) {
-                    echo "<a class=pagination href='research.php?page=$i'>$i</a>";
-                }
-                echo "</div>";
-                require_once('./footer.php');
+                    } else {
+                        echo "<h2>Aucun exercice trouvé</h2>";
+                    }
+                    
+                    
                 ?>
             </div>
+            <?php
+            $sqlTotalExercises = "SELECT COUNT(*) AS total FROM exercise";
+                    $resultTotalExercises = mysqli_query($connection, $sqlTotalExercises);
+                    $rowTotalExercises = mysqli_fetch_assoc($resultTotalExercises);
+                    $totalPages = ceil($rowTotalExercises['total'] / $resultsPerPage);
+
+                    
+                    require_once('./footer.php');
+                    echo "<div class='pagination'>";
+                    for ($i = 1; $i <= $totalPages; $i++) {
+                        echo "<a class=pagination href='research.php?page=$i'>$i</a>";
+                    }
+                    echo "</div>";
+            ?>
         </div>  
     </div>
 </body>
 </html>
+
+<?php
+// Fermeture de la requête et de la connexion
+mysqli_stmt_close($stmt);
+mysqli_close($connection);
+?>
