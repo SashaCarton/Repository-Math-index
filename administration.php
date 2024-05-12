@@ -37,7 +37,10 @@ if (!isset($_COOKIE['role']) || $_COOKIE['role'] != 'admin'){
             </div>
             <div id="confirmDialog" style="display: none;">
                 <div class="back">
-                    <img id="croix" src="assets/images/croix.png" href="administration.php" alt="Supprimer">
+                    <span id="croix">
+                        <img src="assets/images/croix.png" href="administration.php" alt="Supprimer">
+                    </span>
+                    
                     <div class="dialog">
                         <img src="assets/images/check.png" alt="check">
                         <div>
@@ -596,6 +599,19 @@ if (!isset($_COOKIE['role']) || $_COOKIE['role'] != 'admin'){
 
             var confirmNo = document.getElementById('confirmNo');
             confirmNo.addEventListener('click', function() {
+                confirmDialog.style.display = 'none';
+            });
+            var croix = document.getElementById('croix');
+            croix.addEventListener('click', function() {
+                confirmDialog.style.display = 'none';
+            });
+        });
+    }
+
+    for (var i = 0; i < deleteLinks.length; i++) {
+        deleteLinks[i].addEventListener('click', function(e) {
+            var croix = document.getElementById('croix');
+            croix.addEventListener('click', function() {
                 confirmDialog.style.display = 'none';
             });
         });

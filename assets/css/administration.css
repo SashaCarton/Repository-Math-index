@@ -326,13 +326,19 @@ label {
     font-weight: bold;
 }
 
-#croix{
+#croix {
+    display: flex;
+    z-index: 1;
+    height: 12px;
     position: absolute;
     right: 0;
     top: 0;
     padding: 10px;
     cursor: pointer;
+    background-color: #E5E5E5;
+    border-radius: 29px;
 }
+
 .container_form label{
     margin-bottom: -10px;
 }
