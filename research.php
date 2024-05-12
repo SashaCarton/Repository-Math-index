@@ -11,6 +11,7 @@ if (!$connection) {
 $sqlLatestExercises = "SELECT * FROM exercise ORDER BY id DESC LIMIT 5";
 $resultLatestExercises = mysqli_query($connection, $sqlLatestExercises);
 
+
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +50,8 @@ $resultLatestExercises = mysqli_query($connection, $sqlLatestExercises);
                                 $mapping = [
                                     'Élémentaire' => [2, 3, 4, 5, 6],
                                     'Collège' => [7, 8, 9, 10],
-                                    'Lycée' => [11, 12, 13]
+                                    'Lycée' => [11, 12, 13],
+                                    'Supérieur' => [14, 15, 16, 17, 18, 19, 20]
                                 ];
 
                                 foreach ($mapping as $categorie => $niveaux) {
@@ -106,7 +108,14 @@ $resultLatestExercises = mysqli_query($connection, $sqlLatestExercises);
                     $params[] = '%' . $mots_cles . '%';
                     $params[] = '%' . $mots_cles . '%';
                 }
+                $resultsPerPage = 5;
+                $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+                $offset = ($page - 1) * $resultsPerPage;
 
+                $sql .= " LIMIT ? OFFSET ?";
+                $types .= 'ii';
+                $params[] = $resultsPerPage;
+                $params[] = $offset;
                 $stmt = mysqli_prepare($connection, $sql);
 
                 if (!empty($params)) {
@@ -156,7 +165,7 @@ $resultLatestExercises = mysqli_query($connection, $sqlLatestExercises);
                     } else {
                         echo "<h2>Aucun exercice trouvé</h2>";
                     }
-                    $resultsPerPage = 5;
+                    
                     $sqlTotalExercises = "SELECT COUNT(*) AS total FROM exercise";
                     $resultTotalExercises = mysqli_query($connection, $sqlTotalExercises);
                     $rowTotalExercises = mysqli_fetch_assoc($resultTotalExercises);
