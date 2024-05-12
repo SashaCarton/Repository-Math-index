@@ -263,7 +263,7 @@ if (!isset($_COOKIE['role']) || $_COOKIE['role'] != 'admin'){
                         echo "</div>";
                         echo "<div class='pagination'>";
                     for ($i = 1; $i <= $totalPages; $i++) {
-                        echo "<a class=pagination href='research.php?page=$i'>$i</a>";
+                        echo "<a href='research.php?page=$i'>$i</a>";
                     }
                     echo "</div>";
                         require_once('./footer.php');
@@ -272,9 +272,86 @@ if (!isset($_COOKIE['role']) || $_COOKIE['role'] != 'admin'){
                 </div>
                 
             </div>
-
             <div class="tab-content">
-                <h2>Fichiers</h2>
+                <div class="matiere">
+                    <h3>Liste des exercices</h3>
+                    <div class="search-bar">
+                        <input type="text" id="search" placeholder="Rechercher par nom" onkeyup="searchExercises()">
+                    </div>
+                    <table class="exercise-table">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Difficulté</th>
+                                <th>Mots clés</th>
+                                <th>Durée</th>
+                                <th>Fichiers</th>
+                                <th>Modifier</th>
+                            </tr>
+                        </thead>
+                        <tbody id="exercise-table-body">
+                            <?php
+                            $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
+                            $resultsPerPage = 5;
+                            $offset = ($currentPage - 1) * $resultsPerPage;
+                            $sqlExercises = "SELECT exercise.name, exercise.difficulty, exercise.keywords, exercise.duration, exercise.exercise_file_id, exercise.correction_file_id
+                                             FROM exercise
+                                             LIMIT $offset, $resultsPerPage";
+                            $resultExercises = mysqli_query($connection, $sqlExercises);
+                            while ($row = mysqli_fetch_assoc($resultExercises)) {
+                                $exerciseId = $row['id'];
+                                echo "<tr>";
+                                echo "<td>" . $row["name"] . "</td>";
+                                echo "<td>" . $row["difficulty"] . "</td>";
+                                echo "<td>";
+                                $keywords = explode(',', $row["keywords"]);
+                                foreach ($keywords as $keyword) {
+                                    echo "<span class='keyword'>" . trim($keyword) . "</span>";
+                                }
+                                echo "</td>";
+                                echo "<td>" . $row["duration"] . "</td>";
+                                echo "<td>";
+                                if ($row["exercise_file_id"]) {
+                                    echo "<a href='download.php?id=" . $row["exercise_file_id"] . "'>Exercice</a> ";
+                                }
+                                if ($row["correction_file_id"]) {
+                                    echo "<a href='download.php?id=" . $row["correction_file_id"] . "'>Corriger</a>";
+                                }
+                                echo "</td>";
+                                echo "<td>";
+                                echo "<a href='modification.php?id=" . $exerciseId . "'>Modifier</a>";
+                                echo "</td>";
+                                echo "</tr>";
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                    <?php
+                    $sqlTotalExercises = "SELECT COUNT(*) AS total FROM exercise";
+                    $resultTotalExercises = mysqli_query($connection, $sqlTotalExercises);
+                    $rowTotalExercises = mysqli_fetch_assoc($resultTotalExercises);
+                    $totalPages = ceil($rowTotalExercises['total'] / $resultsPerPage);
+
+                    echo "<div class='pagination'>";
+                    for ($i = 1; $i <= $totalPages; $i++) {
+                        echo "<a class='pagination-link' href='administration.php?page=$i'>$i</a>";
+                    }
+                    echo "</div>";
+                    ?>
+                        </tbody>
+                    </table>
+                    <?php
+                    $sqlTotalExercises = "SELECT COUNT(*) AS total FROM exercise";
+                    $resultTotalExercises = mysqli_query($connection, $sqlTotalExercises);
+                    $rowTotalExercises = mysqli_fetch_assoc($resultTotalExercises);
+                    $totalPages = ceil($rowTotalExercises['total'] / $resultsPerPage);
+
+                    echo "<div class='pagination'>";
+                    for ($i = 1; $i <= $totalPages; $i++) {
+                        echo "<a class='pagination-link' href='administration.php?page=$i'>$i</a>";
+                    }
+                    echo "</div>";
+                    ?>
             </div>
             <script src="./assets/scripts/tabs.js"></script>
         </div>
@@ -324,6 +401,17 @@ if (!isset($_COOKIE['role']) || $_COOKIE['role'] != 'admin'){
                                 <option value="Enseignant">Enseignant</option>
                                 <option value="Elève">Elève</option>
                             </select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        `;
+    }
+</script>
+<script>
+    var deleteLinks = document.querySelectorAll('a#delete-dialog');
+
+    for (var i = 0; i < deleteLinks.length; i++) {
                         </div>
                     </div>
                 </div>

@@ -52,3 +52,35 @@ a {
 .containerHome h1 {
   color: #1B3168;
 }
+/* Styles pour les appareils mobiles */
+@media only screen and (max-width: 600px) {
+  .slide img {
+    width: 100%;
+    height: auto;
+  }
+
+  .container h1 {
+    font-size: 16px;
+  }
+
+  .container h3,
+  p,
+  li,
+  a {
+    font-size: 12px;
+  }
+
+  .containerHome div {
+    padding: 10px;
+    height: 40%;
+    width: 90%;
+  }
+
+  .container h1 {
+    font-size: 20px;
+  }
+
+  .containerHome h1 {
+    font-size: 24px;
+  }
+}
