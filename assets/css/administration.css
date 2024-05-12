@@ -342,7 +342,7 @@ label {
 }
 .exercices{
     position: absolute;
-    top: 12vw;
+    top: 5vw;
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -358,11 +358,7 @@ label {
     border-radius: 5px;
     margin-bottom: 20px;
 }
-.icon_download{
-    width: 1vw;
-    height: 1vw;
-    margin-right: 2 vw;
-}
+
 .matiere{
     position: absolute;
     top: 12vw;
@@ -392,5 +388,19 @@ label {
     height: 70%;
     overflow: hidden;
     background-color: #ffffff;
-    width: 60%;
-}       
+    width: 70%;
+}     
+.icon_correction {
+    width: 1vw;
+    height: 1vw;
+    margin-right: 2.2vw!important;
+    margin-bottom: 0.1vw;
+  }
+  .icon_download {
+    position: absolute;
+    left: -40px;
+    width: 1vw;
+    height: 1vw;
+    margin-right: 10vw!important;
+    margin-bottom: 0.1vw;
+  }

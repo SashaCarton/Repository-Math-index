@@ -299,43 +299,7 @@ if (!isset($_COOKIE['role']) || $_COOKIE['role'] != 'admin'){
                     <div class="search-bar">
                         <input type="text" id="search" placeholder="Rechercher par nom" onkeyup="searchExercises()">
                     </div>
-                    <form method="GET" action="administration.php" class="filter-form">
-                        <div class="section_filter">
-                            <label for="niveau" class="style_title">Niveau :</label>
-                            <select name="niveau" id="niveau" class="style_filter">
-                                <option value="">Sélectionnez un niveau</option>
-                                <?php 
-                                $mapping = [
-                                    'Élémentaire' => [2, 3, 4, 5, 6],
-                                    'Collège' => [7, 8, 9, 10],
-                                    'Lycée' => [11, 12, 13]
-                                ];
 
-                                foreach ($mapping as $categorie => $niveaux) {
-                                    $niveauxString = implode(',', $niveaux);
-                                    echo "<option value=\"$niveauxString\">$categorie</option>";
-                                }
-                                ?>
-                            </select>
-                        </div>
-                        <div class="section_filter">
-                            <label for="thematique" class="style_title">Thématique :</label>
-                            <select name="thematique" id="thematique" class="style_filter">
-                                <option value="">Sélectionnez une thématique</option>
-                                <?php 
-                                $sqlThematics = "SELECT * FROM thematic";
-                                $resultThematics = mysqli_query($connection, $sqlThematics);
-                                while ($row = mysqli_fetch_assoc($resultThematics)) : ?>
-                                    <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
-                                <?php endwhile; ?>
-                            </select>
-                        </div>
-                        <div class="section_filter">
-                            <label for="mots_cles" class="style_title">Mots-clés :</label>
-                            <input type="text" name="mots_cles" id="mots_cles" placeholder="Entrez des mots-clés" class="style_filter">
-                        </div>
-                        <input type="submit" value="Rechercher" class="style_submit reseach_button">
-                    </form>
                     <?php
                     $sql = "SELECT * FROM exercise WHERE 1=1";
                     if(isset($_GET['niveau']) && $_GET['niveau'] != '') {
@@ -367,7 +331,7 @@ if (!isset($_COOKIE['role']) || $_COOKIE['role'] != 'admin'){
                         </tr>
                         <?php 
                         $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
-                        $resultsPerPage = 5;
+                        $resultsPerPage = 3;
                         $offset = ($currentPage - 1) * $resultsPerPage;
                         $sql .= " LIMIT $offset, $resultsPerPage";
                         $resultExercises = mysqli_query($connection, $sql);
@@ -413,30 +377,18 @@ if (!isset($_COOKIE['role']) || $_COOKIE['role'] != 'admin'){
                         echo "</div>";
                         echo "<div class='pagination'>";
                     for ($i = 1; $i <= $totalPages; $i++) {
-                        echo "<a href='research.php?page=$i'>$i</a>";
+                        echo "<a href='administration.php?page=$i'>$i</a>";
                     }
                     echo "</div>";
                     ?>
                 </div>
             </div>
+            <div></div>
             <script src="./assets/scripts/tabs.js"></script>
         </div>
     </div>
 </div>
 <script>
-    const tabs = document.querySelectorAll('.tab');
-    const tabContents = document.querySelectorAll('.tab-content');
-
-    tabs.forEach((tab, index) => {
-        tab.addEventListener('click', () => {
-            tabs.forEach(tab => tab.classList.remove('active'));
-            tab.classList.add('active');
-
-            tabContents.forEach(tabContent => tabContent.classList.remove('active-tab-content'));
-            tabContents[index].classList.add('active-tab-content');
-        });
-    });
-
     function showAddContributorForm() {
         // Sélectionnez la div contributeurs
         const contributorsDiv = document.querySelector('.contributeurs');
@@ -467,17 +419,6 @@ if (!isset($_COOKIE['role']) || $_COOKIE['role'] != 'admin'){
                                 <option value="Enseignant">Enseignant</option>
                                 <option value="Elève">Elève</option>
                             </select>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        `;
-    }
-</script>
-<script>
-    var deleteLinks = document.querySelectorAll('a#delete-dialog');
-
-    for (var i = 0; i < deleteLinks.length; i++) {
                         </div>
                     </div>
                 </div>
