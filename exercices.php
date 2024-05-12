@@ -50,7 +50,7 @@ $resultAllExercises = mysqli_query($connection, $sqlAllExercises);
                             <td><?php echo $rowAllExercise["name"]; ?></td>
                             <td><?php echo $rowAllExercise["thematic"]; ?></td>
                             <td><?php echo $rowAllExercise["difficulty"]; ?></td>
-                            <td><?php echo $rowAllExercise["duration"]; ?></td>
+                            <?php echo "<td>" . $rowAllExercise["duration"] . "h</td>";?>
                             <td>
                                 <?php
                                 $keywords = explode(',', $rowAllExercise["keywords"]);

@@ -26,6 +26,15 @@ $resultLatestExercises = mysqli_query($connection, $sqlLatestExercises);
             margin-top: 10px;
             margin-bottom: 25px;
         }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 1%;
+            margin-top: -11px;
+            position: relative;
+            z-index: 1;
+        }
     </style>
 </head>
 
@@ -148,7 +157,7 @@ $resultLatestExercises = mysqli_query($connection, $sqlLatestExercises);
                             echo "<span class='keyword'>" . trim($keyword) . "</span>";
                         }
                         echo "</td>";
-                        echo "<td>" . $row["duration"] . "</td>";
+                        echo "<td>" . $row["duration"] . "h</td>";
                         echo "<td class=''>";
                         if ($row["exercise_file_id"]) {
                             echo "<a href='download.php?id=" . $row["exercise_file_id"] . "' download class='style_filter_file-1 color_police_table'><img class='icon_download' src='assets/images/Group.png'/>Exercice</a> ";
@@ -166,7 +175,11 @@ $resultLatestExercises = mysqli_query($connection, $sqlLatestExercises);
                         echo "<h2>Aucun exercice trouvé</h2>";
                     }
                     
-                    $sqlTotalExercises = "SELECT COUNT(*) AS total FROM exercise";
+                    
+                ?>
+            </div>
+            <?php
+            $sqlTotalExercises = "SELECT COUNT(*) AS total FROM exercise";
                     $resultTotalExercises = mysqli_query($connection, $sqlTotalExercises);
                     $rowTotalExercises = mysqli_fetch_assoc($resultTotalExercises);
                     $totalPages = ceil($rowTotalExercises['total'] / $resultsPerPage);
@@ -178,8 +191,7 @@ $resultLatestExercises = mysqli_query($connection, $sqlLatestExercises);
                         echo "<a class=pagination href='research.php?page=$i'>$i</a>";
                     }
                     echo "</div>";
-                ?>
-            </div>
+            ?>
         </div>  
     </div>
 </body>
