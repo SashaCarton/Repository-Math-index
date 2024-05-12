@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $file_tmp = $_FILES["profile_pic"]["tmp_name"];
         $new_file_name = uniqid() . "_" . $file_name;
 
-        $destination_folder = "assets/image_user/";
+        $destination_folder = "assets/dossiers_users/";
         if (!is_dir($destination_folder) || !is_writable($destination_folder)) {
             die("Le dossier de destination n'existe pas ou n'a pas les permissions nécessaires.");
         }
