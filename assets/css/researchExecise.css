@@ -243,3 +243,15 @@ table {
       bottom: 11px;
   }
 }
+.icon_correction {
+  width: 1vw;
+  height: 1vw;
+  margin-right: 1vw;
+  margin-bottom: 0.1vw;
+}
+.icon_download {
+  width: 1vw;
+  height: 1vw;
+  margin-right: 1vw;
+  margin-bottom: 0.1vw;
+}
