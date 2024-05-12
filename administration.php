@@ -241,7 +241,7 @@ if (!isset($_COOKIE['role']) || $_COOKIE['role'] != 'admin'){
                                     }
                                     echo "</td>";
                                     echo "<td class=''>";
-                                    echo "<a href='modification.php?id=" . $row["id"] . "' class='style_filter_file-2 color_police_table'>Modifier</a>";
+                                    echo "<a href='submit-exercice.php?id=" . $row["id"] . "' class='style_filter_file-2 color_police_table'>Modifier</a>";
                                     echo "</td>";
                                     echo "</tr>";
                                 }
@@ -265,7 +265,7 @@ if (!isset($_COOKIE['role']) || $_COOKIE['role'] != 'admin'){
 
                     echo "<div class='pagination'>";
                     for ($i = 1; $i <= $totalPages; $i++) {
-                        echo "<a class='pagination-link' href='administration.php?page=$i'>$i</a>";
+                        echo "<a class='pagination-link' href='submit-exercice.php?page=$i'>$i</a>";
                     }
                     echo "</div>";
                     ?>
@@ -287,7 +287,7 @@ if (!isset($_COOKIE['role']) || $_COOKIE['role'] != 'admin'){
                             while ($row = mysqli_fetch_assoc($resultThematics)) {
                                 echo "<tr>";
                                 echo "<td>" . $row["name"] . "</td>";
-                                echo "<td><a href='modification.php?id=" . $row["id"] . "'>Modifier</a></td>";
+                                echo "<td><a href=submit-exercice.php?id=" . $row["id"] . "'>Modifier</a></td>";
                                 echo "</tr>";
                             }
                             ?>
@@ -386,10 +386,157 @@ if (!isset($_COOKIE['role']) || $_COOKIE['role'] != 'admin'){
                         echo "<a href='administration.php?page=$i'>$i</a>";
                     }
                     echo "</div>";
+
                     ?>
                 </div>
             </div>
-            <div></div>
+            <div class="tab-content">
+                <div class="liste">
+                    <h3>Liste des thématiques</h3>
+                    <div class="search-bar">
+                        <input type="text" id="search" placeholder="Rechercher par nom ou matière" onkeyup="searchThemes()">
+                    </div>
+                    <table class="section_column">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Matière</th>
+                                <th>Nombre d'exercices</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $sqlThemes = "SELECT thematic.*, COUNT(exercise.id) AS exercise_count FROM thematic LEFT JOIN exercise ON thematic.id = exercise.thematic_id GROUP BY thematic.id";
+                            $resultThemes = mysqli_query($connection, $sqlThemes);
+                            while ($row = mysqli_fetch_assoc($resultThemes)) {
+                                echo "<tr>";
+                                echo "<td>" . $row["name"] . "</td>";
+                                echo "<td>" . $row["subject"] . "</td>";
+                                echo "<td>" . $row["exercise_count"] . "</td>";
+                                echo "<td>";
+                                echo "<a href='modification.php?id=" . $row["id"] . "'>Modifier</a>";
+                                echo "</td>";
+                                echo "</tr>";
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="tab-content">
+                <div class="origines">
+                    <h3>Liste des compétences</h3>
+                    <div class="search-bar">
+                        <input type="text" id="search" placeholder="Rechercher par nom ou matière" onkeyup="searchThemes()">
+                    </div>
+                    <table class="section_column">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Matière</th>
+                                <th>Nombre d'exercices</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $sqlThemes = "SELECT thematic.*, COUNT(exercise.id) AS exercise_count FROM thematic LEFT JOIN exercise ON thematic.id = exercise.thematic_id GROUP BY thematic.id";
+                            $resultThemes = mysqli_query($connection, $sqlThemes);
+                            while ($row = mysqli_fetch_assoc($resultThemes)) {
+                                echo "<tr>";
+                                echo "<td>" . $row["name"] . "</td>";
+                                echo "<td>" . $row["subject"] . "</td>";
+                                echo "<td>" . $row["exercise_count"] . "</td>";
+                                echo "<td>";
+                                echo "<a href='modification.php?id=" . $row["id"] . "'>Modifier</a>";
+                                echo "</td>";
+                                echo "</tr>";
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="tab-content">
+                <div class="origines">
+                    <h3>Liste des origines</h3>
+                    <div class="search-bar">
+                        <input type="text" id="search" placeholder="Rechercher par nom" onkeyup="searchOrigins()">
+                        </div>
+                        <tbody>
+                            <tbody>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Nom</th>
+                                            <th>Matière</th>
+                                            <th>Nombre d'exercices</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $sqlThemes = "SELECT thematic.*, COUNT(exercise.id) AS exercise_count FROM thematic LEFT JOIN exercise ON thematic.id = exercise.thematic_id GROUP BY thematic.id";
+                                        $resultThemes = mysqli_query($connection, $sqlThemes);
+                                        while ($row = mysqli_fetch_assoc($resultThemes)) {
+                                            echo "<tr>";
+                                            echo "<td>" . $row["name"] . "</td>";
+                                            echo "<td>" . $row["subject"] . "</td>";
+                                            echo "<td>" . $row["exercise_count"] . "</td>";
+                                            echo "<td>";
+                                            echo "<a href='modification.php?id=" . $row["id"] . "'>Modifier</a>";
+                                            echo "</td>";
+                                            echo "</tr>";
+                                        }
+                                        ?>
+                                    </tbody>
+                                </table>
+                        </tbody>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function showAddContributorForm() {
+        // Sélectionnez la div contributeurs
+        const contributorsDiv = document.querySelector('.contributeurs');
+
+        // Changez le contenu de la div
+        contributorsDiv.innerHTML =`
+            <h3>Ajouter un contributeur</h3>
+            <form method="POST" action="register.php" class="add-contributor">
+                <div class="container_form">
+                    <div class="section_form_1">
+                        <label for="nom">Nom :</label>
+                        <input class="text_form" type="text" id="nom" name="nom" placeholder="Saisissez le nom du contributeur" required>
+                        <label for="prenom">Prénom :</label>
+                        <input class="text_form" type="text" id="prenom" name="prenom" placeholder="Saisissez le prénom" required>
+                        <label for="email">Email :</label>
+                        <input class="text_form" type="email" id="email" name="email" placeholder="Saisissez l'email" required>
+                        <label for="password">Mot de passe :</label>
+                        <input class="text_form" type="password" id="password" name="password" placeholder="Saisissez le mot de passe" required>
+                        <div class="container_input">
+                            <input class="btn_add_exercise_1" type="button" value="< Retour à la liste" onclick="window.location.href='administration.php'"> 
+                            <input class="btn_add_exercise_2" type="submit" value="Enregistrer">
+                        </div>
+                    </div>
+                    <div class="section_form_2">
+                        <label for="role">Rôle :</label>
+                        <div class="custom_select">
+                            <select class="text_form_1" id="role" name="role" required>
+                                <option value="Enseignant">Enseignant</option>
+                                <option value="Elève">Elève</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        `;
+    }
+</script>
             <script src="./assets/scripts/tabs.js"></script>
         </div>
     </div>

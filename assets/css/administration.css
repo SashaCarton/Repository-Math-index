@@ -371,6 +371,7 @@ label {
     overflow: hidden;
     background-color: #ffffff;
     width: 60%;
+    padding: 2vw;
 }
 .matiere h3{
     margin-top: 10px;
@@ -393,6 +394,7 @@ label {
     overflow: hidden;
     background-color: #ffffff;
     width: 70%;
+    padding: 2vw;
 }     
 .icon_correction {
     width: 1vw;
@@ -411,4 +413,46 @@ label {
  .pagination{
     display: flex;
     justify-content: center;
-    margin-top: 20px;}
+    margin-top: 20px;
+}
+.liste{
+    position: absolute;
+    top: 12vw;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    border-radius: 7.36px;
+    padding-right: 30px;
+    height: 70%;
+    overflow: hidden;
+    background-color: #ffffff;
+    width: 70%;
+    padding: 2vw;
+}
+.compétences{
+    position: absolute;
+    top: 12vw;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    border-radius: 7.36px;
+    padding-right: 30px;
+    height: 70%;
+    overflow: hidden;
+    background-color: #ffffff;
+    width: 70%;
+}
+.origines{
+    position: absolute;
+    top: 11vw;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    border-radius: 7.36px;
+    padding-right: 30px;
+    height: 70%;
+    overflow: hidden;
+    padding: 2vw;
+    background-color: #ffffff;
+    width: 70%; 
+}
