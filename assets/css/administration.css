@@ -342,7 +342,7 @@ label {
 }
 .exercices{
     position: absolute;
-    top: 5vw;
+    top: 11vw;
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -361,7 +361,7 @@ label {
 
 .matiere{
     position: absolute;
-    top: 12vw;
+    top: 0vw;
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -371,6 +371,10 @@ label {
     overflow: hidden;
     background-color: #ffffff;
     width: 60%;
+}
+.matiere h3{
+    margin-top: 10px;
+    margin-bottom: 25px;
 }
 .search-bar{
     display: flex;
@@ -404,3 +408,7 @@ label {
     margin-right: 10vw!important;
     margin-bottom: 0.1vw;
   }
+ .pagination{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;}
