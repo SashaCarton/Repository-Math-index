@@ -163,11 +163,10 @@ td {
 }
 
 .icon_correction {
-  position: absolute;
-  right: 115px;
-  bottom: 12px;
-  width: 1.5vw;
-  height: 1.5vw;
+  width: 1vw;
+  height: 1vw;
+  margin-right: 0.1vw;
+  margin-bottom: -0.2vw;
 }
 
 .color_police_table {
