@@ -68,6 +68,34 @@ $resultAllExercises = mysqli_query($connection, $sqlAllExercises);
             right: 80px;
         }
 
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: -20px;
+        }
+
+        .pagination a {
+            color: #000;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            border: 1px solid #ddd;
+            margin: 0 4px;
+            border-radius: 4px;
+        }
+
+        .pagination a.active {
+            background-color: gainsboro;
+            color: black;
+            border: black;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: black;
+            color: white;
+            border: black;
+        }
+
     </style>
 </head>
 
