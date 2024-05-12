@@ -362,3 +362,21 @@ label {
     height: 1vw;
     margin-right: 2 vw;
 }
+.matiere{
+    position: absolute;
+    top: 12vw;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    border-radius: 7.36px;
+    padding-right: 30px;
+    height: 70%;
+    overflow: hidden;
+    background-color: #ffffff;
+    width: 60%;
+}
+.search-bar{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
