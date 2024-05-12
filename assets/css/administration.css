@@ -384,7 +384,7 @@ label {
 }
 .classes{
     position: absolute;
-    top: 12vw;
+    top: 0vw;
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -417,7 +417,7 @@ label {
 }
 .liste{
     position: absolute;
-    top: 12vw;
+    top: 0vw;
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -431,7 +431,7 @@ label {
 }
 .compétences{
     position: absolute;
-    top: 12vw;
+    top: 0vw;
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -444,7 +444,7 @@ label {
 }
 .origines{
     position: absolute;
-    top: 11vw;
+    top: 0vw;
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -455,4 +455,13 @@ label {
     padding: 2vw;
     background-color: #ffffff;
     width: 70%; 
+}
+.addmatiere{
+        margin-top: 20px;
+        width: 97.5%;
+        height: 40px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
 }
