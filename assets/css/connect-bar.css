@@ -1,11 +1,11 @@
-.connect{
+.connect {
   margin-top: 1.5vw;
   margin-right: 7vw;
   display: flex;
   justify-content: end;
   gap: 0.6vw;
   align-items: center;
-  padding-bottom: 2vw;
+  padding-bottom: 1.5vw;
 }
 
 .connect img{

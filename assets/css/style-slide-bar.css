@@ -5,6 +5,11 @@
   font-size: 0.8vw;
 }
 
+.footer-list a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
 .slideBar {
   width: 18vw;
   height: 100vh;
@@ -67,4 +72,18 @@
   margin-top: 0.15vw;
   width: 2.5vw;
   height: 2.5vw;
+}
+.disconnection{
+  text-decoration: none;
+  color: #5D7285;
+  position: fixed;
+  bottom: 2vw;
+  display: flex;
+  gap: 20px;
+  background-color: rgb(243, 239, 239);
+ padding-top: 0.5vw;
+ padding-bottom: 0.5vw;
+ padding-left: 2.5vw;
+ padding-right: 2.5vw;
+ border-radius: 10px;
 }

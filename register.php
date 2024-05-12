@@ -12,62 +12,35 @@ if ($conn->connect_error) {
     die("La connexion a échoué : " . $conn->connect_error);
 }
 
-// Vérifier si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Récupérer les données du formulaire
-    $last_name = htmlspecialchars($_POST["last_name"]);
+    $nom = htmlspecialchars($_POST["nom"]);
+    $prenom = htmlspecialchars($_POST["prenom"]);
     $email = htmlspecialchars($_POST["email"]);
-    $first_name = htmlspecialchars($_POST["first_name"]);
+    $role = htmlspecialchars($_POST["role"]);
     $password = htmlspecialchars($_POST["password"]);
-    $confirm_password = htmlspecialchars($_POST["confirm_password"]);
-
-    // Vérifier si les mots de passe correspondent
-    if ($password != $confirm_password) {
-        echo "Les mots de passe ne correspondent pas.";
-        exit;
-    }
-
-    // Ajoutez ici des validations supplémentaires pour les champs de formulaire
 
     // Hasher le mot de passe avec Argon2i
     $hashedPassword = password_hash($password, PASSWORD_ARGON2I);
 
     // Préparer et exécuter la requête d'insertion
-    $stmt = $conn->prepare("INSERT INTO user (first_name, last_name, email, password) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $first_name, $last_name, $email, $hashedPassword);
+    $stmt = $conn->prepare("INSERT INTO user (last_name, first_name, email, role, password) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssss", $nom, $prenom, $email, $role, $hashedPassword);
     $stmt->execute();
 
     // Vérifier si l'insertion a réussi
     if ($stmt->affected_rows > 0) {
-        echo "Utilisateur inscrit avec succès!";
+        echo "Contributeur ajouté avec succès!";
     } else {
-        echo "Une erreur s'est produite lors de l'inscription de l'utilisateur.";
+        echo "Une erreur s'est produite lors de l'ajout du contributeur.";
     }
 
-    // Fermer la requête et la connexion
+    // Fermer la requête
     $stmt->close();
-    $conn->close();
 }
+
+// Fermer la connexion à la base de données
+$conn->close();
+header("Location: administration.php?success=1");
+exit;
 ?>
-
-<h1>Inscription</h1>
-<form method="POST" action="">
-    <label for="last_name">Nom:</label>
-    <input type="text" name="last_name" id="last_name" required><br>
-
-    <label for='first_name'>Prénom:</label>
-    <input type='text' name='first_name' id='first_name' required><br>
-
-    <label for="email">Email:</label>
-    <input type="email" name="email" id="email" required><br>
-
-    <label for="password">Mot de passe:</label>
-    <input type="password" name="password" id="password" required><br>
-
-    <label for="confirm_password">Confirmer le mot de passe:</label>
-    <input type="password" name="confirm_password" id="confirm_password" required><br>
-
-    <input type="submit" value="S'inscrire">
-</form>
-<a href="index.php">Retour</a>
-

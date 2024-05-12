@@ -1,6 +1,9 @@
 <?php
     require_once 'slide-bar.php';
     session_destroy();
-
-    echo '<p>La déconnexion a été effectuée avec succès.</p>';
+    setcookie('first_name', '', time() - 3600, '/'); 
+    setcookie('loggedin', '', time() - 3600, '/'); 
+    setcookie('role', '', time() - 3600, '/'); 
+    header('Location: index.php');
+    exit;
 ?>

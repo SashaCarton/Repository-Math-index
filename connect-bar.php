@@ -3,13 +3,16 @@
 </head>
 
 <div class="connect">
-            <img src="assets/images/Icon-login.png" alt="logo connexion">
-            <?php
-            if (isset($_SESSION['first_name'])) {
-                echo "Bonjour, " . $_SESSION['first_name'];
-                echo '<a href="deconnexion.php">Déconnexion</a>';
-            } else {
-                echo '<a href="connexion.php">Connexion</a>';
-            }
-            ?>
+    <img src="assets/images/Icon-login.png" alt="logo connexion">
+    <?php
+
+
+    if (isset($_COOKIE['loggedin']) == true && $_COOKIE['role'] === 'admin') {
+            echo "<p>Bonjour,</p><a href=\"administration.php\">" . $_COOKIE['first_name'] . "</a>";
+        } else if (isset($_COOKIE['loggedin']) == true && isset($_COOKIE['role']) == 'contributor') {
+            echo "<p>Bonsoir,</p>" . $_COOKIE['first_name'];
+        } else {
+        echo '<a href="connexion.php">Connexion</a>';
+    }
+    ?>
 </div>
