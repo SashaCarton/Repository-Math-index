@@ -128,25 +128,23 @@ if (!isset($_COOKIE['role']) || $_COOKIE['role'] != 'admin'){
                         }
                         ?>
                     </table>
-                    
-                </div>
-                
-            </div>
-            <?php
-                require_once('./footer.php');
-                $sql = "SELECT COUNT(*) AS total FROM user";
-                $result = $connection->query($sql);
-                $row = $result->fetch_assoc();
-                $total_pages = ceil($row["total"] / $limit);
-                echo "<div class='pagination'>";
-                for ($i = 1; $i <= $total_pages; $i++) {
-                    echo "<a href='administration.php?page=" . $i . "'";
-                    if ($i == $page) {
-                        echo " class='active'";
+                    <?php
+                    $sql = "SELECT COUNT(*) AS total FROM user";
+                    $result = $connection->query($sql);
+                    $row = $result->fetch_assoc();
+                    $total_pages = ceil($row["total"] / $limit);
+
+                    echo "<div class='pagination'>";
+                    for ($i = 1; $i <= $total_pages; $i++) {
+                        echo "<a href='administration.php?page=" . $i . "'";
+                        if ($i == $page) {
+                            echo " class='active'";
+                        }
+                        echo ">" . $i . "</a>";
                     }
-                    echo ">" . $i . "</a>";
-                }
-            ?>
+                    ?>
+                </div>
+            </div>
             <div class="tab-content">
                 <div class="exercices"> 
                 <h1 class="color_text">Rechercher un exercice</h1>
@@ -248,27 +246,26 @@ if (!isset($_COOKIE['role']) || $_COOKIE['role'] != 'admin'){
                             echo "</td>";
                             echo "</tr>";
                         }
-                        } else {
-                            echo "<h2>Aucun exercice trouvé</h2>";
-                        }
-                        $sqlTotalExercises = "SELECT COUNT(*) AS total FROM exercise";
-                        $resultTotalExercises = mysqli_query($connection, $sqlTotalExercises);
-                        $rowTotalExercises = mysqli_fetch_assoc($resultTotalExercises);
-                        $totalPages = ceil($rowTotalExercises['total'] / $resultsPerPage);
-
+                    }
+                        ?>
                         
-                            echo "</div>";
-                            echo "<div class='pagination'>";
-                        for ($i = 1; $i <= $totalPages; $i++) {
-                            echo "<a href='research.php?page=$i'>$i</a>";
-                        }
-                        echo "</div>";
-                            require_once('./footer.php');
-                    ?>
                     </table>
                     
-                </div>
-                
+                   
+                        </tbody>
+                    </table>
+                    <?php
+                    $sqlTotalExercises = "SELECT COUNT(*) AS total FROM exercise";
+                    $resultTotalExercises = mysqli_query($connection, $sqlTotalExercises);
+                    $rowTotalExercises = mysqli_fetch_assoc($resultTotalExercises);
+                    $totalPages = ceil($rowTotalExercises['total'] / $resultsPerPage);
+
+                    echo "<div class='pagination'>";
+                    for ($i = 1; $i <= $totalPages; $i++) {
+                        echo "<a class='pagination-link' href='administration.php?page=$i'>$i</a>";
+                    }
+                    echo "</div>";
+                    ?>
             </div>
             <div class="tab-content">
                 <div class="matiere">
