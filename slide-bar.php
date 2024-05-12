@@ -32,12 +32,12 @@
         <?php 
             if (isset($_COOKIE["role"]) && ($_COOKIE["role"] == "contributor" || $_COOKIE["role"] == "admin")) {
                 echo('<div class="slide exercice">
-                        <img src="./assets/images/logo-fonction.png" alt="Logo fonction Mes Exercice">
+                        <img src="./assets/images/Leading Icon.png" alt="Logo fonction Mes Exercice">
                          <h3><a href="./exercices.php">Mes exercices</a></h3>
                     </div>
 
                 <div class="slide submit">
-                    <img src="./assets/images/logo-fonction.png" alt="Logo fonction submit exercice">
+                    <img class="imgVector" src="./assets/images/Leading Icon (1).png" alt="Logo fonction submit exercice">
                     <h3><a href="./submit-exercice.php">Soumettre</a></h3>
                 </div>');
             }
