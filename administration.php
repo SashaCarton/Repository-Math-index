@@ -386,6 +386,7 @@ if (!isset($_COOKIE['role']) || $_COOKIE['role'] != 'admin'){
                     ?>
                 </div>
             </div>
+            <div></div>
             <script src="./assets/scripts/tabs.js"></script>
         </div>
     </div>
