@@ -42,9 +42,17 @@ $resultAllExercises = mysqli_query($connection, $sqlAllExercises);
         <div class="containerExercise">
             <h1 class="color_text">Mes exercices</h1>
             <div class="section_inside_exercise">
-                <h2 class="color_text-2">Tous les exercices :</h2>
+                <h2 class="color_text-2">Tous les exercices </h2>
                 <table class="section_column">
-                    <!-- All exercises table here -->
+                    <tr>
+                        <th>Nom</th>
+                        <th>Thématique</th>
+                        <th>Difficulté</th>
+                        <th>Durée</th>
+                        <th>Mots-clés</th>
+                        <th>Fichier d'exercice</th>
+                        <th>Fichier de correction</th>
+                    </tr>
                     <?php while ($rowAllExercise = mysqli_fetch_assoc($resultAllExercises)) { ?>
                         <tr>
                             <td><?php echo $rowAllExercise["name"]; ?></td>
@@ -65,6 +73,10 @@ $resultAllExercises = mysqli_query($connection, $sqlAllExercises);
                                 if ($rowAllExercise["exercise_file"]) {
                                     echo "<a href='download.php?id=" . $rowAllExercise["exercise_file"] . "' download class='style_filter_file-1 color_police_table'><img class='icon_download' src='assets/images/Group.png'/>Exercice</a> ";
                                 }
+                                ?>
+                            </td>
+                            <td>
+                                <?php
                                 if ($rowAllExercise["correction_file"]) {
                                     echo "<a href='download.php?id=" . $rowAllExercise["correction_file"] . "' download class='style_filter_file-2 color_police_table'><img class='icon_correction' src='assets/images/Group.png'/>Corriger</a>";
                                 }
