@@ -8,7 +8,6 @@ $password = "";
 $dbname = "math_index";
 $connection = new mysqli($servername, $username, $password, $dbname);
 
-// Vérifier la connexion
 if ($connection->connect_error) {
     die("La connexion a échoué : " . $connection->connect_error);
 }

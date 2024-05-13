@@ -470,3 +470,16 @@ label {
         border-radius: 5px;
         font-size: 14px;
 }
+.section_inside_exercise button{
+    background-color: #52B788;
+    border: solid #ffffff;
+    border-radius: 10px;
+    padding: 0.5vw;
+    padding-left: 2.5vw;
+    padding-right: 2.5vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    color: #ffffff;
+    font-weight: bold;
+    margin-top: 20px;
+}

@@ -68,13 +68,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
             if (empty($row)) {
-                // If the query returns no rows, the user does not exist in the database, display an error message
                 $errors['email'] = "Le nom d'utilisateur est incorrect.";
             } else {
                 $password_hash = $row["password"];
                 $valid = password_verify($password, $password_hash);
                 if ($valid) {
-                    // Set the session variable 'frist_name' with the value from the database
                     $_SESSION['first_name'] = $row['first_name'];
                     $_SESSION['loggedin'] = true;
                     $_SESSION['role'] = $row['role'];
@@ -84,11 +82,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     setcookie('loggedin', $_SESSION['loggedin'], time() + 3600*48, '/');
                     setcookie('role', $_SESSION['role'], time() + 3600*48, '/');
                     setcookie('id', $_SESSION['id'], time() + 3600*48, '/');
-                    // Redirect to the index.php page
                     header("Location: index.php");
                     exit();
                 } else {
-                    // Set the error message for incorrect password
                     $errors['password'] = 'Le mot de passe est incorrect.';
                 }
             }

@@ -74,7 +74,6 @@ if (!isset($_COOKIE['role']) || $_COOKIE['role'] != 'admin'){
                             <input type="button" id="buttonAdd" value="Ajouter +" onclick="showAddContributorForm()">
                         </form>
                     </div>
-                    <!-- Mettre ici php -->
                     <table class="section_column">
                         <tr>
                             <th class="section_title_column_left font_weight_title">Nom</th>
@@ -505,10 +504,7 @@ if (!isset($_COOKIE['role']) || $_COOKIE['role'] != 'admin'){
 </div>
 <script>
     function showAddContributorForm() {
-        // Sélectionnez la div contributeurs
         const contributorsDiv = document.querySelector('.contributeurs');
-
-        // Changez le contenu de la div
         contributorsDiv.innerHTML =`
             <h3>Ajouter un contributeur</h3>
             <form method="POST" action="register.php" class="add-contributor">
@@ -547,10 +543,7 @@ if (!isset($_COOKIE['role']) || $_COOKIE['role'] != 'admin'){
 </div>
 <script>
     function showAddContributorForm() {
-        // Sélectionnez la div contributeurs
         const contributorsDiv = document.querySelector('.contributeurs');
-
-        // Changez le contenu de la div
         contributorsDiv.innerHTML =`
             <h3>Ajouter un contributeur</h3>
             <form method="POST" action="register.php" class="add-contributor">
@@ -617,7 +610,6 @@ if (!isset($_COOKIE['role']) || $_COOKIE['role'] != 'admin'){
         });
     }
 </script>
-
 <?php require_once('footer.php');?>
 </body>
 </html>

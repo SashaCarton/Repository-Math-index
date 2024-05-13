@@ -7,10 +7,10 @@
 
 <body>
     <?php require_once('slide-bar.php') ?>
-    <div class="container-index"> <!--Everything next to the slide bar like containerHome and connect-->
+    <div class="container-index"> 
         <?php require_once('connect-bar.php'); ?>
 
-        <div class="containerHome"> <!--Rectangle background of the "Acceuil"-->
+        <div class="containerHome"> 
             <h1>Accueil</h1>
             <div>
                 <p>Nous sommes ravis de vous accueillir sur <strong>Math Index</strong>, la plateforme mathématique exclusive du lycée Saint-Vincent Senlis. Développée avec passion pour enrichir l'expérience éducative de nos étudiants, cette ressource en ligne offre un accès simplifié à une vaste bibliothèque d'exercices mathématiques de qualité.</p>

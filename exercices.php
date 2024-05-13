@@ -8,7 +8,7 @@ if (!$connection) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$userId = $_COOKIE['id']; // Assuming the user ID is stored in a cookie
+$userId = $_COOKIE['id'];
 $sqlAllExercises = "SELECT e.name, t.name as thematic, e.difficulty, e.duration, e.keywords, f1.name as exercise_file, f2.name as correction_file 
 FROM exercise e 
 JOIN thematic t ON e.thematic_id = t.id 
@@ -25,9 +25,6 @@ $resultAllExercises = mysqli_query($connection, $sqlAllExercises);
     <?php
     include 'header.php';
     ?>
-    <style>
-        /* CSS styles here */
-    </style>
 </head>
 
 <body>
@@ -87,7 +84,6 @@ $resultAllExercises = mysqli_query($connection, $sqlAllExercises);
                 </table>
             </div>
             <?php
-            // Pagination code here
             require_once 'footer.php';
             ?>
         </div>
