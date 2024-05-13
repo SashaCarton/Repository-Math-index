@@ -108,16 +108,6 @@ require_once('connexion_db.php');
                             <option value="niveau-9">Niveau 9</option>
                             <option value="niveau-10">Niveau 10</option>
                             <option value="niveau-11">Niveau 11</option>
-                            <option value="niveau-11">Niveau 12</option>
-                            <option value="niveau-11">Niveau 13</option>
-                            <option value="niveau-11">Niveau 14</option>
-                            <option value="niveau-11">Niveau 15</option>
-                            <option value="niveau-11">Niveau 16</option>
-                            <option value="niveau-11">Niveau 17</option>
-                            <option value="niveau-11">Niveau 18</option>
-                            <option value="niveau-11">Niveau 19</option>
-                            <option value="niveau-11">Niveau 20</option>
-                            
                         </select>
                         <br>
 
